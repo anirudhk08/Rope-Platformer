@@ -17,7 +17,11 @@ hs_err_pid*
 *.checkstyle
 
 # IntelliJ project files
-#*.iml
-#*.eml
-#*.xml
-#*.eml___jb_tmp___
+*.iml
+*.eml
+*.xml
+*.eml___jb_tmp___
+.idea
+
+# Mac
+*.DS_Store
