@@ -25,12 +25,27 @@ public class MainMenu extends JFrame implements ActionListener {
 
 
         menubar.add(menu1);
+
         F.setJMenuBar(menubar);
+        F.setSize(300, 100);
+        F.setVisible(true);
+
+
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == item1 )
+        {
+            JFileChooser f =  new JFileChooser(".");
+            f.showOpenDialog(null);
+        }
+        if (e.getSource() == item2 )
+        {
+            System.exit(0);
+        }
 
     }
 }
