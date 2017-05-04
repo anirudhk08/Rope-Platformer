@@ -21,7 +21,7 @@ hs_err_pid*
 *.eml
 *.xml
 *.eml___jb_tmp___
-.idea
+*.idea
 
 # Mac
 *.DS_Store
