@@ -8,6 +8,11 @@ public abstract class GameComponent {
 
     public abstract void draw();
 
+    public GameComponent(double x, double y) {
+        xPos = x;
+        yPos = y;
+    }
+
     public final double xPos() {
         return xPos;
     }
@@ -22,5 +27,26 @@ public abstract class GameComponent {
 
     public void setY(double newY) {
         yPos = newY;
+    }
+
+    public boolean isTouching(GameComponent other) {
+        if (other == null) return false;
+        return false; //TODO
+    }
+
+    public double angle(GameComponent other) {
+        double yDelta = other.yPos - yPos;
+        double xDelta = other.xPos - xPos;
+        return Math.atan(yDelta / xDelta);
+    }
+
+    public double distance(GameComponent other) {
+        double yDelta = other.yPos - yPos;
+        double xDelta = other.xPos - xPos;
+        return Math.sqrt(xDelta * xDelta + yDelta * yDelta);
+    }
+
+    public GameComponent[] getTouching() {
+        return null;
     }
 }

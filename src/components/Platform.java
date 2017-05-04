@@ -5,8 +5,8 @@ package components;
  */
 public class Platform extends GameComponent {
 
-    private double staticFriction = 0;
-    private double kineticFriction = 0;
+    private double staticFriction;
+    private double kineticFriction;
 
     public Platform(double s, double k)
     {
