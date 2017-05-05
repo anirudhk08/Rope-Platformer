@@ -8,8 +8,9 @@ public class Platform extends GameComponent {
     private double staticFriction;
     private double kineticFriction;
 
-    public Platform(double s, double k)
+    public Platform(double x, double y, double s, double k)
     {
+        super(x, y);
         staticFriction = s;
         kineticFriction = k;
     }
