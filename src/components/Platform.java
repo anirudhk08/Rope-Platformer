@@ -27,7 +27,7 @@ public class Platform extends GameComponent {
 
     public void draw()
     {
--
+
     }
 
 
