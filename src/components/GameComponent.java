@@ -1,12 +1,14 @@
 package components;
 
+import java.awt.*;
+
 /**
  * Created by axu047 on 5/4/2017.
  */
 public abstract class GameComponent {
     private double xPos, yPos;
 
-    public abstract void draw();
+    public abstract void draw(Graphics g);
 
     public GameComponent(double x, double y) {
         xPos = x;

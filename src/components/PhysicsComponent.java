@@ -20,6 +20,7 @@ public abstract class PhysicsComponent extends GameComponent {
     public abstract void updateForces();
 
     public void updatePos() {
+        updateForces();
         setX(xPos() + xVel);
         setY(yPos() + yVel);
     }

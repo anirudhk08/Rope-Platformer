@@ -1,5 +1,7 @@
 package components;
 
+import java.awt.*;
+
 /**
  * Created by axu047 on 5/4/2017.
  */
@@ -7,6 +9,7 @@ public class StickFigure extends PhysicsComponent {
 
     private double health;
     private Rope rope;
+    private int direction;
 
     public StickFigure(double x, double y) {
         super(x, y);
@@ -31,8 +34,9 @@ public class StickFigure extends PhysicsComponent {
 
 
     @Override
-    public void draw() {
-
+    public void draw(Graphics g) {
+        updatePos();
+        rope.draw(g);
     }
 
     @Override

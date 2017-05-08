@@ -13,6 +13,10 @@ import java.awt.event.MouseListener;
 public class Player implements KeyListener, MouseListener {
     private StickFigure s;
 
+    public Player(StickFigure stickFigure) {
+        s = stickFigure;
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -20,7 +24,11 @@ public class Player implements KeyListener, MouseListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_D) {
+            s.move();
+        } else if (e.getKeyCode() == KeyEvent.VK_A) {
 
+        }
     }
 
     @Override

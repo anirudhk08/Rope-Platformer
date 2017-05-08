@@ -1,5 +1,7 @@
 package components;
 
+import java.awt.*;
+
 /**
  * Created by axu047 on 5/4/2017.
  */
@@ -18,7 +20,8 @@ public class Rope extends GameComponent {
     public boolean isGrapplingRope() { return !swing; }
 
     @Override
-    public void draw() {
-
+    public void draw(Graphics g) {
+        g.setColor(Color.BLACK);
+        g.drawLine((int) xPos(), (int) yPos(), (int) owner.xPos(), (int) owner.yPos());
     }
 }

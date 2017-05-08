@@ -2,6 +2,7 @@ package map;
 
 import components.Platform;
 
+import java.awt.*;
 import java.util.LinkedList;
 
 /**
@@ -9,10 +10,23 @@ import java.util.LinkedList;
  */
 public class Map {
     private LinkedList<Platform> platforms;
-    private int startX, startY, endX, endY;
-    //TODO preview image
+    private double startX, startY, endX, endY;
+    private Image preview;
 
     public Map() {
         platforms = new LinkedList<>();
+    }
+
+    public void draw(Graphics g) {
+        for (Platform p : platforms) {
+            p.draw(g);
+        }
+    }
+
+    public double getStartX() { return startX; }
+    public double getStartY() { return startY; }
+
+    public void addPlatform(Platform p) {
+        platforms.add(p);
     }
 }
