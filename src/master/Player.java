@@ -25,9 +25,13 @@ public class Player implements KeyListener, MouseListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_D) {
+            System.out.println("here");
             s.move();
-        } else if (e.getKeyCode() == KeyEvent.VK_A) {
+        } if (e.getKeyCode() == KeyEvent.VK_A) {
 
+        }if (e.getKeyCode() == KeyEvent.VK_W) {
+            System.out.println("there");
+            s.jump();
         }
     }
 

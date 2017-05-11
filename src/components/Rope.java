@@ -1,6 +1,7 @@
 package components;
 
 import java.awt.*;
+import java.awt.geom.Line2D;
 
 /**
  * Created by axu047 on 5/4/2017.
@@ -20,8 +21,8 @@ public class Rope extends GameComponent {
     public boolean isGrapplingRope() { return !swing; }
 
     @Override
-    public void draw(Graphics g) {
+    public void draw(Graphics2D g, double updateTimeMillis) {
         g.setColor(Color.BLACK);
-        g.drawLine((int) xPos(), (int) yPos(), (int) owner.xPos(), (int) owner.yPos());
+        g.draw(new Line2D.Double(xPos(), yPos(), owner.xPos(), owner.yPos()));
     }
 }

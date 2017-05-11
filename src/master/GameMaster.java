@@ -7,7 +7,7 @@ import gui.Window;
  */
 public class GameMaster {
     public static void main(String[] args) {
-        Window m = new Window();
+        Window w = new Window();
 
     }
 }
