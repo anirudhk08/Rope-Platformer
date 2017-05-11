@@ -8,7 +8,7 @@ import java.awt.*;
 public abstract class GameComponent {
     private double xPos, yPos;
 
-    public abstract void draw(Graphics g);
+    public abstract void draw(Graphics2D g, double updateTimeMillis);
 
     public GameComponent(double x, double y) {
         xPos = x;
@@ -39,7 +39,16 @@ public abstract class GameComponent {
     public double angle(GameComponent other) {
         double yDelta = other.yPos - yPos;
         double xDelta = other.xPos - xPos;
-        return Math.atan(yDelta / xDelta);
+        double a = Math.atan(Math.abs(yDelta / xDelta));
+        if (yDelta > 0 && xDelta > 0) { // quadrant IV
+            return 2 * Math.PI - a;
+        } else if (yDelta < 0 && xDelta < 0) { // quadrant II
+            return Math.PI - a;
+        } else if (yDelta > 0 && xDelta < 0) { // quadrant III
+            return Math.PI + a;
+        } else {
+            return a;
+        }
     }
 
     public double distance(GameComponent other) {

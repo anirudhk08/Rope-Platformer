@@ -1,5 +1,6 @@
 package gui;
 
+import components.Platform;
 import map.Map;
 
 import javax.swing.*;
@@ -20,8 +21,12 @@ public class Window extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Map m = new Map();
-        add(new Game(m));
+        m.addPlatform(new Platform(10, 10, 100, 100, 0.5, 0.3));
+        Game g = new Game(this, m);
+        add(g);
 
+        g.repaint();
+        repaint();
     }
 
     @Override

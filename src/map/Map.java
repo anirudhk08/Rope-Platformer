@@ -17,9 +17,9 @@ public class Map {
         platforms = new LinkedList<>();
     }
 
-    public void draw(Graphics g) {
+    public void draw(Graphics2D g, double updateTimeMillis) {
         for (Platform p : platforms) {
-            p.draw(g);
+            p.draw(g, updateTimeMillis);
         }
     }
 
