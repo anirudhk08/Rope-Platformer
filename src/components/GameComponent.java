@@ -15,18 +15,34 @@ public abstract class GameComponent {
         yPos = y;
     }
 
+    /**
+     * Getter for x position
+     * @return xPos
+     */
     public final double xPos() {
         return xPos;
     }
 
+    /**
+     * Getter for y position
+     * @return yPos
+     */
     public final double yPos() {
         return yPos;
     }
 
+    /**
+     * Setter for x position
+     * @param newX xPos
+     */
     public void setX(double newX) {
         xPos = newX;
     }
 
+    /**
+     * Setter for y position
+     * @param newY y position
+     */
     public void setY(double newY) {
         yPos = newY;
     }
