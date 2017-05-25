@@ -2,13 +2,20 @@ package components;
 
 import data.Map;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by axu047 on 5/4/2017.
  */
 public class StickFigure extends PhysicsComponent {
 
+    private BufferedImage stickImage;
+    private final int width = 250;
+    private final int height = 500;
     private double health;
     private Rope rope;
     private Map map;
@@ -18,6 +25,16 @@ public class StickFigure extends PhysicsComponent {
     public StickFigure(double x, double y, Map m) {
         super(x, y);
         map = m;
+
+        File file = new File("../../resources/guyWalking1.png");
+        String absolutePath = file.getAbsolutePath();
+        System.out.println(absolutePath);
+        try {
+            stickImage = ImageIO.read(new File(absolutePath));
+        } catch (IOException e) {
+            System.out.println(e);
+            stickImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        }
     }
 
     public void jump() {
@@ -63,7 +80,9 @@ public class StickFigure extends PhysicsComponent {
         updatePos(fps);
         if (rope != null)
             rope.draw(g, fps);
-        g.fillRect((int) xPos, (int) yPos, 100, 100);
+
+
+        g.drawImage(stickImage, (int)xPos, (int)yPos, width, height, null);
     }
 
     @Override
