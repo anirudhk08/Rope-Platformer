@@ -1,3 +1,4 @@
+
 package components;
 
 import data.Map;
@@ -81,7 +82,7 @@ public class StickFigure extends PhysicsComponent {
             rope.draw(g, fps);
 
 
-        g.drawImage(stickImage, (int)xPos, (int)yPos, width, height, null);
+        //g.drawImage(stickImage, (int)xPos, (int)yPos, width, height, null);
     }
 
     @Override
@@ -99,7 +100,6 @@ public class StickFigure extends PhysicsComponent {
                 double angle = rope.angleToVertical();
                 double vel = getTotalVel() - 2;
 
-                System.out.println(vel);
 
                 if (angle > Math.PI / 2 && yVel > 0) leftToRight = true;
                 else if (angle < -Math.PI / 2 && yVel > 0) leftToRight = false;
@@ -120,3 +120,4 @@ public class StickFigure extends PhysicsComponent {
         else yVel += G;
     }
 }
+

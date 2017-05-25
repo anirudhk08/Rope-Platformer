@@ -1,17 +1,19 @@
 package gui;
 
+
 import data.Map;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by Anirudh on 5/4/17.
- */
-public class Window extends JFrame implements ActionListener {
+public class Window extends JFrame
+{
 
-
+    /**
+     * Create the application.
+     */
     public Window()
     {
         super("Game");
@@ -27,19 +29,5 @@ public class Window extends JFrame implements ActionListener {
 
         repaint();
     }
-
-    public void actionPerformed(ActionEvent e)
-    {
-        System.out.println("Button has been clicked");
-    }
-
-
-
-
-
-
-
-
-
 
 }
