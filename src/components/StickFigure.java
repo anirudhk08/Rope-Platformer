@@ -9,11 +9,9 @@ import java.awt.*;
  */
 public class StickFigure extends PhysicsComponent {
 
-    private double health;
     private Rope rope;
     private Map map;
     private boolean leftToRight;
-    private double lastVel;
 
     public StickFigure(double x, double y, Map m) {
         super(x, y);
@@ -79,19 +77,21 @@ public class StickFigure extends PhysicsComponent {
         else if (rope != null) {
             if (rope.isSwingingRope()) {
                 double angle = rope.angleToVertical();
+                double vel = getTotalVel() - 2;
+
+                System.out.println(vel);
+
                 if (angle > Math.PI / 2 && yVel > 0) leftToRight = true;
                 else if (angle < -Math.PI / 2 && yVel > 0) leftToRight = false;
+                else if (vel < G) leftToRight = !leftToRight;
+
                 if (rope.distance() < rope.length()) yVel += G;
                 else {
-                    double vel = getTotalVel() - 1;
-//                    if (Math.abs(vel) < 50)
-//                        leftToRight = !leftToRight;
-                    lastVel = vel;
-
                     if (!leftToRight)
                         vel = -vel;
                     xVel = vel * Math.cos(angle);
                     yVel = vel * Math.sin(angle) + G;
+                    if (Math.abs(angle) < 0.05) System.out.println(yVel);
                 }
             } else if (rope.isGrapplingRope()) {
 

@@ -55,4 +55,10 @@ public class Rope extends GameComponent {
             return -Double.parseDouble(d.format(Math.PI - angle));
         } else throw new IllegalStateException("Shouldn't be here");
     }
+
+    public double angleFromOwner() {
+        double yDelta = owner.yPos - yPos;
+        double xDelta = owner.xPos - xPos;
+        return Math.atan(yDelta / xDelta);
+    }
 }
