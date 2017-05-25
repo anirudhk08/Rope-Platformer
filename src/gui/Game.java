@@ -1,7 +1,7 @@
 package gui;
 
 import components.StickFigure;
-import map.Map;
+import data.Map;
 import master.Player;
 
 import javax.swing.*;
@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 public class Game extends JPanel {
     private Map map;
     private StickFigure player;
-    private final double FRAMES_PER_SECOND = 60;
+    private final double FRAMES_PER_SECOND = 500;
 
     public Game(JFrame parent, Map m) {
         setSize(1000, 1000);
@@ -41,8 +41,8 @@ public class Game extends JPanel {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
         super.paintComponent(g);
-        map.draw(g2, 1000.0 / FRAMES_PER_SECOND);
-        player.draw(g2, 1000.0 / FRAMES_PER_SECOND);
+        map.draw(g2, FRAMES_PER_SECOND);
+        player.draw(g2, FRAMES_PER_SECOND);
 
     }
 }

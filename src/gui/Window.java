@@ -1,7 +1,6 @@
 package gui;
 
-import components.Platform;
-import map.Map;
+import data.Map;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,15 +14,18 @@ public class Window extends JFrame implements ActionListener {
 
     public Window()
     {
-        super("Anirudh");
+        super("Game");
         setSize(1000,1000);
         setVisible(true);
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        JButton button1 = new JButton("Level Select");
-        button1.addActionListener(this);
-        add(button1);
+        Map m = new Map();
+        Game g = new Game(this, m);
+        add(g);
+        g.repaint();
+
+        repaint();
     }
 
     public void actionPerformed(ActionEvent e)

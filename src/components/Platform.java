@@ -5,34 +5,25 @@ import java.awt.*;
 /**
  * Created by Anirudh on 5/4/17.
  */
-public class Platform extends GameComponent {
+public abstract class Platform extends GameComponent {
 
-    private double staticFriction, kineticFriction;
     private double width, height;
+    private boolean harmful;
 
-    public Platform(int x, int y, double w, double h, double s, double k )
+    public Platform(int x, int y, double w, double h)
     {
         super(x, y);
         width = w;
         height = h;
-        staticFriction = s;
-        kineticFriction = k;
     }
 
-    public double getStaticFriction()
-    {
-        return staticFriction;
-    }
+    public boolean isHarmful() { return harmful; }
 
-    public double getKineticFriction()
-    {
-        return kineticFriction;
-    }
-
+    public abstract void move();
 
     @Override
     public void draw(Graphics2D g, double updateTimeMillis) {
         g.setColor(Color.BLACK);
-        g.fillRect((int) xPos(), (int) yPos(), (int) width, (int) height);
+        g.fillRect((int) xPos, (int) yPos, (int) width, (int) height);
     }
 }

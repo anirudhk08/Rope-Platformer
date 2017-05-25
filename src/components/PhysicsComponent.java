@@ -1,35 +1,31 @@
 package components;
 
-import java.text.DecimalFormat;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by axu047 on 5/4/2017.
  */
 public abstract class PhysicsComponent extends GameComponent {
-    private int xVel, yVel;
-    public final double G = 9.807;
+    final double G = 50;
+    protected double xVel, yVel = G;
 
     public PhysicsComponent(double x, double y) {
         super(x, y);
     }
-
-
-    public abstract void updateForces();
-
-    public void updatePos(double updateTimeMillis) {
-        updateForces();
-        setX(xPos() + xVel * updateTimeMillis / 1000.0);
-        setY(yPos() + yVel * updateTimeMillis / 1000.0);
+    public PhysicsComponent(double x, double y, JPanel parent, Image img) {
+        super(x, y, parent, img);
     }
 
-    public void accelerate(double a, double angle) {
-        DecimalFormat df = new DecimalFormat("#.000000000000000");
-        double cos = Double.parseDouble(df.format(Math.cos(angle)));
-        double sin = Double.parseDouble(df.format(Math.sin(angle)));
-        xVel += a * cos;
-        yVel += a * sin;
+    public abstract void update();
+
+    public final void updatePos(double fps) {
+        update();
+        xPos += xVel / fps;
+        yPos += yVel / fps;
     }
 
-    public void setYVel(int newYVel) { yVel = newYVel; }
-    public void setXVel(int newXVel)  {xVel = newXVel; }
+    public double getTotalVel() {
+        return Math.sqrt(xVel * xVel + yVel * yVel);
+    }
 }

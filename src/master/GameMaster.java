@@ -8,7 +8,5 @@ import gui.Window;
 public class GameMaster {
     public static void main(String[] args) {
         Window w = new Window();
-
-
     }
 }

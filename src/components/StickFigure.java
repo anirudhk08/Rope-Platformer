@@ -1,6 +1,6 @@
 package components;
 
-import map.Map;
+import data.Map;
 
 import java.awt.*;
 
@@ -11,8 +11,9 @@ public class StickFigure extends PhysicsComponent {
 
     private double health;
     private Rope rope;
-    private int direction;
     private Map map;
+    private boolean leftToRight;
+    private double lastVel;
 
     public StickFigure(double x, double y, Map m) {
         super(x, y);
@@ -21,12 +22,24 @@ public class StickFigure extends PhysicsComponent {
 
     public void jump() {
         //TODO only when on platform or rope
-        accelerate(3, -90);
-        rope = null;
+        if (false) {
+            yVel = -10;
+            rope = null;
+        }
     }
 
-    public void move() {
+    public void moveRight() {
+        // TODO only when on platform
+        if (false) {
 
+        }
+    }
+
+    public void moveLeft() {
+        // TODO only when on platform
+        if (false) {
+
+        }
     }
 
     public void swing(int x, int y) {
@@ -37,26 +50,53 @@ public class StickFigure extends PhysicsComponent {
         rope = new Rope(x, y, false, this);
     }
 
+    public void stopMoving() {
+        // TODO only when on platform
+        if (false) {
+
+        }
+    }
+
 
     @Override
-    public void draw(Graphics2D g, double updateTimeMillis) {
-        updatePos(updateTimeMillis);
+    public void draw(Graphics2D g, double fps) {
+        updatePos(fps);
         if (rope != null)
-            rope.draw(g, updateTimeMillis);
-        g.fillRect((int) xPos(), (int) yPos(), 100, 100);
+            rope.draw(g, fps);
+        g.fillRect((int) xPos, (int) yPos, 100, 100);
     }
 
     @Override
-    public void updateForces() {
-        accelerate(G, Math.PI/2);
-        if (rope != null) {
+    public void update() {
+        //TODO is standing
+        if (false) {
+            yVel = 0;
+        }
+        //TODO is sliding but not standing
+        else if (false) {
+
+        } //TODO if rope
+        else if (rope != null) {
             if (rope.isSwingingRope()) {
-                double a = angle(rope);
-                if (a > 0 && a < Math.PI)
-                    accelerate(G / Math.sin(a), -a);
+                double angle = rope.angleToVertical();
+                if (angle > Math.PI / 2 && yVel > 0) leftToRight = true;
+                else if (angle < -Math.PI / 2 && yVel > 0) leftToRight = false;
+                if (rope.distance() < rope.length()) yVel += G;
+                else {
+                    double vel = getTotalVel() - 1;
+//                    if (Math.abs(vel) < 50)
+//                        leftToRight = !leftToRight;
+                    lastVel = vel;
+
+                    if (!leftToRight)
+                        vel = -vel;
+                    xVel = vel * Math.cos(angle);
+                    yVel = vel * Math.sin(angle) + G;
+                }
+            } else if (rope.isGrapplingRope()) {
+
             }
         }
-        //TODO is standing
-        //TODO is sliding but not standing
+        else yVel += G;
     }
 }
