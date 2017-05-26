@@ -1,10 +1,8 @@
 package gui;
 
 import data.Map;
-import sun.applet.Main;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,7 +14,7 @@ public  class LevelSelect extends JPanel implements ActionListener{
 
     public LevelSelect(Window parent)
     {
-        setSize(300,300);
+        setSize(600,400);
 //        setBounds(100, 100, 450, 300);
         setLayout(null);
 

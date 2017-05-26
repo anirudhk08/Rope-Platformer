@@ -18,23 +18,21 @@ public class Game extends JPanel {
     private StickFigure player;
     private final double FRAMES_PER_SECOND = 500;
     private Timer timer;
+    private Player p1;
 
     public Game(Window parent, Map m, KeyBindings k) {
         setSize(1000, 1000);
 
         map = m;
         player = new StickFigure(map.getStartX(), map.getStartY(), map);
-        Player p = new Player(player, k);
-        addMouseListener(p);
-        addKeyListener(p);
-        parent.addKeyListener(p);
-        parent.addMouseListener(p);
-        repaint();
-
+        p1 = new Player(player, k);
         start();
+        repaint();
     }
 
     public void start() {
+        addMouseListener(p1);
+        addKeyListener(p1);
         ActionListener al = ae -> repaint();
         timer = new Timer((int) (1000.0 / FRAMES_PER_SECOND), al);
         timer.start();
@@ -42,6 +40,8 @@ public class Game extends JPanel {
 
     public void stop() {
         if (timer != null) timer.stop();
+        removeMouseListener(p1);
+        removeKeyListener(p1);
     }
 
     @Override

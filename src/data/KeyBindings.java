@@ -1,9 +1,7 @@
 package data;
 
 import components.StickFigure;
-import master.Player;
 
-import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
@@ -46,12 +44,14 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
     public PlayerActions remove(Object key) {
         if (key instanceof PlayerActions) {
             PlayerActions p = (PlayerActions) key;
+            if (!containsKey(p)) return null;
             int keycode = reverseMap.get(p);
             super.remove(keycode);
             reverseMap.remove(p);
             return p;
         } else if (key instanceof Integer) {
             int keycode = (Integer) key;
+            if (!reverseMap.containsKey(keycode)) return null;
             PlayerActions p = get(keycode);
             super.remove(keycode);
             reverseMap.remove(p);

@@ -10,11 +10,12 @@ public abstract class Platform extends GameComponent {
     private double width, height;
     private boolean harmful;
 
-    public Platform(int x, int y, double w, double h)
+    public Platform(int x, int y, double w, double h, boolean obstacle)
     {
         super(x, y);
         width = w;
         height = h;
+        harmful = obstacle;
     }
 
     public boolean isHarmful() { return harmful; }
