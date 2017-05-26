@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 //import com.sun.org.apache.xpath.internal.operations.String;
 
 import components.Animations;
+import data.KeyBindings;
 import gui.Window;
 
 import javax.swing.*;
@@ -14,7 +15,8 @@ import javax.swing.*;
 public class GameMaster {
     public static void main(String[] args) {
 
-        Window w = new Window();
+        KeyBindings k = new KeyBindings();
+        Window w = new Window(k);
 
 
 //        EventQueue.invokeLater(new Runnable() {

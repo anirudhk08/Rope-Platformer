@@ -1,6 +1,7 @@
 package gui;
 
 
+import data.KeyBindings;
 import data.Map;
 
 import javax.swing.*;
@@ -18,7 +19,7 @@ public class Window extends JFrame
     /**
      * Create the application.
      */
-    public Window()
+    public Window(KeyBindings keys)
     {
         super("Game");
         setSize(400,300);
@@ -29,7 +30,7 @@ public class Window extends JFrame
 
         menu = new MainMenu(this);
         levelSelect = new LevelSelect(this);
-        settings = new Settings(this);
+        settings = new Settings(this, keys);
         add(menu, 0, 0);
 //        Map m = new Map();
 //        Game g = new Game(this, m);
