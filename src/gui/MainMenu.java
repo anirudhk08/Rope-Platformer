@@ -10,8 +10,9 @@ import java.awt.event.ActionListener;
  */
 public class MainMenu extends JPanel {
 
-    public MainMenu() {
-        setSize(600,400);
+
+    public MainMenu(Window parent) {
+        setSize(400,300);
         JButton btnNewButton = new JButton("Level Select");
         btnNewButton.setBackground(Color.CYAN);
         btnNewButton.setBounds(18, 215, 117, 29);
@@ -19,9 +20,7 @@ public class MainMenu extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                setVisible(false);
-                LevelSelect l = new LevelSelect();
-                l.setVisible(true);
+                parent.goToLevelSelect();
             }
         });
         add(btnNewButton);
@@ -32,9 +31,7 @@ public class MainMenu extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                setVisible(false);
-                Settings s = new Settings();
-                s.setVisible(true);
+                parent.goToSettings();
             }
         });
         add(btnNewButton_1);
@@ -43,16 +40,17 @@ public class MainMenu extends JPanel {
         lblNewLabel.setForeground(SystemColor.desktop);
         Image img = new ImageIcon("platformer.png").getImage();
         lblNewLabel.setIcon(new ImageIcon(img));
-        lblNewLabel.setBounds(0, 0, 450, 278);
+        lblNewLabel.setBounds(0,0, 450, 278);
         add(lblNewLabel);
 
-        Panel panel = new Panel();
-        panel.setBounds(0, 0, 197, 60);
-        add(panel);
+//        Panel panel = new Panel();
+//        panel.setBounds(0, 0, 197, 60);
+//        add(panel);
 
-        JLabel lblWelcomeToRope = new JLabel("Welcome to Rope Platformer");
-        lblWelcomeToRope.setForeground(SystemColor.desktop);
-        panel.add(lblWelcomeToRope);
+//        JLabel lblWelcomeToRope = new JLabel("Welcome to Rope Platformer");
+//        lblWelcomeToRope.setForeground(SystemColor.desktop);
+//        panel.add(lblWelcomeToRope);
     }
+
 
 }

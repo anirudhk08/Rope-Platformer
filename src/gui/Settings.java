@@ -10,37 +10,36 @@ import java.awt.event.KeyListener;
 /**
  * Created by axu047 on 5/11/2017.
  */
-public class Settings extends JFrame implements KeyListener
+public class Settings extends JPanel implements KeyListener
 {
     JLabel label = new JLabel("Right Mouse Button");
 
 
-    public Settings()
+    public Settings(Window parent)
     {
-        new JFrame();
-        setBounds(100, 100, 450, 300);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setSize(300,300);
+//        setBounds(100, 100, 450, 300);
+        setLayout(null);
 
         JLabel lblWelcomeToSettings = new JLabel("Welcome to Settings");
         lblWelcomeToSettings.setBounds(160, 6, 135, 16);
-        getContentPane().add(lblWelcomeToSettings);
+        add(lblWelcomeToSettings);
 
         JLabel lblChooseKeyBindings = new JLabel("Choose key bindings");
         lblChooseKeyBindings.setBounds(16, 36, 159, 16);
-        getContentPane().add(lblChooseKeyBindings);
+        add(lblChooseKeyBindings);
 
         JLabel lblRight = new JLabel("Right");
         lblRight.setBounds(16, 65, 61, 16);
-        getContentPane().add(lblRight);
+        add(lblRight);
 
         JLabel lblLeft = new JLabel("Left");
         lblLeft.setBounds(16, 93, 61, 16);
-        getContentPane().add(lblLeft);
+        add(lblLeft);
 
         JLabel lblJump = new JLabel("Jump");
         lblJump.setBounds(16, 126, 61, 16);
-        getContentPane().add(lblJump);
+        add(lblJump);
 
         JTextArea textArea = new JTextArea();
         textArea.setBounds(90, 64, 94, 16);
@@ -67,7 +66,7 @@ public class Settings extends JFrame implements KeyListener
 
             }
         });
-        getContentPane().add(textArea);
+        add(textArea);
 
         JTextArea textArea_1 = new JTextArea();
         textArea_1.setBounds(89, 93, 95, 16);
@@ -94,7 +93,7 @@ public class Settings extends JFrame implements KeyListener
 
             }
         });
-        getContentPane().add(textArea_1);
+        add(textArea_1);
 
         JTextArea textArea_4 = new JTextArea();
         textArea_4.setBounds(89, 126, 99, 16);
@@ -121,7 +120,7 @@ public class Settings extends JFrame implements KeyListener
 
             }
         });
-        getContentPane().add(textArea_4);
+        add(textArea_4);
 
         JButton btnBack = new JButton("Back");
         btnBack.setBounds(6, 228, 117, 29);
@@ -129,12 +128,10 @@ public class Settings extends JFrame implements KeyListener
             @Override
             public void actionPerformed(ActionEvent e)
             {
-               setVisible(false);
-               Window w = new Window();
-               w.setVisible(true);
+              parent.goToMainMenu();
             }
         });
-        getContentPane().add(btnBack);
+        add(btnBack);
 
         JComboBox comboBox = new JComboBox();
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Left Mouse Button", "Right Mouse Button"}));
@@ -154,18 +151,18 @@ public class Settings extends JFrame implements KeyListener
                 }
             }
         });
-        getContentPane().add(comboBox);
+        add(comboBox);
 
         JLabel lblSwingRope = new JLabel("Swing Rope ");
         lblSwingRope.setBounds(16, 171, 85, 16);
-        getContentPane().add(lblSwingRope);
+        add(lblSwingRope);
 
         JLabel lblGrappleHook = new JLabel("Grapple Hook");
         lblGrappleHook.setBounds(16, 200, 94, 16);
-        getContentPane().add(lblGrappleHook);
+        add(lblGrappleHook);
 
         label.setBounds(126, 200, 198, 16);
-        getContentPane().add(label);
+        add(label);
 
     }
 

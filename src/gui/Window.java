@@ -11,23 +11,56 @@ import java.awt.event.ActionListener;
 public class Window extends JFrame
 {
 
+    private MainMenu menu;
+    private LevelSelect levelSelect;
+    private Settings settings;
+
     /**
      * Create the application.
      */
     public Window()
     {
         super("Game");
-        setSize(1000,1000);
+        setSize(400,300);
         setVisible(true);
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setLayout(null);
 
-        Map m = new Map();
-        Game g = new Game(this, m);
-        add(g);
-        g.repaint();
+        menu = new MainMenu(this);
+        levelSelect = new LevelSelect(this);
+        settings = new Settings(this);
+        add(menu, 0, 0);
+//        Map m = new Map();
+//        Game g = new Game(this, m);
+//        add(g);
+//        g.repaint();
 
         repaint();
+    }
+
+    public void goToSettings() {
+        getContentPane().remove(menu);
+        getContentPane().remove(levelSelect);
+//        add(settings, 0, 0);
+        add(settings);
+        repaint();
+    }
+
+    public void goToLevelSelect() {
+        getContentPane().remove(menu);
+        getContentPane().remove(settings);
+        add(levelSelect);
+        repaint();
+    }
+
+    public void goToMainMenu()
+    {
+        getContentPane().remove(levelSelect);
+        getContentPane().remove(settings);
+        add(menu);
+        repaint();
+
     }
 
 }

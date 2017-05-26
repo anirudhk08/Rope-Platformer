@@ -17,7 +17,7 @@ public class Game extends JPanel {
     private StickFigure player;
     private final double FRAMES_PER_SECOND = 500;
 
-    public Game(JFrame parent, Map m) {
+    public Game(Window parent, Map m) {
         setSize(1000, 1000);
 
         map = m;
