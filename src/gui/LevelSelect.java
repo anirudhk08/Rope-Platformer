@@ -1,5 +1,6 @@
 package gui;
 
+import data.Map;
 import sun.applet.Main;
 
 import javax.swing.*;
@@ -34,6 +35,12 @@ public  class LevelSelect extends JPanel implements ActionListener{
 
         JButton btnPlay = new JButton("Play");
         btnPlay.setBounds(42, 224, 317, 29);
+        btnPlay.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                parent.startGame(new Map());
+            }
+        });
         add(btnPlay);
 
 

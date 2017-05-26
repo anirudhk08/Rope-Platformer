@@ -26,9 +26,9 @@ public class StickFigure extends PhysicsComponent {
         super(x, y);
         map = m;
 
-        File file = new File("../../resources/guyWalking1.png");
+        File file = new File("/resources/guyWalking1.png");
         String absolutePath = file.getAbsolutePath();
-        System.out.println(absolutePath);
+        //System.out.println(absolutePath);
         try {
             stickImage = ImageIO.read(new File(absolutePath));
         } catch (IOException e) {
@@ -39,6 +39,7 @@ public class StickFigure extends PhysicsComponent {
 
     public void jump() {
         //TODO only when on platform or rope
+        System.out.println("werwerw");
         if (false) {
             yVel = -10;
             rope = null;
@@ -59,11 +60,11 @@ public class StickFigure extends PhysicsComponent {
         }
     }
 
-    public void swing(int x, int y) {
+    public void swing(double x, double y) {
         rope = new Rope(x, y, true, this);
     }
 
-    public void grapple(int x, int y) {
+    public void grapple(double x, double y) {
         rope = new Rope(x, y, false, this);
     }
 

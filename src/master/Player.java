@@ -2,6 +2,9 @@
 package master;
 
 import components.StickFigure;
+import data.KeyBindings;
+import data.StickFigureAction;
+import data.StickFigureActionCoordinates;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -13,9 +16,11 @@ import java.awt.event.MouseListener;
  */
 public class Player implements KeyListener, MouseListener {
     private StickFigure s;
+    private KeyBindings settings;
 
-    public Player(StickFigure stickFigure) {
+    public Player(StickFigure stickFigure, KeyBindings keys) {
         s = stickFigure;
+        settings = keys;
     }
 
     @Override
@@ -25,12 +30,14 @@ public class Player implements KeyListener, MouseListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        StickFigureAction action = settings.input(e, s);
+        action.action();
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        StickFigureAction action = settings.release(e, s);
+        action.action();
     }
 
     @Override
@@ -40,12 +47,12 @@ public class Player implements KeyListener, MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        StickFigureActionCoordinates action = settings.click(e, s);
+        action.action(e.getX(), e.getY());
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
     }
 
     @Override

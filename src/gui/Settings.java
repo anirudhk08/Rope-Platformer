@@ -163,6 +163,7 @@ public class Settings extends JPanel
                label.setText("Left Mouse Button");
             }
         });
+        comboBox.setVisible(true);
         add(comboBox);
 
         // RIGHT
@@ -192,6 +193,7 @@ public class Settings extends JPanel
                     }
                     textArea.setText(convertKeyCode(e));
                 }
+                textArea.selectAll();
             }
 
             @Override
@@ -227,6 +229,7 @@ public class Settings extends JPanel
                     }
                     textArea_1.setText(convertKeyCode(e));
                 }
+                textArea_1.selectAll();
             }
 
             @Override
@@ -262,6 +265,7 @@ public class Settings extends JPanel
                     }
                     textArea_4.setText(convertKeyCode(e));
                 }
+                textArea_4.selectAll();
             }
 
             @Override

@@ -20,6 +20,7 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
         put(KeyEvent.VK_A, PlayerActions.MOVE_LEFT);
         put(KeyEvent.VK_D, PlayerActions.MOVE_RIGHT);
         put(KeyEvent.VK_SPACE, PlayerActions.JUMP);
+        put(KeyEvent.VK_ESCAPE, PlayerActions.PAUSE_GAME);
         put(MouseEvent.BUTTON1, PlayerActions.SWING);
         put(MouseEvent.BUTTON3, PlayerActions.GRAPPLE);
     }
@@ -58,22 +59,33 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
         } else return null;
     }
 
-    public StickFigureAction input(InputEvent e, StickFigure s) {
-        if (e instanceof KeyEvent) {
-            KeyEvent k = (KeyEvent) e;
-            PlayerActions action = get(k.getKeyCode());
-            switch (action) {
-                case JUMP:
-                    return s::jump;
-                case MOVE_LEFT:
-                    return s::moveLeft;
-                case MOVE_RIGHT:
-                    return s::moveRight;
-                default:
-                    return this::doNothing;
-            }
+    public StickFigureAction input(KeyEvent k, StickFigure s) {
+
+        PlayerActions action = get(k.getKeyCode());
+        switch (action) {
+            case JUMP:
+                return s::jump;
+            case MOVE_LEFT:
+                return s::moveLeft;
+            case MOVE_RIGHT:
+                return s::moveRight;
+            default:
+                return this::doNothing;
         }
-        return null;
+
+
+    }
+
+    public StickFigureActionCoordinates click(MouseEvent m, StickFigure s) {
+        PlayerActions action = get(m.getButton());
+        switch (action) {
+            case SWING:
+                return s::swing;
+            case GRAPPLE:
+                return s::grapple;
+            default:
+                return this::doNothing;
+        }
     }
 
     public StickFigureAction release(KeyEvent e, StickFigure s) {
@@ -88,5 +100,7 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
         }
     }
 
-    private void doNothing() {}
+    private void doNothing() {
+    }
+    private void doNothing(double n, double m) {}
 }

@@ -9,5 +9,6 @@ public enum PlayerActions {
     STOP,
     JUMP,
     GRAPPLE,
-    SWING
+    SWING,
+    PAUSE_GAME
 }

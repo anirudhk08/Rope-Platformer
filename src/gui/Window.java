@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.Key;
 
 public class Window extends JFrame
 {
@@ -15,13 +16,16 @@ public class Window extends JFrame
     private MainMenu menu;
     private LevelSelect levelSelect;
     private Settings settings;
+    private KeyBindings keyBindings;
 
     /**
      * Create the application.
      */
     public Window(KeyBindings keys)
     {
-        super("Game");
+        keyBindings = keys;
+
+        setTitle("Game");
         setSize(400,300);
         setVisible(true);
         setResizable(false);
@@ -30,38 +34,37 @@ public class Window extends JFrame
 
         menu = new MainMenu(this);
         levelSelect = new LevelSelect(this);
-        settings = new Settings(this, keys);
+        settings = new Settings(this, keyBindings);
         add(menu, 0, 0);
-//        Map m = new Map();
-//        Game g = new Game(this, m);
-//        add(g);
-//        g.repaint();
 
         repaint();
     }
 
+    public void startGame(Map m) {
+        getContentPane().removeAll();
+        setSize(1000, 1000);
+        Game g = new Game(this, m, keyBindings);
+        add(g);
+        repaint();
+    }
+
     public void goToSettings() {
-        getContentPane().remove(menu);
-        getContentPane().remove(levelSelect);
-//        add(settings, 0, 0);
+        getContentPane().removeAll();
         add(settings);
         repaint();
     }
 
     public void goToLevelSelect() {
-        getContentPane().remove(menu);
-        getContentPane().remove(settings);
+        getContentPane().removeAll();
         add(levelSelect);
         repaint();
     }
 
     public void goToMainMenu()
     {
-        getContentPane().remove(levelSelect);
-        getContentPane().remove(settings);
+        getContentPane().removeAll();
         add(menu);
         repaint();
-
     }
 
 }
