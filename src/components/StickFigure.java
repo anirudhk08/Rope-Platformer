@@ -48,6 +48,7 @@ public class StickFigure extends PhysicsComponent {
 
     public void moveRight() {
         // TODO only when on platform
+        System.out.println("test");
         if (false) {
 
         }

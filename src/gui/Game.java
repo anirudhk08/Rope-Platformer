@@ -28,6 +28,8 @@ public class Game extends JPanel {
         p1 = new Player(player, k);
         start();
         repaint();
+        setFocusable(true);
+        requestFocus();
     }
 
     public void start() {
