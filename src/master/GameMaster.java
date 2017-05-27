@@ -38,7 +38,7 @@ public class GameMaster {
 //        f.add(a);
 //        f.setVisible(true);
 //        f.setSize(800,600);
-//        f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//        f.setDefaultCloseOperation(GameWindowConstants.EXIT_ON_CLOSE);
 
 
 

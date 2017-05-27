@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static gui.WindowConstants.*;
+import static gui.GameWindowConstants.*;
 
 
 /**
