@@ -9,12 +9,11 @@ import java.awt.*;
 public abstract class GameComponent {
     protected double xPos, yPos; // center
     protected int height, width;
-    private JPanel parent;
-    private Image image;
-    private boolean useImage = false;
+    protected JPanel parent;
+    protected Image image;
 
     public void draw(Graphics2D g, double fps) {
-        if (useImage) {
+        if (image != null) {
             g.drawImage(image, (int) (xPos - width / 2), (int) (yPos - height / 2), parent);
         }
     }
@@ -22,7 +21,7 @@ public abstract class GameComponent {
     public GameComponent(double x, double y) {
         xPos = x;
         yPos = y;
-        useImage = false;
+        image = null;
     }
 
     public GameComponent(double x, double y, JPanel p, Image i) {
@@ -31,7 +30,6 @@ public abstract class GameComponent {
         width = i.getWidth(p);
         parent = p;
         image = i;
-        useImage = true;
     }
 
     public GameComponent(double x, double y, JPanel p, Image i, int h, int w) {
@@ -65,7 +63,9 @@ public abstract class GameComponent {
                 Math.abs(this.yPos - other.yPos) <= (this.height / 2 + other.height / 2);
     }
 
-    public boolean hasImage() { return useImage; }
+    public boolean hasImage() {
+        return image == null;
+    }
 
     public GameComponent[] getTouching() {
         return null; // TODO fix

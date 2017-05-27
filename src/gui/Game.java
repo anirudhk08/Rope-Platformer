@@ -22,7 +22,7 @@ public class Game extends JPanel {
     private Timer timer;
     private Player p1;
 
-    public Game(Window parent, Map m, KeyBindings k) throws Exception{
+    public Game(Window parent, Map m, KeyBindings k){
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 
         map = m;
