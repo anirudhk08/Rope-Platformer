@@ -1,4 +1,4 @@
-package gui;
+package menus;
 
 /**
  * Created by aubhrosengupta on 5/27/17.

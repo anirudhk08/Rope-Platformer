@@ -1,4 +1,4 @@
-package gui;
+package menus;
 
 import data.KeyBindings;
 import data.PlayerActions;
@@ -9,7 +9,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import static gui.GameWindowConstants.*;
+import static menus.GameWindowConstants.*;
 
 /**
  * Created by axu047 on 5/11/2017.

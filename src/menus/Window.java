@@ -1,4 +1,4 @@
-package gui;
+package menus;
 
 
 import data.KeyBindings;
@@ -6,7 +6,7 @@ import data.Level;
 
 import javax.swing.*;
 
-import static gui.GameWindowConstants.*;
+import static menus.GameWindowConstants.*;
 
 public class Window extends JFrame
 {

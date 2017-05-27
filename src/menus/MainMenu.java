@@ -1,10 +1,10 @@
-package gui;
+package menus;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static gui.GameWindowConstants.WINDOW_HEIGHT;
-import static gui.GameWindowConstants.WINDOW_WIDTH;
+import static menus.GameWindowConstants.WINDOW_HEIGHT;
+import static menus.GameWindowConstants.WINDOW_WIDTH;
 
 /**
  * Created by axu047 on 5/5/2017.

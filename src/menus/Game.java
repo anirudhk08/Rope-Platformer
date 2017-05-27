@@ -1,5 +1,5 @@
 
-package gui;
+package menus;
 
 import components.StickFigure;
 import data.KeyBindings;
@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-import static gui.GameWindowConstants.*;
+import static menus.GameWindowConstants.*;
 
 
 /**

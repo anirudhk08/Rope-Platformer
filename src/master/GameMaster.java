@@ -1,13 +1,9 @@
 package master;
-import java.awt.EventQueue;
 
 //import com.sun.org.apache.xpath.internal.operations.String;
 
-import components.Animations;
 import data.KeyBindings;
-import gui.Window;
-
-import javax.swing.*;
+import menus.Window;
 
 /**
  * Created by axu047 on 5/5/2017.

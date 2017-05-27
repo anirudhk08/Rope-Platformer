@@ -1,4 +1,4 @@
-package gui;
+package menus;
 
 import data.Level;
 
@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static gui.GameWindowConstants.*;
+import static menus.GameWindowConstants.*;
 
 
 /**
