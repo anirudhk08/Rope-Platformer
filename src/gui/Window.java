@@ -41,8 +41,13 @@ public class Window extends JFrame
     public void startGame(Map m) {
         getContentPane().removeAll();
         setSize(1000, 1000);
-        Game g = new Game(this, m, keyBindings);
-        add(g);
+        try {
+            Game g = new Game(this, m, keyBindings);
+            add(g);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         repaint();
     }
 
