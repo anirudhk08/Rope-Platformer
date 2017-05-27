@@ -6,13 +6,9 @@ import data.KeyBindings;
 import data.Map;
 import master.Player;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 import static gui.GameWindowConstants.*;
 
@@ -26,16 +22,11 @@ public class Game extends JPanel {
     private Timer timer;
     private Player p1;
 
-    public Game(Window parent, Map m, KeyBindings k) {
+    public Game(Window parent, Map m, KeyBindings k) throws Exception{
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 
         map = m;
-        try {
-            BufferedImage stickfigure = ImageIO.read(new File("StickFigure.png"));
-            player = new StickFigure(map.getStartX(), map.getStartY(), this, stickfigure, map);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        player = new StickFigure(map.getStartX(), map.getStartY(), this, map);
 
         p1 = new Player(player, k);
         start();

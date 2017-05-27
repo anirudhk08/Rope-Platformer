@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by axu047 on 5/4/2017.
@@ -23,9 +22,11 @@ public class StickFigure extends PhysicsComponent {
     private Map map;
     private boolean leftToRight;
 
-    public StickFigure(double x, double y, JPanel panel, Image i, Map m) {
-        super(x, y, panel, i);
+
+    public StickFigure(double x, double y, JPanel panel, Map m) throws Exception {
+        super(x, y, panel, ImageIO.read(new File("StickFigure.png")));
         map = m;
+
     }
 
     public void jump() {
