@@ -55,8 +55,8 @@ public class Game extends JPanel {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
         super.paintComponent(g);
-        map.draw(g2, FRAMES_PER_SECOND);
-        player.draw(g2, FRAMES_PER_SECOND);
+        map.draw(g2);
+        player.draw(g2);
 
     }
 }

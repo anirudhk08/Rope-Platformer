@@ -23,9 +23,9 @@ public class Level extends ArrayList<GameComponent> {
         this.endY = endY;
     }
 
-    public void draw(Graphics2D g, double updateTimeMillis) {
+    public void draw(Graphics2D g) {
         for (GameComponent p : this) {
-            p.draw(g, updateTimeMillis);
+            p.draw(g);
         }
     }
 

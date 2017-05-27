@@ -23,8 +23,8 @@ public abstract class Platform extends GameComponent {
     public abstract void move();
 
     @Override
-    public void draw(Graphics2D g, double updateTimeMillis) {
+    public void draw(Graphics2D g) {
         g.setColor(Color.BLACK);
-        g.fillRect((int) xPos, (int) yPos, (int) width, (int) height);
+        g.fillRect(xPos, yPos, (int) width, (int) height);
     }
 }

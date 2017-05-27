@@ -25,7 +25,7 @@ public class Rope extends GameComponent {
     public boolean isGrapplingRope() { return !swing; }
 
     @Override
-    public void draw(Graphics2D g, double fps) {
+    public void draw(Graphics2D g) {
         g.setColor(Color.BLACK);
         g.draw(new Line2D.Double(xPos, yPos, owner.xPos, owner.yPos));
     }

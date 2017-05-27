@@ -12,9 +12,9 @@ public abstract class GameComponent {
     protected JPanel parent;
     protected Image image;
 
-    public void draw(Graphics2D g, double fps) {
+    public void draw(Graphics2D g) {
         if (image != null) {
-            g.drawImage(image, (int) (xPos - width / 2), (int) (yPos - height / 2), parent);
+            g.drawImage(image, (xPos - width / 2), (yPos - height / 2), parent);
         }
     }
 

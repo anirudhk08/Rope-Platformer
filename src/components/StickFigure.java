@@ -80,11 +80,11 @@ public class StickFigure extends PhysicsComponent {
     }
 
     @Override
-    public void draw(Graphics2D g, double fps) {
-        updatePos(fps);
+    public void draw(Graphics2D g) {
+        updatePos();
         if (rope != null)
-            rope.draw(g, fps);
-        super.draw(g, fps);
+            rope.draw(g);
+        super.draw(g);
     }
 
     @Override
@@ -100,7 +100,7 @@ public class StickFigure extends PhysicsComponent {
         else if (rope != null) {
             if (rope.isSwingingRope()) {
                 double angle = rope.angleToVertical();
-                double vel = getTotalVel() - 2;
+                double vel = getAbsoluteVel() - 2;
 
 
                 if (angle > Math.PI / 2 && yVel > 0) leftToRight = true;
