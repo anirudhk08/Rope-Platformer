@@ -12,8 +12,17 @@ public class Map extends ArrayList<GameComponent> {
     private double startX, startY, endX, endY;
     private Image preview;
 
-    public Map() {
 
+
+    public Map() {
+        super();
+    }
+
+    public Map(double startX, double startY, double endX, double endY) {
+        this.startX = startX;
+        this.startY = startY;
+        this.endX = endX;
+        this.endY = endY;
     }
 
     public void draw(Graphics2D g, double updateTimeMillis) {
