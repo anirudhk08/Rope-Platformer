@@ -1,5 +1,4 @@
-
-package components;
+package main.components;
 
 import java.awt.*;
 import java.awt.geom.Line2D;

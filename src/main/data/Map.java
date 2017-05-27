@@ -1,6 +1,6 @@
-package data;
+package main.data;
 
-import components.GameComponent;
+import main.components.GameComponent;
 
 import java.awt.*;
 import java.util.ArrayList;

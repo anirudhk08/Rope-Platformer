@@ -1,10 +1,8 @@
+package main.gui;
 
-package gui;
-
-import components.StickFigure;
-import data.KeyBindings;
-import data.Map;
-import master.Player;
+import main.components.StickFigure;
+import main.data.Map;
+import main.master.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,31 +15,24 @@ public class Game extends JPanel {
     private Map map;
     private StickFigure player;
     private final double FRAMES_PER_SECOND = 500;
-    private Timer timer;
 
-    public Game(Window parent, Map m, KeyBindings k) {
+    public Game(JFrame parent, Map m) {
         setSize(1000, 1000);
 
         map = m;
         player = new StickFigure(map.getStartX(), map.getStartY(), map);
-        Player p = new Player(player, k);
-        addMouseListener(p);
-        addKeyListener(p);
+        player.swing(300, 300);
+        Player p = new Player(player);
+        this.addMouseListener(p);
+        this.addKeyListener(p);
         parent.addKeyListener(p);
         parent.addMouseListener(p);
-        repaint();
 
-        start();
-    }
-
-    public void start() {
         ActionListener al = ae -> repaint();
-        timer = new Timer((int) (1000.0 / FRAMES_PER_SECOND), al);
+        Timer timer = new Timer((int) (1000.0 / FRAMES_PER_SECOND), al);
         timer.start();
-    }
 
-    public void stop() {
-        if (timer != null) timer.stop();
+        repaint();
     }
 
     @Override

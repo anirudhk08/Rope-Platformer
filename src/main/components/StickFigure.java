@@ -1,7 +1,6 @@
+package main.components;
 
-package components;
-
-import data.Map;
+import main.data.Map;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -26,9 +25,9 @@ public class StickFigure extends PhysicsComponent {
         super(x, y);
         map = m;
 
-        File file = new File("/resources/guyWalking1.png");
+        File file = new File("../../resources/guyWalking1.png");
         String absolutePath = file.getAbsolutePath();
-        //System.out.println(absolutePath);
+        System.out.println(absolutePath);
         try {
             stickImage = ImageIO.read(new File(absolutePath));
         } catch (IOException e) {
@@ -39,7 +38,6 @@ public class StickFigure extends PhysicsComponent {
 
     public void jump() {
         //TODO only when on platform or rope
-        System.out.println("werwerw");
         if (false) {
             yVel = -10;
             rope = null;
@@ -60,11 +58,11 @@ public class StickFigure extends PhysicsComponent {
         }
     }
 
-    public void swing(double x, double y) {
+    public void swing(int x, int y) {
         rope = new Rope(x, y, true, this);
     }
 
-    public void grapple(double x, double y) {
+    public void grapple(int x, int y) {
         rope = new Rope(x, y, false, this);
     }
 
@@ -83,7 +81,7 @@ public class StickFigure extends PhysicsComponent {
             rope.draw(g, fps);
 
 
-        //g.drawImage(stickImage, (int)xPos, (int)yPos, width, height, null);
+        g.drawImage(stickImage, (int)xPos, (int)yPos, width, height, null);
     }
 
     @Override
@@ -101,6 +99,7 @@ public class StickFigure extends PhysicsComponent {
                 double angle = rope.angleToVertical();
                 double vel = getTotalVel() - 2;
 
+                System.out.println(vel);
 
                 if (angle > Math.PI / 2 && yVel > 0) leftToRight = true;
                 else if (angle < -Math.PI / 2 && yVel > 0) leftToRight = false;
@@ -121,4 +120,3 @@ public class StickFigure extends PhysicsComponent {
         else yVel += G;
     }
 }
-
