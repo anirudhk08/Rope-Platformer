@@ -40,7 +40,7 @@ public class MainMenu extends JPanel {
 
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setForeground(SystemColor.desktop);
-        Image img = new ImageIcon("platformer.png").getImage();
+        Image img = new ImageIcon("resources/platformer.png").getImage();
         lblNewLabel.setIcon(new ImageIcon(img));
         lblNewLabel.setBounds(0,0, 450, 278);
         add(lblNewLabel);

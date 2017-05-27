@@ -27,7 +27,7 @@ public class StickFigure extends PhysicsComponent {
     public StickFigure(double x, double y, JPanel panel, Map m) {
         super(x, y);
         try {
-            super.image = ImageIO.read(new File("StickFigure.png"));
+            super.image = ImageIO.read(new File("resources/guyWalking1.png"));
             super.parent = panel;
         } catch (IOException e) {
             e.printStackTrace();
