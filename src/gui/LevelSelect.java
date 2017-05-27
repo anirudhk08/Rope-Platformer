@@ -35,26 +35,13 @@ public  class LevelSelect extends JPanel implements ActionListener{
 
         JButton btnPlay = new JButton("Play");
         btnPlay.setBounds(42, 224, 317, 29);
-        btnPlay.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                parent.startGame(new Level());
-            }
-        });
+        btnPlay.addActionListener(e -> parent.startGame(new Level()));
         add(btnPlay);
 
 
         JButton btnBack = new JButton("Back");
         btnBack.setBounds(42, 117, 117, 29);
-        btnBack.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                parent.goToMainMenu();
-            }
-
-
-        });
+        btnBack.addActionListener(e -> parent.goToMainMenu());
         add(btnBack);
 
     }

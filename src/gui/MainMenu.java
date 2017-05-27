@@ -2,10 +2,9 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import static gui.GameWindowConstants.*;
+import static gui.GameWindowConstants.WINDOW_HEIGHT;
+import static gui.GameWindowConstants.WINDOW_WIDTH;
 
 /**
  * Created by axu047 on 5/5/2017.
@@ -18,24 +17,12 @@ public class MainMenu extends JPanel {
         JButton btnNewButton = new JButton("Level Select");
         btnNewButton.setBackground(Color.CYAN);
         btnNewButton.setBounds(18, 215, 117, 29);
-        btnNewButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                parent.goToLevelSelect();
-            }
-        });
+        btnNewButton.addActionListener(e -> parent.goToLevelSelect());
         add(btnNewButton);
 
         JButton btnNewButton_1 = new JButton("Settings");
         btnNewButton_1.setBounds(176, 215, 117, 29);
-        btnNewButton_1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                parent.goToSettings();
-            }
-        });
+        btnNewButton_1.addActionListener(e -> parent.goToSettings());
         add(btnNewButton_1);
 
         JLabel lblNewLabel = new JLabel("");
