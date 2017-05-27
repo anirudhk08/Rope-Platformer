@@ -36,25 +36,32 @@ public class StickFigure extends PhysicsComponent {
 
     }
 
+    public boolean isTouchingPlatform() {
+        for (GameComponent component:
+             map) {
+            if (component.isTouching(this)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void jump() {
-        //TODO only when on platform or rope
-        if (false) {
+        if (isTouchingPlatform()) {
             yVel = -10;
             rope = null;
         }
     }
 
     public void moveRight() {
-        // TODO only when on platform
-        if (false) {
-
+        if (isTouchingPlatform()) {
+            xVel = 10;
         }
     }
 
     public void moveLeft() {
-        // TODO only when on platform
-        if (false) {
-
+        if (isTouchingPlatform()) {
+            xVel = -10;
         }
     }
 
@@ -67,12 +74,10 @@ public class StickFigure extends PhysicsComponent {
     }
 
     public void stopMoving() {
-        // TODO only when on platform
-        if (false) {
-
+        if (isTouchingPlatform()) {
+            xVel = 0;
         }
     }
-
 
     @Override
     public void draw(Graphics2D g, double fps) {

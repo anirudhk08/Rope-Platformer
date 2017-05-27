@@ -66,8 +66,4 @@ public abstract class GameComponent {
     public boolean hasImage() {
         return image == null;
     }
-
-    public GameComponent[] getTouching() {
-        return null; // TODO fix
-    }
 }
