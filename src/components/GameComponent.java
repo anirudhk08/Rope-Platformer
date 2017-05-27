@@ -12,7 +12,7 @@ public abstract class GameComponent {
     private Image image;
     private boolean useImage = false;
 
-    public void draw(Graphics2D g, double updateTimeMillis) {
+    public void draw(Graphics2D g, double fps) {
         if (useImage)
             g.drawImage(image, (int) (xPos - image.getWidth(parent)/2), (int) (yPos - image.getHeight(parent)/2), parent);
     }

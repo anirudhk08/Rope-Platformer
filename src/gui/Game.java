@@ -6,9 +6,14 @@ import data.KeyBindings;
 import data.Map;
 import master.Player;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.nio.Buffer;
 
 /**
  * Created by axu047 on 5/5/2017.
@@ -24,7 +29,13 @@ public class Game extends JPanel {
         setSize(1000, 1000);
 
         map = m;
-        player = new StickFigure(map.getStartX(), map.getStartY(), map);
+        try {
+            BufferedImage stickfigure = ImageIO.read(new File("StickFigure.png"));
+            player = new StickFigure(map.getStartX(), map.getStartY(), this, stickfigure, map);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         p1 = new Player(player, k);
         start();
         repaint();

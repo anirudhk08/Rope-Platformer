@@ -4,6 +4,7 @@ package components;
 import data.Map;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -22,24 +23,13 @@ public class StickFigure extends PhysicsComponent {
     private Map map;
     private boolean leftToRight;
 
-    public StickFigure(double x, double y, Map m) {
-        super(x, y);
+    public StickFigure(double x, double y, JPanel panel, Image i, Map m) {
+        super(x, y, panel, i);
         map = m;
-
-        File file = new File("/resources/guyWalking1.png");
-        String absolutePath = file.getAbsolutePath();
-        //System.out.println(absolutePath);
-        try {
-            stickImage = ImageIO.read(new File(absolutePath));
-        } catch (IOException e) {
-            System.out.println(e);
-            stickImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-        }
     }
 
     public void jump() {
         //TODO only when on platform or rope
-        System.out.println("werwerw");
         if (false) {
             yVel = -10;
             rope = null;
@@ -48,7 +38,6 @@ public class StickFigure extends PhysicsComponent {
 
     public void moveRight() {
         // TODO only when on platform
-        System.out.println("test");
         if (false) {
 
         }
@@ -82,9 +71,7 @@ public class StickFigure extends PhysicsComponent {
         updatePos(fps);
         if (rope != null)
             rope.draw(g, fps);
-
-
-        //g.drawImage(stickImage, (int)xPos, (int)yPos, width, height, null);
+        super.draw(g, fps);
     }
 
     @Override
@@ -113,10 +100,16 @@ public class StickFigure extends PhysicsComponent {
                         vel = -vel;
                     xVel = vel * Math.cos(angle);
                     yVel = vel * Math.sin(angle) + G;
-                    if (Math.abs(angle) < 0.05) System.out.println(yVel);
                 }
             } else if (rope.isGrapplingRope()) {
+                if (rope.distance() < 5.0) rope = null;
+                else {
+                    double angle = rope.angleFromOwner();
+                    double vel = 5000;
 
+                    xVel = vel * Math.cos(angle);
+                    yVel = vel * Math.sin(angle);
+                }
             }
         }
         else yVel += G;

@@ -58,8 +58,10 @@ public class Rope extends GameComponent {
     }
 
     public double angleFromOwner() {
-        double yDelta = owner.yPos - yPos;
-        double xDelta = owner.xPos - xPos;
-        return Math.atan(yDelta / xDelta);
+        double yDelta = yPos - owner.yPos;
+        double xDelta = xPos - owner.xPos;
+        double angle = Math.atan(yDelta / xDelta);
+        if (xDelta < 0) return Math.PI + angle;
+        else return angle;
     }
 }
