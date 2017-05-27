@@ -13,7 +13,9 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.Buffer;
+
+import static gui.GameConstants.FRAMES_PER_SECOND;
+
 
 /**
  * Created by axu047 on 5/5/2017.
@@ -21,12 +23,11 @@ import java.nio.Buffer;
 public class Game extends JPanel {
     private Map map;
     private StickFigure player;
-    private final double FRAMES_PER_SECOND = 500;
     private Timer timer;
     private Player p1;
 
     public Game(Window parent, Map m, KeyBindings k) {
-        setSize(1000, 1000);
+        setSize(GameConstants.WINDOW_WIDTH, GameConstants.WINDOW_HEIGHT);
 
         map = m;
         try {
