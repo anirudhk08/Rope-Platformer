@@ -1,6 +1,6 @@
 package gui;
 
-import data.Map;
+import data.Level;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -38,7 +38,7 @@ public  class LevelSelect extends JPanel implements ActionListener{
         btnPlay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                parent.startGame(new Map());
+                parent.startGame(new Level());
             }
         });
         add(btnPlay);

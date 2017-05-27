@@ -3,7 +3,7 @@ package gui;
 
 import components.StickFigure;
 import data.KeyBindings;
-import data.Map;
+import data.Level;
 import master.Player;
 
 import javax.swing.*;
@@ -17,12 +17,12 @@ import static gui.GameWindowConstants.*;
  * Created by axu047 on 5/5/2017.
  */
 public class Game extends JPanel {
-    private Map map;
+    private Level map;
     private StickFigure player;
     private Timer timer;
     private Player p1;
 
-    public Game(Window parent, Map m, KeyBindings k){
+    public Game(Window parent, Level m, KeyBindings k){
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 
         map = m;

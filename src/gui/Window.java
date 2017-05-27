@@ -2,7 +2,7 @@ package gui;
 
 
 import data.KeyBindings;
-import data.Map;
+import data.Level;
 
 import javax.swing.*;
 
@@ -38,7 +38,7 @@ public class Window extends JFrame
         repaint();
     }
 
-    public void startGame(Map m) {
+    public void startGame(Level m) {
         getContentPane().removeAll();
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         Game g = new Game(this, m, keyBindings);

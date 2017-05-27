@@ -8,17 +8,15 @@ import java.util.ArrayList;
 /**
  * Created by axu047 on 5/5/2017.
  */
-public class Map extends ArrayList<GameComponent> {
+public class Level extends ArrayList<GameComponent> {
     private double startX, startY, endX, endY;
     private Image preview;
 
-
-
-    public Map() {
+    public Level() {
         super();
     }
 
-    public Map(double startX, double startY, double endX, double endY) {
+    public Level(double startX, double startY, double endX, double endY) {
         this.startX = startX;
         this.startY = startY;
         this.endX = endX;

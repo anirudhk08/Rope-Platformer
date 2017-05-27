@@ -1,7 +1,7 @@
 
 package components;
 
-import data.Map;
+import data.Level;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -20,11 +20,11 @@ public class StickFigure extends PhysicsComponent {
     private final int height = 500;
     private double health;
     private Rope rope;
-    private Map map;
+    private Level map;
     private boolean leftToRight;
 
 
-    public StickFigure(double x, double y, JPanel panel, Map m) {
+    public StickFigure(double x, double y, JPanel panel, Level m) {
         super(x, y);
         try {
             super.image = ImageIO.read(new File("resources/guyWalking1.png"));
@@ -39,7 +39,7 @@ public class StickFigure extends PhysicsComponent {
     public boolean isTouchingPlatform() {
         for (GameComponent component:
              map) {
-            if (component.isTouching(this)) {
+            if (component instanceof Platform && component.isTouching(this)) {
                 return true;
             }
         }
