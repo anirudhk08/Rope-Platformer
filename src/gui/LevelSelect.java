@@ -14,8 +14,7 @@ public  class LevelSelect extends JPanel implements ActionListener{
 
     public LevelSelect(Window parent)
     {
-        setSize(600,400);
-//        setBounds(100, 100, 450, 300);
+        setSize(601,400);
         setLayout(null);
 
         JLabel lblNewLabel = new JLabel("Level Select");
