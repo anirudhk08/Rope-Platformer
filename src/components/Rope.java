@@ -14,7 +14,7 @@ public class Rope extends GameComponent {
     private boolean swing;
     private double length;
 
-    public Rope(double x, double y, boolean isSwingingRope, StickFigure person) {
+    public Rope(int x, int y, boolean isSwingingRope, StickFigure person) {
         super(x, y);
         swing = isSwingingRope;
         owner = person;

@@ -7,7 +7,7 @@ import java.awt.*;
  * Created by axu047 on 5/4/2017.
  */
 public abstract class GameComponent {
-    protected double xPos, yPos; // center
+    protected int xPos, yPos; // center
     protected int height, width;
     protected JPanel parent;
     protected Image image;
@@ -18,13 +18,13 @@ public abstract class GameComponent {
         }
     }
 
-    public GameComponent(double x, double y) {
+    public GameComponent(int x, int y) {
         xPos = x;
         yPos = y;
         image = null;
     }
 
-    public GameComponent(double x, double y, JPanel p, Image i) {
+    public GameComponent(int x, int y, JPanel p, Image i) {
         this(x, y);
         height = i.getHeight(p);
         width = i.getWidth(p);
@@ -32,7 +32,7 @@ public abstract class GameComponent {
         image = i;
     }
 
-    public GameComponent(double x, double y, JPanel p, Image i, int h, int w) {
+    public GameComponent(int x, int y, JPanel p, Image i, int h, int w) {
         this(x, y, p, i);
         height = h;
         width = w;

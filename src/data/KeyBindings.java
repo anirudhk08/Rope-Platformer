@@ -80,9 +80,9 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
         PlayerActions action = get(m.getButton());
         switch (action) {
             case SWING:
-                return s::swing;
+                return (double x, double y) -> s.swing((int)x, (int)y);
             case GRAPPLE:
-                return s::grapple;
+                return (double x, double y) -> s.grapple((int)x, (int)y);
             default:
                 return this::doNothing;
         }

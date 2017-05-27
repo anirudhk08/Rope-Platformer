@@ -24,7 +24,7 @@ public class StickFigure extends PhysicsComponent {
     private boolean leftToRight;
 
 
-    public StickFigure(double x, double y, JPanel panel, Level m) {
+    public StickFigure(int x, int y, JPanel panel, Level m) {
         super(x, y);
         try {
             super.image = ImageIO.read(new File("resources/guyWalking1.png"));
@@ -65,11 +65,11 @@ public class StickFigure extends PhysicsComponent {
         }
     }
 
-    public void swing(double x, double y) {
+    public void swing(int x, int y) {
         rope = new Rope(x, y, true, this);
     }
 
-    public void grapple(double x, double y) {
+    public void grapple(int x, int y) {
         rope = new Rope(x, y, false, this);
     }
 

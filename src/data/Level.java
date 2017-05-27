@@ -9,14 +9,14 @@ import java.util.ArrayList;
  * Created by axu047 on 5/5/2017.
  */
 public class Level extends ArrayList<GameComponent> {
-    private double startX, startY, endX, endY;
+    private int startX, startY, endX, endY;
     private Image preview;
 
     public Level() {
         super();
     }
 
-    public Level(double startX, double startY, double endX, double endY) {
+    public Level(int startX, int startY, int endX, int endY) {
         this.startX = startX;
         this.startY = startY;
         this.endX = endX;
@@ -29,7 +29,7 @@ public class Level extends ArrayList<GameComponent> {
         }
     }
 
-    public double getStartX() { return startX; }
-    public double getStartY() { return startY; }
+    public int getStartX() { return startX; }
+    public int getStartY() { return startY; }
 
 }

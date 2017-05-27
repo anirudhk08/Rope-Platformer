@@ -10,10 +10,10 @@ public abstract class PhysicsComponent extends GameComponent {
     final double G = 50;
     protected double xVel, yVel = G;
 
-    public PhysicsComponent(double x, double y) {
+    public PhysicsComponent(int x, int y) {
         super(x, y);
     }
-    public PhysicsComponent(double x, double y, JPanel parent, Image img) {
+    public PhysicsComponent(int x, int y, JPanel parent, Image img) {
         super(x, y, parent, img);
     }
 
