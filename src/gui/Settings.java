@@ -9,6 +9,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import static gui.GameConstants.*;
+
 /**
  * Created by axu047 on 5/11/2017.
  */
@@ -22,7 +24,7 @@ public class Settings extends JPanel
     {
         settings = k;
 
-        setSize(350,300);
+        setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setLayout(null);
 
         JLabel lblWelcomeToSettings = new JLabel("Welcome to Settings");

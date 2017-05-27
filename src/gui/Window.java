@@ -5,10 +5,8 @@ import data.KeyBindings;
 import data.Map;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.security.Key;
+
+import static gui.GameConstants.*;
 
 public class Window extends JFrame
 {
@@ -26,7 +24,7 @@ public class Window extends JFrame
         keyBindings = keys;
 
         setTitle("Game");
-        setSize(400,300);
+        setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setVisible(true);
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

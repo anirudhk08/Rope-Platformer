@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static gui.GameConstants.*;
+
 /**
  * Created by axu047 on 5/5/2017.
  */
@@ -12,7 +14,7 @@ public class MainMenu extends JPanel {
 
 
     public MainMenu(Window parent) {
-        setSize(400,300);
+        setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         JButton btnNewButton = new JButton("Level Select");
         btnNewButton.setBackground(Color.CYAN);
         btnNewButton.setBounds(18, 215, 117, 29);

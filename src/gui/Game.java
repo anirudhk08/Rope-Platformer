@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import static gui.GameConstants.FRAMES_PER_SECOND;
+import static gui.GameConstants.*;
 
 
 /**
@@ -27,7 +27,7 @@ public class Game extends JPanel {
     private Player p1;
 
     public Game(Window parent, Map m, KeyBindings k) {
-        setSize(GameConstants.WINDOW_WIDTH, GameConstants.WINDOW_HEIGHT);
+        setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 
         map = m;
         try {

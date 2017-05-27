@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static gui.GameConstants.*;
+
 
 /**
  * Created by axu047 on 5/5/2017.
@@ -14,7 +16,7 @@ public  class LevelSelect extends JPanel implements ActionListener{
 
     public LevelSelect(Window parent)
     {
-        setSize(600,400);
+        setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 //        setBounds(100, 100, 450, 300);
         setLayout(null);
 
