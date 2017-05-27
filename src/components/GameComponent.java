@@ -22,11 +22,11 @@ public abstract class GameComponent {
     public GameComponent(double x, double y) {
         xPos = x;
         yPos = y;
+        useImage = false;
     }
 
     public GameComponent(double x, double y, JPanel p, Image i) {
-        xPos = x;
-        yPos = y;
+        this(x, y);
         height = i.getHeight(p);
         width = i.getWidth(p);
         parent = p;
