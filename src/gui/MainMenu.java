@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static gui.GameConstants.*;
+import static gui.WindowConstants.*;
 
 /**
  * Created by axu047 on 5/5/2017.

@@ -6,7 +6,7 @@ import data.Map;
 
 import javax.swing.*;
 
-import static gui.GameConstants.*;
+import static gui.WindowConstants.*;
 
 public class Window extends JFrame
 {

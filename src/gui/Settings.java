@@ -9,7 +9,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import static gui.GameConstants.*;
+import static gui.WindowConstants.*;
 
 /**
  * Created by axu047 on 5/11/2017.

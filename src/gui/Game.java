@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import static gui.GameConstants.*;
+import static gui.WindowConstants.*;
 
 
 /**
