@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static menus.GameLevelConstants.*;
 import static menus.GameWindowConstants.*;
 
 
@@ -13,6 +14,7 @@ import static menus.GameWindowConstants.*;
  * Created by axu047 on 5/5/2017.
  */
 public  class LevelSelect extends JPanel implements ActionListener{
+    private static JComboBox comboBox;
 
     public LevelSelect(Window parent)
     {
@@ -24,8 +26,13 @@ public  class LevelSelect extends JPanel implements ActionListener{
         lblNewLabel.setBounds(174, 18, 86, 16);
         add(lblNewLabel);
 
-        JComboBox comboBox = new JComboBox();
-        comboBox.setModel(new DefaultComboBoxModel(new String[] {"Introduction", "A Good Day", "A Cool Day", "A Scary Day", "An Unbearable Day", "Final Day"}));
+        comboBox = new JComboBox();
+
+
+        String[] gameLevels = {LEVEL_INTRO_STR, LEVEL_GOOD_STR, LEVEL_COOL_STR, LEVEL_SCARY_STR,
+            LEVEL_UNBEARABLE_STR, LEVEL_FINAL_STR};
+
+        comboBox.setModel(new DefaultComboBoxModel(gameLevels));
         comboBox.setBounds(133, 61, 127, 27);
         add(comboBox);
 
@@ -44,6 +51,10 @@ public  class LevelSelect extends JPanel implements ActionListener{
         btnBack.addActionListener(e -> parent.goToMainMenu());
         add(btnBack);
 
+    }
+
+    public static int getGameLevel() {
+        return comboBox.getSelectedIndex();
     }
 
     public void actionPerformed(ActionEvent event)

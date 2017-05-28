@@ -26,11 +26,18 @@ public class Game extends JPanel {
 
     public Game(Window parent, Level m, KeyBindings k){
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+        setBackground(Color.WHITE);
 
         map = m;
         player = new StickFigure(map.getStartX(), map.getStartY(), this, map);
         p1 = new Player(player, k);
-        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_INTRO);
+
+        int gameLevel = LevelSelect.getGameLevel();
+
+        obstacles = Obstacle.createObstacles(gameLevel);
+
+
+
         start();
         repaint();
         setFocusable(true);
