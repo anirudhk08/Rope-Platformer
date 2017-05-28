@@ -3,13 +3,14 @@ package components;
 import javax.swing.*;
 import java.awt.*;
 
-import static menus.GameWindowConstants.FRAMES_PER_SECOND;
+import static menus.PhysicsConstants.G;
+
 
 /**
  * Created by axu047 on 5/4/2017.
  */
 public abstract class PhysicsComponent extends GameComponent {
-    final double G = 50;
+
     protected double xVel, yVel = G;
 
     public PhysicsComponent(int x, int y) {
@@ -23,8 +24,8 @@ public abstract class PhysicsComponent extends GameComponent {
 
     public final void updatePos() {
         update();
-        xPos += xVel / FRAMES_PER_SECOND;
-        yPos += yVel / FRAMES_PER_SECOND;
+        xPos += xVel;
+        yPos += yVel;
     }
 
     public double getAbsoluteVel() {

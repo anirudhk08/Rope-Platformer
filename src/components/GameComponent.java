@@ -7,14 +7,14 @@ import java.awt.*;
  * Created by axu047 on 5/4/2017.
  */
 public abstract class GameComponent {
-    protected int xPos, yPos; // center
+    protected double xPos, yPos; // center
     protected int height, width;
     protected JPanel parent;
     protected Image image;
 
     public void draw(Graphics2D g) {
         if (image != null) {
-            g.drawImage(image, (xPos - width / 2), (yPos - height / 2), parent);
+            g.drawImage(image, (int) (xPos - width / 2), (int) (yPos - height / 2), parent);
         }
     }
 

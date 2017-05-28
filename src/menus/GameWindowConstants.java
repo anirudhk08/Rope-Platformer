@@ -6,5 +6,5 @@ package menus;
 public class GameWindowConstants {
     public static final int WINDOW_WIDTH = 1000;
     public static final int WINDOW_HEIGHT = 1000;
-    public static final int FRAMES_PER_SECOND = 500;
+    public static final double FRAMES_PER_SECOND = 500;
 }
