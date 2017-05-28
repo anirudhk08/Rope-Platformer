@@ -11,6 +11,7 @@ public abstract class GameComponent {
     protected int height, width;
     protected JPanel parent;
     protected Image image;
+    protected boolean harmful = false;
 
     public void draw(Graphics2D g) {
         if (image != null) {
@@ -46,6 +47,15 @@ public abstract class GameComponent {
 
     }
 
+    public boolean isHarmful()
+    {
+        return harmful;
+    }
+
+    public void setHarmful(boolean harmful)
+    {
+        this.harmful = harmful;
+    }
 
     public int getTopEdge() {
         return (int)yPos - height/2;

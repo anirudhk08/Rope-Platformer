@@ -1,11 +1,8 @@
 package menus;
 
-import components.GameComponent;
-import components.Obstacle;
-import components.StickFigure;
+import components.*;
 import data.KeyBindings;
 import data.Level;
-import components.Player;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -38,23 +35,32 @@ public class Game extends JPanel {
      * Map of all Game Components
      */
     private Level map;
+
     /**
      * StickFigure representing the user playing the game
      */
     private StickFigure player;
+
     /**
      * Refresh frequency
      */
     private Timer timer;
+
     /**
      * The user playing the game
      */
     private Player p1;
+
     /**
      * List of obstacles placed in the game
      */
     private ArrayList<Obstacle> obstacles;
 
+
+    /**
+     * List of platforms placed in the game
+     */
+    private ArrayList<Platform> platforms;
 
     /**
      * This is the constructor mapping the Game Components, GUI, and
@@ -78,14 +84,21 @@ public class Game extends JPanel {
         p1 = new Player(player, k);
 
 
-        // create obstacles based on game level
+        // create obstacles and platforms based on game level
         int gameLevel = LevelSelect.getGameLevel();
         obstacles = Obstacle.createObstacles(gameLevel);
+        platforms = Platform.createPlatforms(gameLevel);
 
         // add all obstacles to game map
         for (Obstacle o: obstacles)
         {
             map.add(o);
+        }
+
+        // add all platforms to game map
+        for (Platform p: platforms)
+        {
+            map.add(p);
         }
 
 
@@ -132,6 +145,7 @@ public class Game extends JPanel {
         map.draw(g2);
         player.draw(g2);
 
+
         for (Obstacle o: obstacles)
         {
             if (o.canMove()) {
@@ -145,6 +159,11 @@ public class Game extends JPanel {
             }
 
             o.draw(g2);
+        }
+
+        for (Platform p: platforms)
+        {
+            p.draw(g2);
         }
     }
 }
