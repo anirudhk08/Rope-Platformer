@@ -116,10 +116,11 @@ public class Game extends JPanel {
      * This method unregisters the action listeners
      * and stops the timer
      */
-    public void stop() {
+    public void exit() {
         if (timer != null) timer.stop();
         removeMouseListener(p1);
         removeKeyListener(p1);
+        p.goToLevelSelect();
     }
 
     /**

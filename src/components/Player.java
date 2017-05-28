@@ -2,6 +2,7 @@
 package components;
 
 import data.KeyBindings;
+import data.PlayerActions;
 import data.StickFigureAction;
 import data.StickFigureActionCoordinates;
 import menus.Game;
@@ -32,6 +33,10 @@ public class Player implements KeyListener, MouseListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (settings.get(e.getKeyCode()) == PlayerActions.EXIT) {
+            parent.exit();
+            return;
+        }
         StickFigureAction action = settings.input(e, s);
         action.action();
     }

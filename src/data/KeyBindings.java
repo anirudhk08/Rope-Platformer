@@ -18,7 +18,7 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
         put(KeyEvent.VK_A, PlayerActions.MOVE_LEFT);
         put(KeyEvent.VK_D, PlayerActions.MOVE_RIGHT);
         put(KeyEvent.VK_SPACE, PlayerActions.JUMP);
-        put(KeyEvent.VK_ESCAPE, PlayerActions.PAUSE_GAME);
+        put(KeyEvent.VK_ESCAPE, PlayerActions.EXIT);
         put(MouseEvent.BUTTON1, PlayerActions.SWING);
         put(MouseEvent.BUTTON3, PlayerActions.GRAPPLE);
     }
