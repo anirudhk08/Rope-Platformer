@@ -1,6 +1,6 @@
-
 package menus;
 
+import components.Obstacle;
 import components.StickFigure;
 import data.KeyBindings;
 import data.Level;
@@ -9,26 +9,28 @@ import master.Player;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import static menus.GameWindowConstants.*;
 
 
 /**
- * Created by axu047 on 5/5/2017.
+ * Created by Anirudh on 5/27/2017.
  */
 public class Game extends JPanel {
     private Level map;
     private StickFigure player;
     private Timer timer;
     private Player p1;
+    private ArrayList<Obstacle> obstacles;
 
     public Game(Window parent, Level m, KeyBindings k){
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 
         map = m;
         player = new StickFigure(map.getStartX(), map.getStartY(), this, map);
-
         p1 = new Player(player, k);
+        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_INTRO);
         start();
         repaint();
         setFocusable(true);
@@ -58,5 +60,9 @@ public class Game extends JPanel {
         map.draw(g2);
         player.draw(g2);
 
+        for (Obstacle o: obstacles)
+        {
+            o.draw(g2);
+        }
     }
 }
