@@ -4,7 +4,7 @@ import components.Obstacle;
 import components.StickFigure;
 import data.KeyBindings;
 import data.Level;
-import master.Player;
+import components.Player;
 
 import javax.swing.*;
 import java.awt.*;

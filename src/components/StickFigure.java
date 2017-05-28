@@ -40,7 +40,8 @@ public class StickFigure extends PhysicsComponent {
     public boolean isTouchingPlatform() {
         for (GameComponent component:
              map) {
-            if (component instanceof Platform && component.isTouching(this)) {
+            if (component.isTouching(this)) {
+                System.out.println("collision");
                 return true;
             }
         }

@@ -1,5 +1,3 @@
-package master;
-
 //import com.sun.org.apache.xpath.internal.operations.String;
 
 import data.KeyBindings;
@@ -8,7 +6,7 @@ import menus.Window;
 /**
  * Created by axu047 on 5/5/2017.
  */
-public class GameMaster {
+public class Main {
     public static void main(String[] args) {
 
         KeyBindings k = new KeyBindings();
