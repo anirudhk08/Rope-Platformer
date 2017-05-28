@@ -3,7 +3,6 @@ package components;
 
 import java.awt.*;
 import java.awt.geom.Line2D;
-import java.text.DecimalFormat;
 
 /**
  * Created by axu047 on 5/4/2017.
@@ -39,29 +38,57 @@ public class Rope extends GameComponent {
     }
 
     public double angleToVertical() {
-        DecimalFormat d = new DecimalFormat("0.###############");
         double angle;
-        if (owner.yPos - yPos == 0.0) {
-            if (owner.xPos > xPos) angle = -Math.PI / 2;
-            else angle = Math.PI / 2;
-        } else angle = Math.atan(Math.abs(owner.xPos - xPos)/Math.abs(owner.yPos - yPos));
-        if (owner.xPos < xPos && owner.yPos > yPos) { // down left
-            return Double.parseDouble(d.format(angle));
+        if (owner.yPos == yPos) {
+            if (owner.xPos > xPos) {
+                return  -Math.PI / 2;
+            } else {
+                return Math.PI / 2;
+            }
+        } else {
+            angle = Math.atan(Math.abs(owner.xPos - xPos) / Math.abs(owner.yPos - yPos));
         }
-        else if (owner.xPos > xPos && owner.yPos > yPos) {
-            return -Double.parseDouble(d.format(angle));
+
+        if (owner.xPos < xPos && owner.yPos > yPos) { // down left
+            return angle;
+        } else if (owner.xPos > xPos && owner.yPos > yPos) {
+            return -angle;
         } else if (owner.xPos < xPos && owner.yPos < yPos) {
-            return Double.parseDouble(d.format(Math.PI - angle));
+            return Math.PI - angle;
         } else if (owner.xPos > xPos && owner.yPos < yPos) {
-            return -Double.parseDouble(d.format(Math.PI - angle));
-        } else throw new IllegalStateException("Shouldn't be here");
+            return -(Math.PI - angle);
+        } else return Math.PI;
     }
 
     public double angleFromOwner() {
-        double yDelta = yPos - owner.yPos;
+        double yDelta = owner.yPos - yPos;
         double xDelta = xPos - owner.xPos;
+
+        if (xDelta == 0 && yDelta == 0) {
+            return 0D;
+        }
+
+        if (xDelta == 0) {
+            if (yDelta < 0) {
+                return Math.PI / 2;
+            } else if(yDelta > 0) {
+                return -Math.PI / 2;
+            }
+        }
+
+        if (yDelta == 0) {
+            if (xDelta < 0) {
+                return Math.PI;
+            } else if(xDelta > 0) {
+                return 0D;
+            }
+        }
         double angle = Math.atan(yDelta / xDelta);
-        if (xDelta < 0) return Math.PI + angle;
-        else return angle;
+        if (xDelta < 0 && yDelta < 0) {
+            return angle - Math.PI;
+        } else if(xDelta < 0 && yDelta > 0) {
+            return angle + Math.PI;
+        }
+        return angle;
     }
 }
