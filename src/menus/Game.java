@@ -1,5 +1,6 @@
 package menus;
 
+import components.GameComponent;
 import components.Obstacle;
 import components.StickFigure;
 import data.KeyBindings;
@@ -32,10 +33,16 @@ public class Game extends JPanel {
         player = new StickFigure(map.getStartX(), map.getStartY(), this, map);
         p1 = new Player(player, k);
 
-        int gameLevel = LevelSelect.getGameLevel();
 
+        // create obstacles based on game level
+        int gameLevel = LevelSelect.getGameLevel();
         obstacles = Obstacle.createObstacles(gameLevel);
 
+        // add all obstacles to game map
+        for (Obstacle o: obstacles)
+        {
+            map.add(o);
+        }
 
 
         start();
@@ -69,14 +76,16 @@ public class Game extends JPanel {
 
         for (Obstacle o: obstacles)
         {
-            int xOrig = o.getxPos();
-            int yOrig = o.getyPos();
-            o.updatePosition();
-            if (o.isCollision(obstacles))
-            {
-                o.setxPos(xOrig);
-                o.setyPos(yOrig);
+            if (o.canMove()) {
+                double xOrig = o.getxPos();
+                double yOrig = o.getyPos();
+                o.updatePosition();
+                if (map.isCollision(o))
+                {
+                    o.updatePosition(xOrig, yOrig);
+                }
             }
+
             o.draw(g2);
         }
     }

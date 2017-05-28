@@ -38,6 +38,16 @@ public abstract class GameComponent {
         width = w;
     }
 
+    public GameComponent(double x, double y, int w, int h)
+    {
+        xPos = x;
+        yPos = y;
+        width = w;
+        height = h;
+
+    }
+
+
     public int getTopEdge() {
         return (int)yPos - height/2;
     }
@@ -54,8 +64,16 @@ public abstract class GameComponent {
         return getRightEdge() - width;
     }
 
+    public double getxPos() {
+        return xPos;
+    }
+
+    public double getyPos() {
+        return yPos;
+    }
+
     public boolean isTouching(GameComponent other) {
-        if (other == null) {
+        if (other == null || this.equals(other)) {
             return false;
         }
 

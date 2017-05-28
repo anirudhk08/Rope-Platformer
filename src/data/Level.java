@@ -32,4 +32,20 @@ public class Level extends ArrayList<GameComponent> {
     public int getStartX() { return startX; }
     public int getStartY() { return startY; }
 
+    public boolean isCollision(GameComponent other)
+    {
+        boolean collision = false;
+
+        for (GameComponent gc: this)
+        {
+            if ( gc.isTouching(other) )
+            {
+                collision = true;
+                break;
+            }
+        }
+
+        return collision;
+    }
+
 }

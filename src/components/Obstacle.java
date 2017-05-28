@@ -12,23 +12,15 @@ import static menus.GameWindowConstants.WINDOW_WIDTH;
  * Created by Anirudh on 5/27/2017.
  */
 public class Obstacle extends GameComponent {
-    private int xPos;
-    private int yPos;
-    private Color color;
-    private int width;
-    private int height;
 
+    private Color color;
     private boolean move;
 
 
-    public Obstacle(int startX, int startY, Color color, int width, int height, boolean move) {
-        super(startX, startY);
-        xPos = startX;
-        yPos = startY;
-        this.color = color;
-        this.width = width;
-        this.height = height;
+    public Obstacle(double startX, double startY, Color color, int width, int height, boolean move) {
+        super(startX, startY, width, height);
 
+        this.color = color;
         this.move = move;
     }
 
@@ -124,29 +116,6 @@ public class Obstacle extends GameComponent {
         obstacles.add(new Obstacle(700, 500, Color.GREEN, 100, 230, true));
     }
 
-    public int getxPos() {
-        return xPos;
-    }
-
-    public int getyPos() {
-        return yPos;
-    }
-
-    public void setxPos(int xPos) {
-        this.xPos = xPos;
-    }
-
-    public void setyPos(int yPos) {
-        this.yPos = yPos;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
 
     public boolean canMove() {
         return move;
@@ -158,59 +127,38 @@ public class Obstacle extends GameComponent {
         return rand;
     }
 
-    public boolean isCollision(ArrayList<Obstacle> obstacles)
-    {
-        boolean collision = false;
-
-        for (Obstacle o: obstacles)
-        {
-            if (this.equals(o))
-            {
-                continue;
-            }
-
-            if ( (xPos < o.getxPos() + o.getWidth())
-                    && (xPos + width > o.getxPos())
-                    && (yPos < o.getyPos() + o.getHeight())
-                    && (yPos + height > o.getyPos()) )
-            {
-                collision = true;
-                break;
-            }
-
-        }
-
-        return collision;
-    }
-
     public void updatePosition()
     {
         if (move)
         {
-            int xOrig = xPos;
-            int yOrig = yPos;
+            double xOrig = xPos;
+            double yOrig = yPos;
 
 
             xPos += getRandomDirection();
             yPos += getRandomDirection();
 
-            if (!((xPos >= 0) && (xPos <= WINDOW_WIDTH)
-                    && (yPos >= 0) && (yPos <= WINDOW_HEIGHT)
-                    && (xPos+width >= 0) && (xPos+width <= WINDOW_WIDTH)
-                    && (yPos+height >= 0) && (yPos+height <= WINDOW_HEIGHT)))
+            if (getLeftEdge() < 0 || getRightEdge() > WINDOW_WIDTH
+                    || getTopEdge() < 0 || getBottomEdge() > WINDOW_HEIGHT)
             {
                 xPos = xOrig;
                 yPos = yOrig;
             }
+
         }
 
-        return;
+    }
+
+    public void updatePosition(double xPos, double yPos)
+    {
+        this.xPos = xPos;
+        this.yPos = yPos;
     }
 
     @Override
     public void draw(Graphics2D g)
     {
         g.setColor(color);
-        g.fillRect(xPos, yPos, width, height);
+        g.fillRect((int) xPos, (int) yPos, width, height);
     }
 }
