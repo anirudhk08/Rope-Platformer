@@ -49,6 +49,12 @@ public class StickFigure extends PhysicsComponent {
         return false;
     }
 
+    public boolean isTouchingObstacle() {
+        for (GameComponent g : map)
+            if (isTouching(g) && g instanceof Obstacle) return true;
+        return false;
+    }
+
     public void jump() {
         if (isStandingOnPlatform()) {
             yVel = -4;
@@ -105,6 +111,10 @@ public class StickFigure extends PhysicsComponent {
 
     @Override
     public void update() {
+        if (isTouchingObstacle()) {
+            restart();
+            return;
+        }
         boolean standing = isStandingOnPlatform();
 
         //TODO if fall out of map or dead -> restart
@@ -174,6 +184,7 @@ public class StickFigure extends PhysicsComponent {
         yPos = map.getStartY();
         yVel = G;
         xVel = 0;
+        rope = null;
     }
 }
 
