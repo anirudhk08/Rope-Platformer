@@ -26,7 +26,8 @@ public class Rope extends GameComponent {
 
     @Override
     public void draw(Graphics2D g) {
-        g.setColor(Color.BLACK);
+        if (owner.getKinetic() < 1.5 && isSwingingRope()) g.setColor(Color.RED);
+        else g.setColor(Color.BLACK);
         g.draw(new Line2D.Double(xPos, yPos, owner.xPos, owner.yPos));
     }
 

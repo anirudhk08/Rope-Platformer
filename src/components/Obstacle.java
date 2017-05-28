@@ -159,6 +159,6 @@ public class Obstacle extends GameComponent {
     public void draw(Graphics2D g)
     {
         g.setColor(color);
-        g.fillRect((int) xPos, (int) yPos, width, height);
+        g.fillRect(getLeftEdge(), getTopEdge(), width, height);
     }
 }

@@ -25,6 +25,6 @@ public abstract class Platform extends GameComponent {
     @Override
     public void draw(Graphics2D g) {
         g.setColor(Color.BLACK);
-        g.fillRect((int) xPos, (int) yPos, (int) width, (int) height);
+        g.fillRect(getLeftEdge(), getTopEdge(), (int) width, (int) height);
     }
 }

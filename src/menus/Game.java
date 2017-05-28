@@ -7,9 +7,13 @@ import data.KeyBindings;
 import data.Level;
 import components.Player;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static menus.GameWindowConstants.*;
@@ -64,7 +68,13 @@ public class Game extends JPanel {
         setBackground(Color.WHITE);
 
         map = m;
-        player = new StickFigure(map.getStartX(), map.getStartY(), this, map);
+        try {
+            BufferedImage image = ImageIO.read(new File("resources/guyWalking1.png"));
+            player = new StickFigure(this, image, map);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         p1 = new Player(player, k);
 
 
