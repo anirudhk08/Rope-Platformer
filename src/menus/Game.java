@@ -56,6 +56,8 @@ public class Game extends JPanel {
      */
     private ArrayList<Obstacle> obstacles;
 
+    private Window p;
+
 
     /**
      * List of platforms placed in the game
@@ -81,7 +83,7 @@ public class Game extends JPanel {
             e.printStackTrace();
         }
 
-        p1 = new Player(player, k);
+        p1 = new Player(player, k, this);
 
 
         // create obstacles and platforms based on game level
@@ -94,6 +96,7 @@ public class Game extends JPanel {
         {
             map.add(o);
         }
+        p = parent;
 
         // add all platforms to game map
         for (Platform p: platforms)
@@ -105,7 +108,6 @@ public class Game extends JPanel {
         start();
         repaint();
         setFocusable(true);
-        requestFocus();
     }
 
 
@@ -119,6 +121,7 @@ public class Game extends JPanel {
         ActionListener al = ae -> repaint();
         timer = new Timer((int) (1000.0 / FRAMES_PER_SECOND), al);
         timer.start();
+        p.requestFocus();
     }
 
 
@@ -126,10 +129,11 @@ public class Game extends JPanel {
      * This method unregisters the action listeners
      * and stops the timer
      */
-    public void stop() {
+    public void exit() {
         if (timer != null) timer.stop();
         removeMouseListener(p1);
         removeKeyListener(p1);
+        p.goToLevelSelect();
     }
 
     /**

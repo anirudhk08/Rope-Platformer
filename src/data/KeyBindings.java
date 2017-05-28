@@ -18,7 +18,7 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
         put(KeyEvent.VK_A, PlayerActions.MOVE_LEFT);
         put(KeyEvent.VK_D, PlayerActions.MOVE_RIGHT);
         put(KeyEvent.VK_SPACE, PlayerActions.JUMP);
-        put(KeyEvent.VK_ESCAPE, PlayerActions.PAUSE_GAME);
+        put(KeyEvent.VK_ESCAPE, PlayerActions.EXIT);
         put(MouseEvent.BUTTON1, PlayerActions.SWING);
         put(MouseEvent.BUTTON3, PlayerActions.GRAPPLE);
     }
@@ -60,8 +60,8 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
     }
 
     public StickFigureAction input(KeyEvent k, StickFigure s) {
-
         PlayerActions action = get(k.getKeyCode());
+        if (action == null) return this::doNothing;
         switch (action) {
             case JUMP:
                 return s::jump;
@@ -69,8 +69,8 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
                 return s::moveLeft;
             case MOVE_RIGHT:
                 return s::moveRight;
-            default:
-                return this::doNothing;
+            default: return this::doNothing;
+
         }
 
 
@@ -78,6 +78,7 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
 
     public StickFigureActionCoordinates click(MouseEvent m, StickFigure s) {
         PlayerActions action = get(m.getButton());
+        if (action == null) return this::doNothing;
         switch (action) {
             case SWING:
                 return (double x, double y) -> s.swing((int)x, (int)y);
@@ -90,6 +91,7 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
 
     public StickFigureAction release(KeyEvent e, StickFigure s) {
         PlayerActions action = get(e.getKeyCode());
+        if (action == null) return this::doNothing;
         switch (action) {
             case MOVE_LEFT:
                 return s::stopMoving;

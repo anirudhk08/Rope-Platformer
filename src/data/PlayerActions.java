@@ -6,9 +6,8 @@ package data;
 public enum PlayerActions {
     MOVE_LEFT,
     MOVE_RIGHT,
-    STOP,
+    EXIT,
     JUMP,
     GRAPPLE,
     SWING,
-    PAUSE_GAME
 }
