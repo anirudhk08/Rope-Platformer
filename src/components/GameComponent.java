@@ -14,14 +14,13 @@ public abstract class GameComponent {
 
     public void draw(Graphics2D g) {
         if (image != null) {
-            g.drawImage(image, (int) (xPos - width / 2), (int) (yPos - height / 2), parent);
+            g.drawImage(image, getLeftEdge(), getTopEdge(), parent);
         }
     }
 
     public GameComponent(int x, int y) {
         xPos = x;
         yPos = y;
-        image = null;
     }
 
     public GameComponent(int x, int y, JPanel p, Image i) {

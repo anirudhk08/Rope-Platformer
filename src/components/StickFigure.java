@@ -25,47 +25,47 @@ public class StickFigure extends PhysicsComponent {
     private double kinetic, potential;
 
 
-    public StickFigure(int x, int y, JPanel panel, Level m) {
-        super(x, y);
-        try {
-            super.image = ImageIO.read(new File("resources/guyWalking1.png"));
-            super.parent = panel;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public StickFigure(JPanel panel, Image i, Level m) {
+        super(m.getStartX(), m.getStartY(), panel, i);
+
         map = m;
 
     }
 
-    public boolean isTouchingPlatform() {
-        for (GameComponent component:
-             map) {
-            if (component.isTouching(this)) {
-                System.out.println("collision");
-                return true;
+    public int platformTopPos() {
+        for (GameComponent g : map) {
+            if (isTouching(g)) {
+                return g.getTopEdge();
             }
         }
+        return Integer.MAX_VALUE;
+    }
+
+    public boolean isStandingOnPlatform() {
+        for (GameComponent g : map)
+            if (isTouching(g) && getBottomEdge() < g.getBottomEdge()) return true;
         return false;
     }
 
     public void jump() {
-        if (isTouchingPlatform()) {
+        if (isStandingOnPlatform()) {
             yVel = -10;
-            rope = null;
-        }
+        } else rope = null;
     }
 
     public void moveRight() {
-        if (isTouchingPlatform()) {
+        if (isStandingOnPlatform()) {
             xVel = 10;
         }
     }
 
     public void moveLeft() {
-        if (isTouchingPlatform()) {
+        if (isStandingOnPlatform()) {
             xVel = -10;
         }
     }
+
+    public double getKinetic() { return kinetic; }
 
     public void swing(int x, int y) {
         rope = new Rope(x, y, true, this);
@@ -82,7 +82,7 @@ public class StickFigure extends PhysicsComponent {
     }
 
     public void stopMoving() {
-        if (isTouchingPlatform()) {
+        if (isStandingOnPlatform()) {
             xVel = 0;
         }
     }
@@ -97,36 +97,31 @@ public class StickFigure extends PhysicsComponent {
 
     @Override
     public void update() {
+        boolean standing = isStandingOnPlatform();
+
         //TODO if fall out of map or dead -> restart
 
         //TODO is standing
-        if (false) {
+        if (standing) {
             yVel = 0;
+            xVel = 0;
+            yPos = platformTopPos() - height / 2;
         }
         //TODO is sliding but not standing
         else if (false) {
 
         } //TODO if rope
-        else if (rope != null) {
+        if (rope != null) {
             if (rope.isSwingingRope()) {
+                if (standing) {
+                    rope = null;
+                    return;
+                }
                 double angle = rope.angleToVertical();
                 if (rope.distance() < rope.length()) yVel += G;
                 else {
                     double newVel = updateEnergy();
                     if (newVel <= 0) {
-//                        if (Math.abs(angle) < 0.1 || stop) {
-//                            xPos = rope.xPos;
-//                            yPos = rope.yPos + rope.length();
-//                            xVel = 0;
-//                            yVel = 0;
-//                            kinetic = 0;
-//                            potential = 0;
-//                        } else {
-//                            xVel = 0;
-//                            yVel = G;
-//                            leftToRight = !leftToRight;
-//                            stop = true;
-//                        }
                         rope = null;
                     }
                     else {
@@ -146,7 +141,7 @@ public class StickFigure extends PhysicsComponent {
                 }
             }
         }
-        else yVel += G;
+        else if (!standing) yVel += G;
     }
 
     private double updateEnergy() { // return vel
