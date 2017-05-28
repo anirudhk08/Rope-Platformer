@@ -7,11 +7,16 @@ import static menus.GameWindowConstants.WINDOW_HEIGHT;
 import static menus.GameWindowConstants.WINDOW_WIDTH;
 
 /**
- * Created by axu047 on 5/5/2017.
+ * The class for displaying the GUI
+ * components of the game menu.
  */
 public class MainMenu extends JPanel {
 
-
+    /**
+     * Constructor to initialize the
+     * Game Menu.
+     * @param parent - Game Window
+     */
     public MainMenu(Window parent) {
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         JButton btnNewButton = new JButton("Level Select");

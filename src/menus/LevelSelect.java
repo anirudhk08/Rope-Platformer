@@ -11,15 +11,26 @@ import static menus.GameWindowConstants.*;
 
 
 /**
- * Created by axu047 on 5/5/2017.
+ * This class is the GUI for LevelSelect. It enables the user
+ * to select a level. In addition, the includes GUI Components
+ * such as textboxes, labels, combo boxes, etc...
  */
+
 public  class LevelSelect extends JPanel implements ActionListener{
+
+    /**
+     * Combobox to display a list of game levels
+     */
     private static JComboBox comboBox;
 
+    /**
+     * This is the constructor to initialize the class
+     * with the Game Window
+     * @param parent - Game Window
+     */
     public LevelSelect(Window parent)
     {
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-//        setBounds(100, 100, 450, 300);
         setLayout(null);
 
         JLabel lblNewLabel = new JLabel("Level Select");
@@ -53,10 +64,21 @@ public  class LevelSelect extends JPanel implements ActionListener{
 
     }
 
-    public static int getGameLevel() {
+    /**
+     * This method returns the integer constant
+     * representing the game level chosen by the
+     * user
+     * @return - game level constant
+     */
+    public static int getGameLevel()
+    {
         return comboBox.getSelectedIndex();
     }
 
+    /**
+     * Method required for ActionListener
+     * @param event - user action
+     */
     public void actionPerformed(ActionEvent event)
     {
 

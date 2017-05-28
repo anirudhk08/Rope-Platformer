@@ -12,14 +12,27 @@ import java.awt.event.MouseListener;
 import static menus.GameWindowConstants.*;
 
 /**
- * Created by axu047 on 5/11/2017.
+ * This class implements the Game Settings.
  */
 public class Settings extends JPanel
 {
+    /**
+     * Label to display the Right Mouse Button text
+     */
     JLabel label = new JLabel("Right Mouse Button");
+
+    /**
+     * User defined key bindings
+     */
     KeyBindings settings;
 
 
+    /**
+     * This is the constructor to map user defined keys
+     * for game actions.
+     * @param parent - Game Window
+     * @param k - user defined key bindings
+     */
     public Settings(Window parent, KeyBindings k)
     {
         settings = k;
@@ -290,6 +303,11 @@ public class Settings extends JPanel
 
     }
 
+    /**
+     * Convert the KeyCode to Key string.
+     * @param e - Key Press Event
+     * @return - String representation of key
+     */
     private String convertKeyCode(KeyEvent e) {
         if (e.getKeyCode() == 3) return "CANCEL";
         else if (e.getKeyCode() == 8) return "BACKSPACE";
