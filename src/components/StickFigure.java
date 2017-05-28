@@ -10,6 +10,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+import static menus.GameWindowConstants.WINDOW_HEIGHT;
+import static menus.GameWindowConstants.WINDOW_WIDTH;
 import static menus.PhysicsConstants.G;
 import static menus.PhysicsConstants.GRAPPLE_VELOCITY;
 
@@ -21,7 +23,7 @@ public class StickFigure extends PhysicsComponent {
     private BufferedImage stickImage;
     private Rope rope;
     private Level map;
-    private boolean leftToRight;
+    private boolean leftToRight, moving, jumping;
     private double kinetic, potential;
 
 
@@ -49,19 +51,22 @@ public class StickFigure extends PhysicsComponent {
 
     public void jump() {
         if (isStandingOnPlatform()) {
-            yVel = -10;
+            yVel = -4;
+            jumping = true;
         } else rope = null;
     }
 
     public void moveRight() {
         if (isStandingOnPlatform()) {
-            xVel = 10;
+            xVel = 1;
+            moving = true;
         }
     }
 
     public void moveLeft() {
         if (isStandingOnPlatform()) {
-            xVel = -10;
+            xVel = -1;
+            moving = true;
         }
     }
 
@@ -75,15 +80,18 @@ public class StickFigure extends PhysicsComponent {
 
         double height = Math.abs(rope.yPos + rope.length() - yPos);
         potential = height * G;
+        moving = false;
     }
 
     public void grapple(int x, int y) {
         rope = new Rope(x, y, false, this);
+        moving = false;
     }
 
     public void stopMoving() {
         if (isStandingOnPlatform()) {
             xVel = 0;
+            moving = false;
         }
     }
 
@@ -100,18 +108,23 @@ public class StickFigure extends PhysicsComponent {
         boolean standing = isStandingOnPlatform();
 
         //TODO if fall out of map or dead -> restart
-
+        if (getLeftEdge() > WINDOW_WIDTH || getRightEdge() < 0 || getTopEdge() > WINDOW_HEIGHT) {
+            restart();
+        }
         //TODO is standing
         if (standing) {
-            yVel = 0;
-            xVel = 0;
+            if (jumping) jumping = false;
+            else yVel = 0;
+            if (!moving) xVel = 0;
             yPos = platformTopPos() - height / 2;
         }
-        //TODO is sliding but not standing
-        else if (false) {
-
-        } //TODO if rope
+        //TODO if rope
         if (rope != null) {
+            for (GameComponent g : map)
+                if (rope.isTouching(g)) {
+                rope = null;
+                return;
+                }
             if (rope.isSwingingRope()) {
                 if (standing) {
                     rope = null;
@@ -154,6 +167,13 @@ public class StickFigure extends PhysicsComponent {
         potential = newPotential;
         kinetic = newKinetic;
         return newVel;
+    }
+
+    private void restart() {
+        xPos = map.getStartX();
+        yPos = map.getStartY();
+        yVel = G;
+        xVel = 0;
     }
 }
 

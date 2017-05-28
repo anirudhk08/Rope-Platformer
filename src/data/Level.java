@@ -12,10 +12,6 @@ public class Level extends ArrayList<GameComponent> {
     private int startX, startY, endX, endY;
     private Image preview;
 
-    public Level() {
-        super();
-    }
-
     public Level(int startX, int startY, int endX, int endY) {
         this.startX = startX;
         this.startY = startY;

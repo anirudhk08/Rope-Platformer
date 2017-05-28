@@ -55,6 +55,8 @@ public class Game extends JPanel {
      */
     private ArrayList<Obstacle> obstacles;
 
+    private Window p;
+
 
     /**
      * This is the constructor mapping the Game Components, GUI, and
@@ -75,7 +77,7 @@ public class Game extends JPanel {
             e.printStackTrace();
         }
 
-        p1 = new Player(player, k);
+        p1 = new Player(player, k, this);
 
 
         // create obstacles based on game level
@@ -87,12 +89,12 @@ public class Game extends JPanel {
         {
             map.add(o);
         }
+        p = parent;
 
 
         start();
         repaint();
         setFocusable(true);
-        requestFocus();
     }
 
 
@@ -106,6 +108,7 @@ public class Game extends JPanel {
         ActionListener al = ae -> repaint();
         timer = new Timer((int) (1000.0 / FRAMES_PER_SECOND), al);
         timer.start();
+        p.requestFocus();
     }
 
 

@@ -3,9 +3,7 @@ package components;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by axu047 on 5/4/2017.
- */
+
 public abstract class GameComponent {
     protected double xPos, yPos; // center
     protected int height, width;
