@@ -1,7 +1,6 @@
 
-package master;
+package components;
 
-import components.StickFigure;
 import data.KeyBindings;
 import data.StickFigureAction;
 import data.StickFigureActionCoordinates;
