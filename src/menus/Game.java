@@ -69,6 +69,14 @@ public class Game extends JPanel {
 
         for (Obstacle o: obstacles)
         {
+            int xOrig = o.getxPos();
+            int yOrig = o.getyPos();
+            o.updatePosition();
+            if (o.isCollision(obstacles))
+            {
+                o.setxPos(xOrig);
+                o.setyPos(yOrig);
+            }
             o.draw(g2);
         }
     }
