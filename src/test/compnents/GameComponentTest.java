@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.awt.*;
 
+import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 import static junit.framework.TestCase.*;
 
 /**

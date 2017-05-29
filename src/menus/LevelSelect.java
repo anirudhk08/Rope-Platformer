@@ -16,7 +16,7 @@ import static menus.GameWindowConstants.*;
  * such as textboxes, labels, combo boxes, etc...
  */
 
-public  class LevelSelect extends JPanel implements ActionListener{
+public class LevelSelect extends JPanel implements ActionListener{
 
     /**
      * Combobox to display a list of game levels

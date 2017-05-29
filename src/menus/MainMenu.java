@@ -18,7 +18,9 @@ public class MainMenu extends JPanel {
      * @param parent - Game Window
      */
     public MainMenu(Window parent) {
+
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+
         JButton btnNewButton = new JButton("Level Select");
         btnNewButton.setBackground(Color.CYAN);
         btnNewButton.setBounds(18, 215, 117, 29);
@@ -34,7 +36,7 @@ public class MainMenu extends JPanel {
         lblNewLabel.setForeground(SystemColor.desktop);
         Image img = new ImageIcon("resources/platformer.png").getImage();
         lblNewLabel.setIcon(new ImageIcon(img));
-        lblNewLabel.setBounds(0,0, 450, 278);
+        lblNewLabel.setBounds(0,0, 1000, 1000);
         add(lblNewLabel);
 
 //        Panel panel = new Panel();
