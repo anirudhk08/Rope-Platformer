@@ -30,7 +30,6 @@ public class Obstacle extends GameComponent
      */
     private boolean move;
 
-
     /**
      * Constructor to initialize obstacle with its coordinates, widhth, height, color
      * and if it can move in random direction.
@@ -42,8 +41,7 @@ public class Obstacle extends GameComponent
      * @param height - height of the obstacle object
      * @param move - indicates if the obstacle can move or not
      */
-    public Obstacle(double startX, double startY, Color color, int width, int height, boolean move)
-    {
+    public Obstacle(int startX, int startY, Color color, int width, int height, boolean move) {
         super(startX, startY, width, height);
 
         this.color = color;
@@ -209,8 +207,8 @@ public class Obstacle extends GameComponent
     {
         if (move)
         {
-            double xOrig = xPos;
-            double yOrig = yPos;
+            int xOrig = xPos;
+            int yOrig = yPos;
 
 
             xPos += getRandomDirection();
@@ -233,7 +231,7 @@ public class Obstacle extends GameComponent
      * @param xPos - center x coordinate of obstacle
      * @param yPos - center y coordinate of obstacle
      */
-    public void updatePosition(double xPos, double yPos)
+    public void updatePosition(int xPos, int yPos)
     {
         this.xPos = xPos;
         this.yPos = yPos;

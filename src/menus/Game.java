@@ -153,8 +153,8 @@ public class Game extends JPanel {
         for (Obstacle o: obstacles)
         {
             if (o.canMove()) {
-                double xOrig = o.getxPos();
-                double yOrig = o.getyPos();
+                int xOrig = o.getxPos();
+                int yOrig = o.getyPos();
                 o.updatePosition();
                 if (map.isCollision(o))
                 {

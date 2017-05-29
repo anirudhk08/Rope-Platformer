@@ -12,7 +12,7 @@ import java.awt.*;
  */
 public abstract class GameComponent
 {
-    protected double xPos, yPos; // center
+    protected int xPos, yPos; // center
     protected int height, width;
     protected JPanel parent;
     protected Image image;
@@ -77,6 +77,7 @@ public abstract class GameComponent
         width = w;
     }
 
+
     /**
      * Constructor to initialize the center coordinates,
      * height and width of the game component
@@ -86,7 +87,7 @@ public abstract class GameComponent
      * @param w - width of the game component
      * @param h - height of the game component
      */
-    public GameComponent(double x, double y, int w, int h)
+    public GameComponent(int x, int y, int w, int h)
     {
         xPos = x;
         yPos = y;
@@ -107,7 +108,6 @@ public abstract class GameComponent
         return harmful;
     }
 
-
     /**
      * Method to get the top edge of the game component.
      *
@@ -115,7 +115,7 @@ public abstract class GameComponent
      */
     public int getTopEdge()
     {
-        return (int)yPos - height/2;
+        return yPos - height/2;
     }
 
     /**
@@ -135,7 +135,7 @@ public abstract class GameComponent
      */
     public int getRightEdge()
     {
-        return (int)xPos + width / 2;
+        return xPos + width / 2;
     }
 
     /**
@@ -153,8 +153,7 @@ public abstract class GameComponent
      *
      * @return - center x-coordinate of game component
      */
-    public double getxPos()
-    {
+    public int getxPos() {
         return xPos;
     }
 
@@ -163,9 +162,9 @@ public abstract class GameComponent
      *
      * @return - center y-coordinate of game component
      */
-    public double getyPos()
+    public int getyPos()
     {
-        return yPos;
+        return xPos;
     }
 
     /**
@@ -192,8 +191,7 @@ public abstract class GameComponent
      * @return - true if game component has image
      *   false if game component doesn't have an image
      */
-    public boolean hasImage()
-    {
-        return image == null;
+    public boolean hasImage() {
+        return image != null;
     }
 }

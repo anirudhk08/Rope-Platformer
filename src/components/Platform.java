@@ -17,7 +17,6 @@ import static menus.GameLevelConstants.LEVEL_UNBEARABLE;
  *
  */
 public class Platform extends GameComponent {
-
     /**
      * Constructor to initialize the Platform component with center
      * coordinates, width and height of game component
@@ -27,7 +26,7 @@ public class Platform extends GameComponent {
      * @param width - width of the Platform instance
      * @param height - height of the Platform instance
      */
-    public Platform(double x, double y, int width, int height)
+    public Platform(int x, int y, int width, int height)
     {
         super(x, y, width, height);
         this.harmful = false;
