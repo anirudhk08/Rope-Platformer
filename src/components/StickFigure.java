@@ -57,7 +57,7 @@ public class StickFigure extends PhysicsComponent {
 
     public void jump() {
         if (isStandingOnPlatform()) {
-            yVel = -4;
+            yVel = -4.5;
             jumping = true;
         } else rope = null;
     }
