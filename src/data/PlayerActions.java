@@ -1,9 +1,14 @@
 package data;
 
 /**
- * Created by axu047 on 5/23/2017.
+ * This enumeration defines all the possible
+ * player actions. These player actions are used
+ * by other classes.
  */
 public enum PlayerActions {
+    /**
+     * Player actions
+     */
     MOVE_LEFT,
     MOVE_RIGHT,
     EXIT,

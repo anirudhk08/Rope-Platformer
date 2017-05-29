@@ -1,7 +1,7 @@
 package data;
 
 /**
- * Created by axu047 on 5/23/2017.
+ * Class to perform animations on stick figure
  */
 public class StickFigureAnimations {
 

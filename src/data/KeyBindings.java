@@ -7,12 +7,24 @@ import java.awt.event.MouseEvent;
 import java.util.HashMap;
 
 /**
- * Created by axu047 on 5/23/2017.
+ * The KeyBindings class is a HashMap<Integer, PlayerAction> that specifically maps
+ * KeyEvent and MouseEvent constants (for example, KeyEvent.VK_A) to PlayerAction enums
+ * that specify actions. When this class is instantiated, it can read predefined keyboard
+ * settings from a file or directly set them in the constructor. The Player can register
+ * actions with the input() method, which will query the PlayerAction based on the input and
+ * return a lambda that contains the matching method in StickFigure.
  */
 public class KeyBindings extends HashMap<Integer, PlayerActions> {
 
+    /**
+     * KeyBindings is a HashMap<Integer, Player> to map
+     * keyboard or mouse inputs to StickFigure movements.
+     */
     private HashMap<PlayerActions, Integer> reverseMap;
 
+    /**
+     * This is the constructor to initizlize key bindings
+     */
     public KeyBindings() {
         reverseMap = new HashMap<>();
         put(KeyEvent.VK_A, PlayerActions.MOVE_LEFT);
@@ -23,6 +35,12 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
         put(MouseEvent.BUTTON3, PlayerActions.GRAPPLE);
     }
 
+    /**
+     * This method maps an integer to player
+     * @param i - key
+     * @param p - player (value)
+     * @return - map associated with the player actions
+     */
     @Override
     public PlayerActions put(Integer i, PlayerActions p) {
         PlayerActions swap = null;
@@ -40,6 +58,12 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
         return swap;
     }
 
+    /**
+     * This method removes the player from
+     * the map if present.
+     * @param key - player to be removed
+     * @return - Hashmap of the player actions
+     */
     @Override
     public PlayerActions remove(Object key) {
         if (key instanceof PlayerActions) {
@@ -59,6 +83,14 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
         } else return null;
     }
 
+    /**
+     * This method receives the keyboard events
+     * and performs the corresponding action on the
+     * stick figure.
+     * @param k - key board event
+     * @param s - stick figure instance
+     * @return - action to be performed on the StickFigure
+     */
     public StickFigureAction input(KeyEvent k, StickFigure s) {
         PlayerActions action = get(k.getKeyCode());
         if (action == null) return this::doNothing;
@@ -76,6 +108,13 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
 
     }
 
+    /**
+     * This method captures the mouse events, coordinates, and
+     * returns the action to be performed on Stick Figure.
+     * @param m - the input mouse event
+     * @param s - stick figure instance
+     * @return - action to be performed on stick figure
+     */
     public StickFigureActionCoordinates click(MouseEvent m, StickFigure s) {
         PlayerActions action = get(m.getButton());
         if (action == null) return this::doNothing;
@@ -89,6 +128,14 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
         }
     }
 
+    /**
+     * This method determines if Stick Figure can
+     * be stopped from moving.
+     * @param e - input keyboard event
+     * @param s - stick figure
+     * @return - specifies nothing or stop
+     * moving action to be performed on stick figure
+     */
     public StickFigureAction release(KeyEvent e, StickFigure s) {
         PlayerActions action = get(e.getKeyCode());
         if (action == null) return this::doNothing;
@@ -102,7 +149,23 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
         }
     }
 
-    private void doNothing() {
+    /**
+     * This method specifies that no action
+     * should be performed on stick figure.
+     */
+    private void doNothing()
+    {
     }
-    private void doNothing(double n, double m) {}
+
+    /**
+     * This method specifies that no action
+     * should be performed on stick figure
+     *
+     * @param n - x coordinate
+     * @param m - y coordinate
+     */
+    private void doNothing(double n, double m)
+    {
+
+    }
 }

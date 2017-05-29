@@ -1,10 +1,14 @@
 package data;
 
 /**
- * Created by axu047 on 5/23/2017.
+ * Interface for Stick Figure actions
  */
 
 @FunctionalInterface
 public interface StickFigureAction {
+
+    /**
+     * Method to perform action on Stick Figure
+     */
     void action();
 }
