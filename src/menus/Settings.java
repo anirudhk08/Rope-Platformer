@@ -5,10 +5,7 @@ import data.PlayerActions;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 import static menus.GameWindowConstants.*;
 
@@ -172,9 +169,17 @@ public class Settings extends JPanel
         btnBack.addActionListener(e -> parent.goToMainMenu());
         add(btnBack);
 
-        JComboBox comboBox = new JComboBox();
+        JComboBox comboBox = new JComboBox() {
+            @Override
+            public void setPopupVisible(boolean v)
+            {
+                super.setPopupVisible(true);
+            }
+
+        };
+        comboBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Left Mouse Button", "Right Mouse Button"}));
-        comboBox.setBounds(138, 487, 179, 36);
+        comboBox.setBounds(138, 487, 200, 45);
         comboBox.setEnabled(true);
         comboBox.setMaximumRowCount(8);
         comboBox.addActionListener(e -> {
@@ -192,6 +197,20 @@ public class Settings extends JPanel
                label.setText("Left Mouse Button");
             }
         });
+
+        comboBox.addHierarchyListener(new HierarchyListener() {
+            @Override
+            public void hierarchyChanged(HierarchyEvent e) {
+                if((e.getChangeFlags() & HierarchyEvent.SHOWING_CHANGED)>0 && comboBox.isShowing()) {
+                    System.out.println("Showing");
+                    comboBox.setPopupVisible(true);
+                    comboBox.requestFocus();
+                    comboBox.showPopup();
+                }
+            }
+        });
+
+
         comboBox.setVisible(true);
         add(comboBox);
 
