@@ -4,6 +4,7 @@ import data.KeyBindings;
 import data.PlayerActions;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -40,28 +41,35 @@ public class Settings extends JPanel
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setLayout(null);
 
+
         JLabel lblWelcomeToSettings = new JLabel("Welcome to Settings");
-        lblWelcomeToSettings.setBounds(150, 6, 135, 16);
+        lblWelcomeToSettings.setBounds(346, 6, 322, 36);
+        lblWelcomeToSettings.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         add(lblWelcomeToSettings);
 
         JLabel lblChooseKeyBindings = new JLabel("Choose key bindings (press backspace to change)");
-        lblChooseKeyBindings.setBounds(16, 36, 310, 16);
+        lblChooseKeyBindings.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+        lblChooseKeyBindings.setBounds(16, 36, 554, 36);
         add(lblChooseKeyBindings);
 
         JLabel lblRight = new JLabel("Right");
-        lblRight.setBounds(16, 65, 61, 16);
+        lblRight.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+        lblRight.setBounds(16, 99, 95, 36);
         add(lblRight);
 
         JLabel lblLeft = new JLabel("Left");
-        lblLeft.setBounds(16, 93, 61, 16);
+        lblLeft.setBounds(16, 198, 85, 36);
+        lblLeft.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         add(lblLeft);
 
         JLabel lblJump = new JLabel("Jump");
-        lblJump.setBounds(16, 126, 61, 16);
+        lblJump.setBounds(16, 330, 85, 36);
+        lblJump.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         add(lblJump);
 
         JTextArea textArea = new JTextArea();
-        textArea.setBounds(90, 64, 94, 16);
+        textArea.setBounds(118, 109, 172, 27);
+        textArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         textArea.setText("D");
         textArea.setEditable(false);
         textArea.addMouseListener(new MouseListener() {
@@ -93,7 +101,8 @@ public class Settings extends JPanel
         add(textArea);
 
         JTextArea textArea_1 = new JTextArea();
-        textArea_1.setBounds(89, 93, 95, 16);
+        textArea_1.setBounds(118, 208, 172, 27);
+        textArea_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         textArea_1.setEditable(false);
         textArea_1.setText("A");
         textArea_1.addMouseListener(new MouseListener() {
@@ -125,7 +134,8 @@ public class Settings extends JPanel
         add(textArea_1);
 
         JTextArea textArea_4 = new JTextArea();
-        textArea_4.setBounds(89, 126, 99, 16);
+        textArea_4.setBounds(113, 340, 172, 27);
+        textArea_4.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         textArea_4.setEditable(false);
         textArea_4.setText("SPACE");
         textArea_4.addMouseListener(new MouseListener() {
@@ -157,13 +167,16 @@ public class Settings extends JPanel
         add(textArea_4);
 
         JButton btnBack = new JButton("Back");
-        btnBack.setBounds(6, 228, 117, 29);
+        btnBack.setBounds(519, 347, 314, 90);
+        btnBack.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         btnBack.addActionListener(e -> parent.goToMainMenu());
         add(btnBack);
 
         JComboBox comboBox = new JComboBox();
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Left Mouse Button", "Right Mouse Button"}));
-        comboBox.setBounds(90, 167, 200, 27);
+        comboBox.setBounds(138, 487, 179, 36);
+        comboBox.setEnabled(true);
+        comboBox.setMaximumRowCount(8);
         comboBox.addActionListener(e -> {
             String name = (String) comboBox.getSelectedItem();
             if ( name.equals("Left Mouse Button") )
@@ -291,15 +304,28 @@ public class Settings extends JPanel
         });
 
         JLabel lblSwingRope = new JLabel("Swing Rope ");
-        lblSwingRope.setBounds(16, 171, 85, 16);
+        lblSwingRope.setBounds(16, 486, 123, 36);
+        lblSwingRope.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         add(lblSwingRope);
 
         JLabel lblGrappleHook = new JLabel("Grapple Hook");
-        lblGrappleHook.setBounds(16, 200, 94, 16);
+        lblGrappleHook.setBounds(16, 654, 164, 38);
+        lblGrappleHook.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         add(lblGrappleHook);
 
-        label.setBounds(126, 200, 198, 16);
+        label.setBounds(194, 654, 238, 36);
+        label.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         add(label);
+
+        JLabel lblExitGame = new JLabel("Exit Game");
+        lblExitGame.setBounds(519, 99, 129, 36);
+        lblExitGame.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+        add(lblExitGame);
+
+        JTextArea textArea_2 = new JTextArea();
+        textArea_2.setBounds(669, 99, 143, 36);
+        textArea_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+        add(textArea_2);
 
     }
 
