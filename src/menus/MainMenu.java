@@ -22,21 +22,25 @@ public class MainMenu extends JPanel {
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 
         JButton btnNewButton = new JButton("Level Select");
-        btnNewButton.setBackground(Color.CYAN);
-        btnNewButton.setBounds(18, 215, 117, 29);
+        btnNewButton.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
+        btnNewButton.setForeground(Color.BLACK);
+        btnNewButton.setBounds(786, 191, 208, 76);
         btnNewButton.addActionListener(e -> parent.goToLevelSelect());
         add(btnNewButton);
 
         JButton btnNewButton_1 = new JButton("Settings");
-        btnNewButton_1.setBounds(176, 215, 117, 29);
+        btnNewButton_1.setForeground(Color.BLACK);
+        btnNewButton_1.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
+        btnNewButton_1.setBounds(786, 389, 208, 76);
         btnNewButton_1.addActionListener(e -> parent.goToSettings());
         add(btnNewButton_1);
 
+
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setForeground(SystemColor.desktop);
-        Image img = new ImageIcon("resources/platformer.png").getImage();
+        Image img = new ImageIcon("resources/amazingspiderman.png").getImage();
         lblNewLabel.setIcon(new ImageIcon(img));
-        lblNewLabel.setBounds(0,0, 1000, 1000);
+        lblNewLabel.setBounds(0, 0, 1010, 900);
         add(lblNewLabel);
 
 //        Panel panel = new Panel();
