@@ -207,8 +207,8 @@ public class Obstacle extends GameComponent
     {
         if (move)
         {
-            int xOrig = xPos;
-            int yOrig = yPos;
+            int xOrig = (int) xPos;
+            int yOrig = (int) yPos;
 
 
             xPos += getRandomDirection();

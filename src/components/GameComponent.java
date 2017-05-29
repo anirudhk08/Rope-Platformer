@@ -12,7 +12,7 @@ import java.awt.*;
  */
 public abstract class GameComponent
 {
-    protected int xPos, yPos; // center
+    protected double xPos, yPos; // center
     protected int height, width;
     protected JPanel parent;
     protected Image image;
@@ -115,7 +115,7 @@ public abstract class GameComponent
      */
     public int getTopEdge()
     {
-        return yPos - height/2;
+        return (int) (yPos - height/2);
     }
 
     /**
@@ -135,7 +135,7 @@ public abstract class GameComponent
      */
     public int getRightEdge()
     {
-        return xPos + width / 2;
+        return (int) (xPos + width / 2);
     }
 
     /**
@@ -154,7 +154,7 @@ public abstract class GameComponent
      * @return - center x-coordinate of game component
      */
     public int getxPos() {
-        return xPos;
+        return (int) xPos;
     }
 
     /**
@@ -164,7 +164,7 @@ public abstract class GameComponent
      */
     public int getyPos()
     {
-        return xPos;
+        return (int) xPos;
     }
 
     /**
