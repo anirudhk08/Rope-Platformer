@@ -14,9 +14,12 @@ import static junit.framework.TestCase.*;
  * Created by aubhrosengupta on 5/28/17.
  */
 public class ObstacleTest {
+
+    private Obstacle o;
+
     @Before
     public void setUp() throws Exception {
-        Obstacle o = new Obstacle(0, 0, Color.black, 20, 20, false);
+        o = new Obstacle(0, 0, Color.black, 20, 20, false);
     }
 
     @Test
@@ -42,6 +45,7 @@ public class ObstacleTest {
 
     @Test
     public void canMove() throws Exception {
+        assertFalse(o.canMove());
     }
 
 }
