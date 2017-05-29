@@ -4,7 +4,10 @@ import components.Rope;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.testng.AssertJUnit.*;
+import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertFalse;
+
 
 /**
  * Created by aubhrosengupta on 5/29/17.

@@ -206,6 +206,11 @@ public class StickFigure extends PhysicsComponent
         }
     }
 
+    public boolean win() {
+        return Math.abs(this.xPos - 975) <= (this.width / 2 + 25) &&
+                Math.abs(this.yPos - 550) <= (this.height / 2 + 250);
+    }
+
     /**
      * Method to draw the stick figure component
      *
@@ -228,6 +233,10 @@ public class StickFigure extends PhysicsComponent
      */
     @Override
     public void update() {
+        if (win()) {
+            parent.loadNextLevel();
+            return;
+        }
         if (isTouchingObstacle()) {
             restart();
             return;

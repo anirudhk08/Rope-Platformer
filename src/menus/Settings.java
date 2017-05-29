@@ -5,10 +5,7 @@ import data.PlayerActions;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 import static menus.GameWindowConstants.*;
 
@@ -166,15 +163,57 @@ public class Settings extends JPanel
         });
         add(textArea_4);
 
+        JTextArea textArea_2 = new JTextArea();
+        textArea_2.setBounds(669, 99, 143, 36);
+        textArea_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+        textArea_2.setEditable(false);
+        textArea_2.setText("ESCAPE");
+        textArea_2.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                textArea_2.selectAll();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        add(textArea_2);
+
         JButton btnBack = new JButton("Back");
         btnBack.setBounds(519, 347, 314, 90);
         btnBack.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         btnBack.addActionListener(e -> parent.goToMainMenu());
         add(btnBack);
 
-        JComboBox comboBox = new JComboBox();
+        JComboBox comboBox = new JComboBox() ;
+//        {
+//            @Override
+//            public void setPopupVisible(boolean v)
+//            {
+//                setPopupVisible(true);
+//            }
+//
+//        };
+        comboBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Left Mouse Button", "Right Mouse Button"}));
-        comboBox.setBounds(138, 487, 179, 36);
+        comboBox.setBounds(138, 487, 200, 45);
         comboBox.setEnabled(true);
         comboBox.setMaximumRowCount(8);
         comboBox.addActionListener(e -> {
@@ -192,6 +231,20 @@ public class Settings extends JPanel
                label.setText("Left Mouse Button");
             }
         });
+
+        comboBox.addHierarchyListener(new HierarchyListener() {
+            @Override
+            public void hierarchyChanged(HierarchyEvent e) {
+                if((e.getChangeFlags() & HierarchyEvent.SHOWING_CHANGED)>0 && comboBox.isShowing()) {
+                    System.out.println("Showing");
+                    comboBox.setPopupVisible(true);
+                    comboBox.requestFocus();
+                    comboBox.showPopup();
+                }
+            }
+        });
+
+
         comboBox.setVisible(true);
         add(comboBox);
 
@@ -217,6 +270,9 @@ public class Settings extends JPanel
                                 break;
                             case JUMP:
                                 textArea_4.setText("Enter new key...");
+                                break;
+                            case EXIT:
+                                textArea_2.setText("Enter new key...");
                                 break;
                         }
                     }
@@ -254,6 +310,9 @@ public class Settings extends JPanel
                             case JUMP:
                                 textArea_4.setText("Enter new key...");
                                 break;
+                            case EXIT:
+                                textArea_2.setText("Enter new key...");
+                                break;
                         }
                     }
                     textArea_1.setText(convertKeyCode(e));
@@ -290,6 +349,9 @@ public class Settings extends JPanel
                             case MOVE_LEFT:
                                 textArea_1.setText("Enter new key...");
                                 break;
+                            case EXIT:
+                                textArea_2.setText("Enter new key...");
+                                break;
                         }
                     }
                     textArea_4.setText(convertKeyCode(e));
@@ -322,10 +384,46 @@ public class Settings extends JPanel
         lblExitGame.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         add(lblExitGame);
 
-        JTextArea textArea_2 = new JTextArea();
-        textArea_2.setBounds(669, 99, 143, 36);
-        textArea_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-        add(textArea_2);
+
+        // ESC
+        textArea_2.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e)
+            {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                int i = e.getKeyCode();
+                if (i == KeyEvent.VK_BACK_SPACE || i == KeyEvent.VK_DELETE) {
+                    settings.remove(PlayerActions.EXIT);
+                    textArea_2.setText("Enter new key...");
+                } else if (textArea_2.getText().equals("Enter new key...")) {
+                    PlayerActions p = settings.put(e.getKeyCode(), PlayerActions.EXIT);
+                    if (p != null) {
+                        switch (p) {
+                            case MOVE_RIGHT:
+                                textArea.setText("Enter new key...");
+                                break;
+                            case MOVE_LEFT:
+                                textArea_1.setText("Enter new key...");
+                                break;
+                            case JUMP:
+                                textArea_4.setText("Enter new key...");
+                                break;
+                        }
+                    }
+                    textArea_2.setText(convertKeyCode(e));
+                }
+                textArea_2.selectAll();
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
 
     }
 
