@@ -95,6 +95,10 @@ public class Obstacle extends GameComponent
     private static void createIntroObstacles(ArrayList<Obstacle> obstacles)
     {
         obstacles.add(new Obstacle(500, 50, Color.BLUE, 150, 75, true));
+
+        // place obstacles on the winning end
+        obstacles.add(new Obstacle(1000, 0, Color.GREEN, 75, 300, false));
+        obstacles.add(new Obstacle(1000, 700, Color.GREEN, 75, 300, false));
     }
 
     /**
@@ -108,6 +112,9 @@ public class Obstacle extends GameComponent
         obstacles.add(new Obstacle(500, 100, Color.RED, 150, 100, true));
         obstacles.add(new Obstacle(750, 620, Color.YELLOW, 100, 100, true));
 
+        // place obstacles on the winning end
+        obstacles.add(new Obstacle(1000, 0, Color.GREEN, 75, 500, false));
+        obstacles.add(new Obstacle(1000, 700, Color.GREEN, 75, 200, false));
     }
 
     /**
@@ -122,6 +129,9 @@ public class Obstacle extends GameComponent
         obstacles.add(new Obstacle(600, 620, Color.YELLOW, 75, 75, true));
         obstacles.add(new Obstacle(900, 250, Color.GREEN, 75, 75, true));
 
+        // place obstacles on the winning end
+        obstacles.add(new Obstacle(1000, 0, Color.CYAN, 75, 500, false));
+        obstacles.add(new Obstacle(1000, 700, Color.CYAN, 75, 300, false));
     }
 
     /**
@@ -135,6 +145,10 @@ public class Obstacle extends GameComponent
         obstacles.add(new Obstacle(500, 100, Color.RED, 150, 100, true));
         obstacles.add(new Obstacle(600, 620, Color.YELLOW, 100, 100, true));
         obstacles.add(new Obstacle(900, 250, Color.GREEN, 75, 150, true));
+
+        // place obstacles on the winning end
+        obstacles.add(new Obstacle(1000, 0, Color.CYAN, 75, 500, false));
+        obstacles.add(new Obstacle(1000, 700, Color.CYAN, 75, 300, false));
     }
 
 
@@ -150,6 +164,10 @@ public class Obstacle extends GameComponent
         obstacles.add(new Obstacle(500, 540, Color.BLUE, 70, 70, true));
         obstacles.add(new Obstacle(640, 200, Color.ORANGE, 50, 50, true));
         obstacles.add(new Obstacle(800, 540, Color.CYAN, 90, 90, true));
+
+        // place obstacles on the winning end
+        obstacles.add(new Obstacle(1000, 0, Color.GREEN, 75, 300, false));
+        obstacles.add(new Obstacle(1000, 700, Color.GREEN, 75, 300, false));
     }
 
     /**
@@ -166,6 +184,10 @@ public class Obstacle extends GameComponent
         obstacles.add(new Obstacle(200, 400, Color.ORANGE, 50, 50, true));
         obstacles.add(new Obstacle(700, 100, Color.MAGENTA, 50, 50, true));
         obstacles.add(new Obstacle(700, 500, Color.GREEN, 50, 50, true));
+
+        // place obstacles on the winning end
+        obstacles.add(new Obstacle(1000, 0, Color.GREEN, 75, 300, false));
+        obstacles.add(new Obstacle(1000, 700, Color.GREEN, 75, 300, false));
     }
 
 

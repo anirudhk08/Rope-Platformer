@@ -101,7 +101,7 @@ public class Platform extends GameComponent {
     private static void createCoolPlatforms(ArrayList<Platform> p)
     {
         p.add(new Platform(150, 500, 250, 20));
-        p.add(new Platform(800, 400, 100, 20));
+        p.add(new Platform(700, 300, 100, 20));
         p.add(new Platform(700, 700, 250, 20));
     }
 
@@ -113,7 +113,7 @@ public class Platform extends GameComponent {
     private static void createScaryPlatforms(ArrayList<Platform> p)
     {
         p.add(new Platform(150, 500, 250, 20));
-        p.add(new Platform(800, 400, 100, 20));
+        p.add(new Platform(750, 300, 100, 20));
         p.add(new Platform(700, 700, 250, 20));
     }
 
