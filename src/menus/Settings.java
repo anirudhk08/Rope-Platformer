@@ -202,14 +202,15 @@ public class Settings extends JPanel
         btnBack.addActionListener(e -> parent.goToMainMenu());
         add(btnBack);
 
-        JComboBox comboBox = new JComboBox() {
-            @Override
-            public void setPopupVisible(boolean v)
-            {
-                setPopupVisible(true);
-            }
-
-        };
+        JComboBox comboBox = new JComboBox() ;
+//        {
+//            @Override
+//            public void setPopupVisible(boolean v)
+//            {
+//                setPopupVisible(true);
+//            }
+//
+//        };
         comboBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Left Mouse Button", "Right Mouse Button"}));
         comboBox.setBounds(138, 487, 200, 45);
