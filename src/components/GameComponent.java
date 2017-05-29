@@ -155,8 +155,9 @@ public abstract class GameComponent
      *
      * @return - center x-coordinate of game component
      */
-    public int getxPos() {
-        return (int) xPos;
+    public double getxPos()
+    {
+        return xPos;
     }
 
     /**
@@ -164,9 +165,9 @@ public abstract class GameComponent
      *
      * @return - center y-coordinate of game component
      */
-    public int getyPos()
+    public double getyPos()
     {
-        return (int) xPos;
+        return yPos;
     }
 
     /**
