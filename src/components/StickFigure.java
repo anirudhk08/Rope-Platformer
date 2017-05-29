@@ -16,45 +16,114 @@ import static menus.PhysicsConstants.G;
 import static menus.PhysicsConstants.GRAPPLE_VELOCITY;
 
 /**
- * Created by axu047 on 5/4/2017.
+ * The StickFigure class is a PhysicsComponent: this is the stick
+ * figure that moves around levels. A StickFigure can move by changing
+ * its horizontal velocity and jump by changing its vertical velocity.
+ *
+ * StickFigures can create Ropes for swinging and grappling, and use
+ * special code for handling physics.
+ *
  */
-public class StickFigure extends PhysicsComponent {
+public class StickFigure extends PhysicsComponent
+{
 
+    /**
+     * Image of the stick object
+     */
     private BufferedImage stickImage;
+
+    /**
+     * Rope object in use
+     */
     private Rope rope;
+
+    /**
+     * Map of all game components in use
+     *
+     */
     private Level map;
+
+    /**
+     * Flag to if stick figure is moving forward, idle
+     * or in jump mode.
+     *
+     */
     private boolean leftToRight, moving, jumping;
+
+    /**
+     * Kinetic, potential of stick figure
+     *
+     */
     private double kinetic, potential;
 
 
-    public StickFigure(JPanel panel, Image i, Level m) {
+    /**
+     * Constructor to initialize stick figure with GUI panel,
+     * image and register with game components.
+     *
+     * @param panel - GUI panel
+     * @param i - Image of stick figure
+     * @param m - Map of game components
+     *
+     */
+    public StickFigure(JPanel panel, Image i, Level m)
+    {
         super(m.getStartX(), m.getStartY(), panel, i);
 
         map = m;
 
     }
 
-    public int platformTopPos() {
-        for (GameComponent g : map) {
-            if (isTouching(g)) {
+
+    /**
+     * Method to get the top edge of the touching
+     * game component
+     *
+     * @return - top edge
+     */
+    public int platformTopPos()
+    {
+        for (GameComponent g : map)
+        {
+            if (isTouching(g))
+            {
                 return g.getTopEdge();
             }
         }
+
         return Integer.MAX_VALUE;
     }
 
-    public boolean isStandingOnPlatform() {
+    /**
+     * Method to indicate if stick figure is standing on platform
+     *
+     * @return - true if stick figure is standing on platform
+     *      - false if stick figure is not standing on platform
+     *
+     */
+    public boolean isStandingOnPlatform()
+    {
         for (GameComponent g : map)
             if (isTouching(g) && getBottomEdge() < g.getBottomEdge()) return true;
         return false;
     }
 
+    /**
+     * Method to know if the stick figure is touching the obstacle
+     * or not
+     * @return - true if stick figure is touching the obstacle
+     *         - false if stick figure is not touching the obstacle
+     */
     public boolean isTouchingObstacle() {
         for (GameComponent g : map)
             if (isTouching(g) && g instanceof Obstacle) return true;
         return false;
     }
 
+
+    /**
+     * Method to process the jump of a stick figure
+     */
     public void jump() {
         if (isStandingOnPlatform()) {
             yVel = -4.5;
@@ -62,6 +131,10 @@ public class StickFigure extends PhysicsComponent {
         } else rope = null;
     }
 
+    /**
+     * Method to move stick figure to the right
+     *
+     */
     public void moveRight() {
         if (isStandingOnPlatform()) {
             xVel = 1;
@@ -69,6 +142,9 @@ public class StickFigure extends PhysicsComponent {
         }
     }
 
+    /**
+     * Method to move stick figure to the left
+     */
     public void moveLeft() {
         if (isStandingOnPlatform()) {
             xVel = -1;
@@ -76,8 +152,21 @@ public class StickFigure extends PhysicsComponent {
         }
     }
 
+    /**
+     * Method to get the kinetic of stick figure
+     *
+     * @return - kinetic
+     *
+     */
     public double getKinetic() { return kinetic; }
 
+    /**
+     * Method to swing the stick figure
+     *
+     * @param x - x coordinate
+     * @param y - y coordinate
+     *
+     */
     public void swing(int x, int y) {
         rope = new Rope(x, y, true, this);
         leftToRight = rope.angleToVertical() > 0;
@@ -89,11 +178,22 @@ public class StickFigure extends PhysicsComponent {
         moving = false;
     }
 
+    /**
+     * Method to grapple with stick figure
+     *
+     * @param x - x coordinate
+     * @param y - y coordinate
+     *
+     */
     public void grapple(int x, int y) {
         rope = new Rope(x, y, false, this);
         moving = false;
     }
 
+    /**
+     * Method to stop the moving stick figure
+     *
+     */
     public void stopMoving() {
         if (isStandingOnPlatform()) {
             xVel = 0;
@@ -101,6 +201,12 @@ public class StickFigure extends PhysicsComponent {
         }
     }
 
+    /**
+     * Method to draw the stick figure component
+     *
+     * @param g - graphics object
+     *
+     */
     @Override
     public void draw(Graphics2D g) {
         updatePos();
@@ -109,6 +215,11 @@ public class StickFigure extends PhysicsComponent {
         super.draw(g);
     }
 
+    /**
+     * Method to check and update the stick figure to its starting
+     * position
+     *
+     */
     @Override
     public void update() {
         if (isTouchingObstacle()) {
@@ -167,6 +278,11 @@ public class StickFigure extends PhysicsComponent {
         else if (!standing) yVel += G;
     }
 
+    /**
+     * Method to update the energy of stick figure
+     *
+     * @return - energy
+     */
     private double updateEnergy() { // return vel
         double height = Math.abs(rope.yPos + rope.length() - yPos);
         double newPotential = height * G;
@@ -179,6 +295,9 @@ public class StickFigure extends PhysicsComponent {
         return newVel;
     }
 
+    /**
+     * Method to move stick figure to starting position
+     */
     private void restart() {
         xPos = map.getStartX();
         yPos = map.getStartY();

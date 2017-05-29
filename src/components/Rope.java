@@ -6,40 +6,114 @@ import java.awt.geom.Line2D;
 import java.text.DecimalFormat;
 
 /**
- * Created by axu047 on 5/4/2017.
+ * A Rope is a GameComponent. The Rope is what the stick figure uses
+ * to swing or to grapple; each Rope can be one type or the other. A
+ * Rope has a reference to the stick figure and contains special methods
+ * for calculating its angle to the vertical and distance to the stick
+ * figure: these methods are used for implementing swinging physics.
+ *
+ * A rope is drawn with a straight black line.
+ *
  */
-public class Rope extends GameComponent {
+public class Rope extends GameComponent
+{
 
+    /**
+     * Stick figure object
+     */
     private StickFigure owner;
+
+    /**
+     * Flag to indicate if rope is swing mode
+     */
     private boolean swing;
+
+    /**
+     * Rope length
+     */
     private double length;
 
-    public Rope(int x, int y, boolean isSwingingRope, StickFigure person) {
+    /**
+     * Constructor to initialize Rope instance with coordinates,
+     * swing mode and the Stick Figure
+     *
+     * @param x - x coordinate
+     * @param y - y coordinate
+     * @param isSwingingRope - flag to indicate swing mode
+     * @param person - Stick figure object
+     */
+    public Rope(int x, int y, boolean isSwingingRope, StickFigure person)
+    {
         super(x, y);
         swing = isSwingingRope;
         owner = person;
         length = distance();
     }
 
-    public boolean isSwingingRope() { return swing; }
-    public boolean isGrapplingRope() { return !swing; }
+    /**
+     * Method to know if rope is in swing mode.
+     *
+     * @return - true if rope is in swing mode
+     *    - false if rope is not in swing mode
+     */
+    public boolean isSwingingRope()
+    {
+        return swing;
+    }
 
+    /**
+     * Method to indicate if rope in grapple mode.
+     *
+     * @return - true if rope is in grapple mode
+     *      - false if rope is not in grapple mode
+     */
+    public boolean isGrapplingRope()
+    {
+        return !swing;
+    }
+
+    /**
+     * Method to draw the Rope component
+     *
+     * @param g - graphics object
+     */
     @Override
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D g)
+    {
         if (owner.getKinetic() < 1.5 && isSwingingRope()) g.setColor(Color.RED);
         else g.setColor(Color.BLACK);
         g.draw(new Line2D.Double(xPos, yPos, owner.xPos, owner.yPos));
     }
 
-    public double length() { return length; }
+    /**
+     * Method to get the rope length.
+     *
+     * @return - rope length
+     */
+    public double length()
+    {
+        return length;
+    }
 
-    public double distance() {
+    /**
+     * Method to get the distance.
+     *
+     * @return - distance
+     */
+    public double distance()
+    {
         double yDelta = owner.yPos - yPos;
         double xDelta = owner.xPos - xPos;
         return Math.sqrt(xDelta * xDelta + yDelta * yDelta);
     }
 
-    public double angleToVertical() {
+    /**
+     * Method to compute angle to Vertical
+     *
+     * @return - angle to vertical
+     */
+    public double angleToVertical()
+    {
         DecimalFormat d = new DecimalFormat("0.##############");
         double angle;
         if (owner.yPos - yPos == 0.0) {
@@ -60,7 +134,13 @@ public class Rope extends GameComponent {
         }
     }
 
-    public double angleFromOwner() {
+    /**
+     * Method to compute angle from owner
+     *
+     * @return angle from owner
+     */
+    public double angleFromOwner()
+    {
         double yDelta = yPos - owner.yPos;
         double xDelta = xPos - owner.xPos;
         double angle = Math.atan(yDelta / xDelta);
