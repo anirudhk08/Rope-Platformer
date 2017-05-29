@@ -1,5 +1,7 @@
 package components;
 
+import menus.Game;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,7 +16,7 @@ public abstract class GameComponent
 {
     protected double xPos, yPos; // center
     protected int height, width;
-    protected JPanel parent;
+    protected Game parent;
     protected Image image;
     protected boolean harmful = false;
 
@@ -51,7 +53,7 @@ public abstract class GameComponent
      * @param p - JPanel of the game component
      * @param i - Image of the game component
      */
-    public GameComponent(int x, int y, JPanel p, Image i)
+    public GameComponent(int x, int y, Game p, Image i)
     {
         this(x, y);
         height = i.getHeight(p);
@@ -70,7 +72,7 @@ public abstract class GameComponent
      * @param h - height of the game component
      * @param w - width of the game component
      */
-    public GameComponent(int x, int y, JPanel p, Image i, int h, int w)
+    public GameComponent(int x, int y, Game p, Image i, int h, int w)
     {
         this(x, y, p, i);
         height = h;

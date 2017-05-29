@@ -2,6 +2,7 @@
 package components;
 
 import data.Level;
+import menus.Game;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -66,7 +67,7 @@ public class StickFigure extends PhysicsComponent
      * @param m - Map of game components
      *
      */
-    public StickFigure(JPanel panel, Image i, Level m)
+    public StickFigure(Game panel, Image i, Level m)
     {
         super(m.getStartX(), m.getStartY(), panel, i);
 
@@ -298,12 +299,16 @@ public class StickFigure extends PhysicsComponent
     /**
      * Method to move stick figure to starting position
      */
-    private void restart() {
+    public void restart() {
         xPos = map.getStartX();
         yPos = map.getStartY();
         yVel = G;
         xVel = 0;
         rope = null;
+    }
+
+    public void updateMap(Level newMap) {
+        map = newMap;
     }
 }
 

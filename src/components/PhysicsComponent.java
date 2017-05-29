@@ -1,5 +1,7 @@
 package components;
 
+import menus.Game;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -43,7 +45,7 @@ public abstract class PhysicsComponent extends GameComponent {
      * @param parent - GUI panel
      * @param img - image of Physics component
      */
-    public PhysicsComponent(int x, int y, JPanel parent, Image img)
+    public PhysicsComponent(int x, int y, Game parent, Image img)
     {
         super(x, y, parent, img);
     }
