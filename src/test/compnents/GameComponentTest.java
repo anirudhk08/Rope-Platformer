@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import java.awt.*;
 
-import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 import static junit.framework.TestCase.*;
 
 /**
@@ -50,12 +49,12 @@ public class GameComponentTest {
 
     @Test
     public void getxPos() throws Exception {
-        assertEquals(g.getxPos(), 0);
+        assertEquals(g.getxPos(), 0D);
     }
 
     @Test
     public void getyPos() throws Exception {
-        assertEquals(g.getyPos(), 0);
+        assertEquals(g.getyPos(), 0D);
     }
 
     @Test
