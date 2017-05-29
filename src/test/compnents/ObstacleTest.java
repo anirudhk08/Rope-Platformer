@@ -25,22 +25,22 @@ public class ObstacleTest {
     @Test
     public void createObstacles() throws Exception {
         ArrayList<Obstacle> obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_INTRO);
-        assertEquals(obstacles.size(), 1);
-
-        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_COOL);
-        assertEquals(obstacles.size(), 4);
-
-        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_GOOD);
         assertEquals(obstacles.size(), 3);
 
-        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_SCARY);
-        assertEquals(obstacles.size(), 4);
+        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_COOL);
+        assertEquals(obstacles.size(), 6);
 
-        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_UNBEARABLE);
+        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_GOOD);
         assertEquals(obstacles.size(), 5);
 
-        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_FINAL);
+        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_SCARY);
+        assertEquals(obstacles.size(), 6);
+
+        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_UNBEARABLE);
         assertEquals(obstacles.size(), 7);
+
+        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_FINAL);
+        assertEquals(obstacles.size(), 9);
     }
 
     @Test
