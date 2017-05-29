@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static menus.GameLevelConstants.LEVEL_FINAL;
 import static menus.GameWindowConstants.*;
 
 /**
@@ -58,6 +59,8 @@ public class Game extends JPanel {
 
     private Window p;
 
+    private int gameLevel;
+
 
     /**
      * List of platforms placed in the game
@@ -87,7 +90,7 @@ public class Game extends JPanel {
 
 
         // create obstacles and platforms based on game level
-        int gameLevel = LevelSelect.getGameLevel();
+        gameLevel = LevelSelect.getGameLevel();
         obstacles = Obstacle.createObstacles(gameLevel);
         platforms = Platform.createPlatforms(gameLevel);
 
@@ -122,6 +125,29 @@ public class Game extends JPanel {
         timer = new Timer((int) (1000.0 / FRAMES_PER_SECOND), al);
         timer.start();
         p.requestFocus();
+    }
+
+    public void loadNextLevel() {
+        if (gameLevel >= LEVEL_FINAL) {
+            exit();
+        } else {
+            gameLevel += 1;
+            map = new Level(0, 0, 100, 100);
+
+            obstacles = Obstacle.createObstacles(gameLevel);
+            platforms = Platform.createPlatforms(gameLevel);
+            for (Obstacle o: obstacles)
+            {
+                map.add(o);
+            }
+            for (Platform p: platforms)
+            {
+                map.add(p);
+            }
+            player.updateMap(map);
+            player.restart();
+            repaint();
+        }
     }
 
 
