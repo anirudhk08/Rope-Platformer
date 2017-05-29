@@ -17,7 +17,7 @@ public class Obstacle extends GameComponent {
     private boolean move;
 
 
-    public Obstacle(double startX, double startY, Color color, int width, int height, boolean move) {
+    public Obstacle(int startX, int startY, Color color, int width, int height, boolean move) {
         super(startX, startY, width, height);
 
         this.color = color;
@@ -122,8 +122,8 @@ public class Obstacle extends GameComponent {
     {
         if (move)
         {
-            double xOrig = xPos;
-            double yOrig = yPos;
+            int xOrig = xPos;
+            int yOrig = yPos;
 
 
             xPos += getRandomDirection();
@@ -140,7 +140,7 @@ public class Obstacle extends GameComponent {
 
     }
 
-    public void updatePosition(double xPos, double yPos)
+    public void updatePosition(int xPos, int yPos)
     {
         this.xPos = xPos;
         this.yPos = yPos;

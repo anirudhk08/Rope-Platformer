@@ -13,7 +13,7 @@ import static menus.GameLevelConstants.LEVEL_UNBEARABLE;
 public class Platform extends GameComponent {
 
 
-    public Platform(double x, double y, int width, int height)
+    public Platform(int x, int y, int width, int height)
     {
         super(x, y, width, height);
         this.harmful = false;

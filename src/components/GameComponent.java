@@ -5,7 +5,7 @@ import java.awt.*;
 
 
 public abstract class GameComponent {
-    protected double xPos, yPos; // center
+    protected int xPos, yPos; // center
     protected int height, width;
     protected JPanel parent;
     protected Image image;
@@ -36,7 +36,7 @@ public abstract class GameComponent {
         width = w;
     }
 
-    public GameComponent(double x, double y, int w, int h)
+    public GameComponent(int x, int y, int w, int h)
     {
         xPos = x;
         yPos = y;
@@ -56,7 +56,7 @@ public abstract class GameComponent {
     }
 
     public int getTopEdge() {
-        return (int)yPos - height/2;
+        return yPos - height/2;
     }
 
     public int getBottomEdge() {
@@ -64,18 +64,18 @@ public abstract class GameComponent {
     }
 
     public int getRightEdge() {
-        return (int)xPos + width / 2;
+        return xPos + width / 2;
     }
 
     public int getLeftEdge() {
         return getRightEdge() - width;
     }
 
-    public double getxPos() {
+    public int getxPos() {
         return xPos;
     }
 
-    public double getyPos() {
+    public int getyPos() {
         return yPos;
     }
 
