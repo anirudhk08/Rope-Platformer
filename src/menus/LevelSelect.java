@@ -1,10 +1,13 @@
 package menus;
 
 import data.Level;
+import javafx.scene.control.ComboBox;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
 import static menus.GameLevelConstants.*;
 import static menus.GameWindowConstants.*;
@@ -34,8 +37,10 @@ public class LevelSelect extends JPanel implements ActionListener{
         setLayout(null);
 
         JLabel lblNewLabel = new JLabel("Level Select");
-        lblNewLabel.setBounds(174, 18, 86, 16);
+        lblNewLabel.setBounds(380, 19, 225, 36);
+        lblNewLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         add(lblNewLabel);
+
 
         comboBox = new JComboBox();
 
@@ -44,21 +49,27 @@ public class LevelSelect extends JPanel implements ActionListener{
             LEVEL_UNBEARABLE_STR, LEVEL_FINAL_STR};
 
         comboBox.setModel(new DefaultComboBoxModel(gameLevels));
-        comboBox.setBounds(133, 61, 127, 27);
+        comboBox.setBounds(347, 157, 218, 60);
+        comboBox.setVisible(true);
+        comboBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         add(comboBox);
 
+
         JLabel lblChooseALevel = new JLabel("Choose a level");
-        lblChooseALevel.setBounds(16, 65, 114, 16);
+        lblChooseALevel.setBounds(376, 103, 229, 27);
+        lblChooseALevel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         add(lblChooseALevel);
 
         JButton btnPlay = new JButton("Play");
-        btnPlay.setBounds(42, 224, 317, 29);
+        btnPlay.setBounds(446, 564, 500, 96);
+        btnPlay.setFont(new Font("Comic Sans Ms", Font.PLAIN, 20));
         btnPlay.addActionListener(e -> parent.startGame(new Level(100, 100, 900, 900)));
         add(btnPlay);
 
 
         JButton btnBack = new JButton("Back");
-        btnBack.setBounds(42, 117, 117, 29);
+        btnBack.setBounds(41, 574, 211, 79);
+        btnBack.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         btnBack.addActionListener(e -> parent.goToMainMenu());
         add(btnBack);
 
