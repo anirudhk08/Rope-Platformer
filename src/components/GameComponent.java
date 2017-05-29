@@ -89,6 +89,6 @@ public abstract class GameComponent {
     }
 
     public boolean hasImage() {
-        return image == null;
+        return image != null;
     }
 }
