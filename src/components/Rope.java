@@ -116,14 +116,25 @@ public class Rope extends GameComponent
     {
         DecimalFormat d = new DecimalFormat("0.##############");
         double angle;
-        if (owner.yPos - yPos == 0.0) {
-            if (owner.xPos > xPos) return -Math.PI / 2;
-            else return Math.PI / 2;
-        } else if (owner.xPos - xPos == 0) {
-            if (owner.yPos > yPos) return Math.PI;
-            else return 0;
+
+        if (owner.yPos == this.yPos) {
+            if (owner.xPos > this.xPos) {
+                return -Math.PI / 2;
+            }
+            else {
+                return Math.PI / 2;
+            }
+        } else if (owner.xPos == this.xPos) {
+            if (owner.yPos > this.yPos) {
+                return Math.PI;
+            }
+            else {
+                return 0;
+            }
         }
-        else angle = Math.atan(Math.abs(owner.xPos - xPos)/Math.abs(owner.yPos - yPos));
+        else {
+            angle = Math.atan(Math.abs(owner.xPos - xPos)/Math.abs(owner.yPos - yPos));
+        }
         if (owner.xPos <= xPos && owner.yPos >= yPos) { // down left
             return Double.parseDouble(d.format(angle));
         }
