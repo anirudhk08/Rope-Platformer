@@ -133,19 +133,18 @@ public class Rope extends GameComponent
             }
         }
         else {
-            angle = Math.atan(Math.abs(owner.xPos - xPos)/Math.abs(owner.yPos - yPos));
+            angle = Math.atan(Math.abs(owner.xPos - this.xPos)/Math.abs(owner.yPos - this.yPos));
         }
         if (owner.xPos <= xPos && owner.yPos >= yPos) { // down left
             return Double.parseDouble(d.format(angle));
-        }
-        else if (owner.xPos > xPos && owner.yPos > yPos) {
+        } else if (owner.xPos > xPos && owner.yPos > yPos) {
             return -Double.parseDouble(d.format(angle));
         } else if (owner.xPos < xPos && owner.yPos < yPos) {
             return Double.parseDouble(d.format(Math.PI - angle));
         } else if (owner.xPos > xPos && owner.yPos < yPos) {
             return -Double.parseDouble(d.format(Math.PI - angle));
         } else {
-            throw new IllegalStateException("ROPE ANGLE FAILURE: StickFigure: (" + owner.xPos + ", " + owner.yPos + ") Rope: (" + xPos + ", " + yPos);
+            return 0;
         }
     }
 
@@ -156,10 +155,36 @@ public class Rope extends GameComponent
      */
     public double angleFromOwner()
     {
-        double yDelta = yPos - owner.yPos;
-        double xDelta = xPos - owner.xPos;
+        double yDelta = this.yPos - owner.yPos;
+        double xDelta = this.xPos - owner.xPos;
+
+        if (yDelta == 0 && xDelta == 0) {
+            return 0;
+        }
+
+        if (yDelta == 0) {
+            if (xDelta > 0) {
+                return 0;
+            } else {
+                return Math.PI;
+            }
+        }
+
+        if (xDelta == 0) {
+            if (yDelta > 0) {
+                return Math.PI;
+            } else {
+                return -Math.PI;
+            }
+        }
+
         double angle = Math.atan(yDelta / xDelta);
-        if (xDelta < 0) return Math.PI + angle;
-        else return angle;
+
+        if (xDelta < 0) {
+            return Math.PI + angle;
+        }
+        else {
+            return angle;
+        }
     }
 }
