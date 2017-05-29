@@ -4,12 +4,8 @@ package components;
 import data.Level;
 import menus.Game;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 import static menus.GameWindowConstants.WINDOW_HEIGHT;
 import static menus.GameWindowConstants.WINDOW_WIDTH;
@@ -104,8 +100,12 @@ public class StickFigure extends PhysicsComponent
      */
     public boolean isStandingOnPlatform()
     {
-        for (GameComponent g : map)
-            if (isTouching(g) && getBottomEdge() < g.getBottomEdge()) return true;
+        for (GameComponent g : map) {
+            if (isTouching(g) && getBottomEdge() < g.getBottomEdge()) {
+                return true;
+            }
+        }
+
         return false;
     }
 
@@ -129,7 +129,9 @@ public class StickFigure extends PhysicsComponent
         if (isStandingOnPlatform()) {
             yVel = -4.5;
             jumping = true;
-        } else rope = null;
+        } else {
+            rope = null;
+        }
     }
 
     /**
@@ -159,7 +161,9 @@ public class StickFigure extends PhysicsComponent
      * @return - kinetic
      *
      */
-    public double getKinetic() { return kinetic; }
+    public double getKinetic() {
+        return kinetic;
+    }
 
     /**
      * Method to swing the stick figure
@@ -211,8 +215,9 @@ public class StickFigure extends PhysicsComponent
     @Override
     public void draw(Graphics2D g) {
         updatePos();
-        if (rope != null)
+        if (rope != null) {
             rope.draw(g);
+        }
         super.draw(g);
     }
 
