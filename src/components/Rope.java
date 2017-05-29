@@ -135,16 +135,19 @@ public class Rope extends GameComponent
         else {
             angle = Math.atan(Math.abs(owner.xPos - this.xPos)/Math.abs(owner.yPos - this.yPos));
         }
-        if (owner.xPos <= xPos && owner.yPos >= yPos) { // down left
-            return Double.parseDouble(d.format(angle));
-        } else if (owner.xPos > xPos && owner.yPos > yPos) {
-            return -Double.parseDouble(d.format(angle));
-        } else if (owner.xPos < xPos && owner.yPos < yPos) {
-            return Double.parseDouble(d.format(Math.PI - angle));
-        } else if (owner.xPos > xPos && owner.yPos < yPos) {
-            return -Double.parseDouble(d.format(Math.PI - angle));
+
+        if (owner.xPos < this.xPos) {
+            if (owner.yPos > this.yPos) {
+                return Double.parseDouble(d.format(angle));
+            } else {
+                return Double.parseDouble(d.format(Math.PI - angle));
+            }
         } else {
-            return 0;
+            if (owner.yPos > this.yPos) {
+                return -Double.parseDouble(d.format(angle));
+            } else {
+                return -Double.parseDouble(d.format(Math.PI - angle));
+            }
         }
     }
 
