@@ -27,19 +27,6 @@ public class GameComponentTest {
     }
 
     @Test
-    public void isHarmful() throws Exception {
-        assertFalse(g.isHarmful());
-    }
-
-    @Test
-    public void setHarmful() throws Exception {
-        g.setHarmful(false);
-        assertFalse(g.isHarmful());
-        g.setHarmful(true);
-        assertTrue(g.isHarmful());
-    }
-
-    @Test
     public void getTopEdge() throws Exception {
         // Y axis reverted
         assertEquals(g.getTopEdge(), -10);
