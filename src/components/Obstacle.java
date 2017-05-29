@@ -253,7 +253,7 @@ public class Obstacle extends GameComponent
      * @param xPos - center x coordinate of obstacle
      * @param yPos - center y coordinate of obstacle
      */
-    public void updatePosition(int xPos, int yPos)
+    public void updatePosition(double xPos, double yPos)
     {
         this.xPos = xPos;
         this.yPos = yPos;
@@ -261,7 +261,7 @@ public class Obstacle extends GameComponent
 
     /**
      * Method to draw the the obstacle
-     * 
+     *
      * @param g - graphics object
      */
     @Override

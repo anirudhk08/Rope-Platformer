@@ -63,9 +63,13 @@ public abstract class PhysicsComponent extends GameComponent {
      */
     public final void updatePos()
     {
-        update();
-        xPos += xVel;
-        yPos += yVel;
+        if ( this instanceof PhysicsComponent || this instanceof StickFigure )
+        {
+            update();
+            xPos += xVel;
+            yPos += yVel;
+        }
+
     }
 
     /**
