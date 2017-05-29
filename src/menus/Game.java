@@ -77,7 +77,7 @@ public class Game extends JPanel {
 
         map = m;
         try {
-            BufferedImage image = ImageIO.read(new File("resources/guyWalking1.png"));
+            BufferedImage image = ImageIO.read(new File("resources/spidermanfinal.png"));
             player = new StickFigure(this, image, map);
         } catch (IOException e) {
             e.printStackTrace();
