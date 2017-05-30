@@ -69,4 +69,14 @@ public class GameLevelConstants {
      * String constant for Final level
      */
     public static final String LEVEL_FINAL_STR = "Final Day";
+
+    /**
+     * Start X-coordinate of stick figure
+     */
+    public static final int LEVEL_STARAT_X_COORD = 120;
+
+    /**
+     * Start Y-coordinate for stick figure
+     */
+    public static final int LEVEL_STARAT_Y_COORD = 120;
 }

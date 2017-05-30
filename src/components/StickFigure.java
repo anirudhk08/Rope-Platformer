@@ -1,8 +1,9 @@
-
 package components;
 
 import data.Level;
 import menus.Game;
+import menus.GameLevelConstants;
+import menus.GameWindowConstants;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -207,8 +208,7 @@ public class StickFigure extends PhysicsComponent
     }
 
     public boolean win() {
-        return Math.abs(this.xPos - 975) <= (this.width / 2 + 25) &&
-                Math.abs(this.yPos - 550) <= (this.height / 2 + 250);
+        return this.xPos >= GameWindowConstants.WINDOW_WIDTH;
     }
 
     /**
@@ -258,8 +258,8 @@ public class StickFigure extends PhysicsComponent
         if (rope != null) {
             for (GameComponent g : map)
                 if (rope.isTouching(g)) {
-                rope = null;
-                return;
+                    rope = null;
+                    return;
                 }
             if (rope.isSwingingRope()) {
                 if (standing) {
@@ -314,8 +314,8 @@ public class StickFigure extends PhysicsComponent
      * Method to move stick figure to starting position
      */
     public void restart() {
-        xPos = map.getStartX();
-        yPos = map.getStartY();
+        xPos = GameLevelConstants.LEVEL_STARAT_X_COORD;
+        yPos = GameLevelConstants.LEVEL_STARAT_Y_COORD;
         yVel = G;
         xVel = 0;
         rope = null;
@@ -325,4 +325,3 @@ public class StickFigure extends PhysicsComponent
         map = newMap;
     }
 }
-
