@@ -10,27 +10,44 @@ import java.awt.*;
 import static junit.framework.TestCase.*;
 
 /**
+ * tests Level class
  * Created by aubhrosengupta on 5/29/17.
  */
 public class LevelTest {
 
     private Level l;
 
+    /**
+     * sets up level
+     * @throws Exception something wrong happened
+     */
     @Before
     public void setUp() throws Exception {
         l = new Level(0,10,20,30);
     }
 
+    /**
+     * tests level starting X position
+     * @throws Exception something wrong happened
+     */
     @Test
     public void getStartX() throws Exception {
         assertEquals(l.getStartX(), 0);
     }
 
+    /**
+     * tests level starting Y position
+     * @throws Exception something wrong happened
+     */
     @Test
     public void getStartY() throws Exception {
         assertEquals(l.getStartY(), 10);
     }
 
+    /**
+     * tests obstacle collision
+     * @throws Exception something wrong happened
+     */
     @Test
     public void isCollision() throws Exception {
         GameComponent g = new GameComponent(0,0) {
