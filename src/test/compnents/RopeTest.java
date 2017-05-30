@@ -1,8 +1,14 @@
 package test.compnents;
 
 import components.Rope;
+import components.StickFigure;
+import data.Level;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.awt.*;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 
 import static junit.framework.TestCase.assertNotNull;
 import static junit.framework.TestCase.assertTrue;
@@ -18,7 +24,32 @@ public class RopeTest {
 
     @Before
     public void init() {
-        r = new Rope(0, 0, false, null);
+        r = new Rope(0, 0, false, new StickFigure(null, new Image() {
+            @Override
+            public int getWidth(ImageObserver observer) {
+                return 10;
+            }
+
+            @Override
+            public int getHeight(ImageObserver observer) {
+                return 20;
+            }
+
+            @Override
+            public ImageProducer getSource() {
+                return null;
+            }
+
+            @Override
+            public Graphics getGraphics() {
+                return null;
+            }
+
+            @Override
+            public Object getProperty(String name, ImageObserver observer) {
+                return null;
+            }
+        }, new Level(0, 0, 0, 0)));
     }
     @Test
     public void isSwingingRope() throws Exception {
@@ -33,7 +64,7 @@ public class RopeTest {
         assertTrue(r.isGrapplingRope());
 
         r = new Rope(0, 0, true, null);
-        assertFalse(r.isSwingingRope());
+        assertFalse(r.isGrapplingRope());
     }
 
     @Test

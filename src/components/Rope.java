@@ -102,6 +102,9 @@ public class Rope extends GameComponent
      */
     public double distance()
     {
+        if (owner == null) {
+            return 0D;
+        }
         double yDelta = owner.yPos - yPos;
         double xDelta = owner.xPos - xPos;
         return Math.sqrt(xDelta * xDelta + yDelta * yDelta);
