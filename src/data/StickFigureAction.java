@@ -2,6 +2,8 @@ package data;
 
 /**
  * Interface for Stick Figure actions
+ *
+ * @author Anirudh Kothapalli
  */
 
 @FunctionalInterface

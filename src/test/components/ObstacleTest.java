@@ -12,6 +12,8 @@ import static junit.framework.TestCase.*;
 
 /**
  * Test class to validate the methods and functionality of Obstacle class
+ *
+ * @author - Anirudh Kothapalli
  */
 public class ObstacleTest {
 

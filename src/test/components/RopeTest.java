@@ -18,6 +18,8 @@ import static org.junit.Assert.assertFalse;
 
 /**
  * Tests rope class
+ *
+ * @author - Aubhro Sengupta
  */
 public class RopeTest {
 

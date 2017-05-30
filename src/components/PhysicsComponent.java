@@ -15,6 +15,7 @@ import static menus.PhysicsConstants.G;
  * (thus providing a means of acceleration) and position of the object.
  * PhysicsComponents also have a constant G for the acceleration due to gravity.
  *
+ * @author - Adam Xu
  */
 public abstract class PhysicsComponent extends GameComponent {
 

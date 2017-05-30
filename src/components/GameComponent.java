@@ -11,6 +11,8 @@ import java.awt.*;
  *
  * This base class is extended by other game components such as
  * Platform, Obstacle, Physics Component, Player and Stick Figure
+ *
+ * @author - Anirudh Kothapalli
  */
 public abstract class GameComponent
 {

@@ -26,6 +26,8 @@ import static menus.GameWindowConstants.*;
  * level is automatically played; if it’s the last level, then the Window will return
  * to LevelSelect.
  *
+ * @author Anirudh, Adam, and Aubhro
+ *
  *
  */
 

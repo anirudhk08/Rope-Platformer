@@ -8,7 +8,8 @@ import static junit.framework.TestCase.*;
 
 /**
  * Tests PhysicsComponent
- * Created by aubhrosengupta on 5/28/17.
+ *
+ * @author - Aubhro Sengupta
  */
 public class PhysicsComponentTest {
 

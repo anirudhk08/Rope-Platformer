@@ -16,6 +16,8 @@ import static menus.GameWindowConstants.WINDOW_WIDTH;
  * This class provide methods to create and manage Obstacles for
  * different levels of the game.
  *
+ * @author - Anirudh Kothapalli
+ *
  */
 public class Obstacle extends GameComponent
 {

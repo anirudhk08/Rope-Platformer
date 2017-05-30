@@ -17,9 +17,12 @@ import static menus.GameWindowConstants.*;
  * This class is the GUI for LevelSelect. It enables the user
  * to select a level. In addition, the includes GUI Components
  * such as textboxes, labels, combo boxes, etc...
+ *
+ * @author - Anirudh Kothapalli
  */
 
-public class LevelSelect extends JPanel implements ActionListener{
+public class LevelSelect extends JPanel implements ActionListener
+{
 
     /**
      * Combobox to display a list of game levels

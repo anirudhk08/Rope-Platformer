@@ -10,6 +10,8 @@ import static junit.framework.TestCase.*;
 
 /**
  * Test class to validate the methods and functionality of Platform class
+ *
+ * @author - Anirudh Kothapalli
  */
 public class PlatformTest {
     /**

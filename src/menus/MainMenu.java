@@ -9,6 +9,8 @@ import static menus.GameWindowConstants.WINDOW_WIDTH;
 /**
  * The class for displaying the GUI
  * components of the game menu.
+ *
+ * @author - Anirudh Kothapalli
  */
 public class MainMenu extends JPanel {
 

@@ -3,6 +3,8 @@ package menus;
 /**
  * This class defines the Game Window Constants.
  * These constants are used in other classes.
+ *
+ * @author - Aubhro Sengupta
  */
 public class GameWindowConstants {
 

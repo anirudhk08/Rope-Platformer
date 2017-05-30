@@ -17,6 +17,9 @@ import static menus.GameWindowConstants.*;
  * layout of components. Each JPanel will have a reference to this class so it can
  * be possible for the JPanels to let this class switch to other screens. All JPanels
  * have some form of a back button that will return to the previous menu.
+ *
+ *
+ * @author - Anirudh Kothapalli
  */
 public class Window extends JFrame
 {

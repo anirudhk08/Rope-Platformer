@@ -18,6 +18,8 @@ import static junit.framework.TestCase.*;
  * Tests to validate the collisions or touching functionality of
  * Game components such as Rope, Stick Figure, Obstacle, Platform, ...
  *
+ *
+ * @author - Anirudh Kothapalli
  */
 public class CollisionTest {
     /**

@@ -7,6 +7,8 @@ import menus.Window;
 /**
  * This class defines the entry point into the
  * application
+ *
+ * @author Anirudh, Adam, Aubhro
  */
 public class Main {
     /**

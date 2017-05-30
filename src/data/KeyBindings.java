@@ -13,6 +13,8 @@ import java.util.HashMap;
  * settings from a file or directly set them in the constructor. The Player can register
  * actions with the input() method, which will query the PlayerAction based on the input and
  * return a lambda that contains the matching method in StickFigure.
+ *
+ * @author - Adam Xu and Anirudh Kothapalli
  */
 public class KeyBindings extends HashMap<Integer, PlayerActions> {
 

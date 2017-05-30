@@ -19,6 +19,8 @@ import static org.junit.Assert.*;
 
 /**
  * Tests for StickFigure
+ *
+ * @author - Adam Xu
  */
 public class StickFigureTest {
     private StickFigure player;

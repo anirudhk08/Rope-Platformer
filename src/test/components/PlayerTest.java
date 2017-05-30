@@ -7,6 +7,8 @@ import static junit.framework.TestCase.assertNotNull;
 
 /**
  * Tests Player
+ *
+ * @author - Aubhro Sengupta
  */
 public class PlayerTest {
 

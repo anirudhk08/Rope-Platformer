@@ -2,6 +2,8 @@ package data;
 
 /**
  * Interface for stick figure action coordinates.
+ *
+ * @author Adam Xu
  */
 @FunctionalInterface
 public interface StickFigureActionCoordinates {

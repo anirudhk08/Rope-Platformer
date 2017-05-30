@@ -21,6 +21,8 @@ import static menus.PhysicsConstants.GRAPPLE_VELOCITY;
  * StickFigures can create Ropes for swinging and grappling, and use
  * special code for handling physics.
  *
+ * @author Adam Xu, Anirudh Kothapalli, Aubhro Sengupta
+ *
  */
 public class StickFigure extends PhysicsComponent
 {

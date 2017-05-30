@@ -9,6 +9,8 @@ import java.util.ArrayList;
  * This class holds all the game components
  * and provides functions to check if they collide
  * with each other.
+ *
+ * @author - Aubhro Sengupta
  */
 public class Level extends ArrayList<GameComponent> {
 

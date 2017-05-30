@@ -19,6 +19,8 @@ import java.awt.event.MouseListener;
  * be registered in KeyBinding’s input() method, which will return a lambda
  * that is a method of StickFigure; this method will then be invoked.
  *
+ * @author Adam Xu
+ *
  */
 public class Player implements KeyListener, MouseListener
 {

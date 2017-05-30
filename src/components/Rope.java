@@ -14,6 +14,8 @@ import java.text.DecimalFormat;
  *
  * A rope is drawn with a straight black line.
  *
+ * @author Adam Xu and Aubhro Sengupta
+ *
  */
 public class Rope extends GameComponent
 {

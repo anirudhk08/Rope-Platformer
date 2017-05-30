@@ -15,6 +15,8 @@ import static menus.GameLevelConstants.LEVEL_UNBEARABLE;
  * This class provide methods to create and manage Platform components
  * for different levels of the game.
  *
+ * @author Anirudh Kothapalli
+ *
  */
 public class Platform extends GameComponent {
     /**

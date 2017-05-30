@@ -11,6 +11,8 @@ import static menus.GameWindowConstants.*;
 
 /**
  * This class implements the Game Settings.
+ *
+ * @author - Anirudh Kothapalli
  */
 public class Settings extends JPanel
 {

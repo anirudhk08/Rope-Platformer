@@ -4,6 +4,8 @@ import static menus.GameWindowConstants.FRAMES_PER_SECOND;
 
 /**
  * This class defines constants needed for Physics Component.
+ *
+ * @author - Adam Xu
  */
 
 public class PhysicsConstants {
