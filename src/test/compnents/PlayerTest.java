@@ -1,16 +1,16 @@
 package test.compnents;
 
 import components.Player;
-import org.junit.Before;
+import org.junit.Test;
 
-import static junit.framework.TestCase.*;
+import static junit.framework.TestCase.assertNotNull;
 
 /**
  * Created by aubhrosengupta on 5/29/17.
  */
 public class PlayerTest {
-    @Before
-    public void setUp() throws Exception {
+    @Test
+    public void test() {
         Player p = new Player(null, null, null);
         assertNotNull(p);
     }
