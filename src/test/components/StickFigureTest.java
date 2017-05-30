@@ -18,12 +18,15 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 /**
- * Created by adamj on 5/29/2017.
+ * tests for StickFigure
+ * @author Adam Xu
  */
-
 public class StickFigureTest {
     private StickFigure player;
 
+    /**
+     * Initialize hidden Window and Game to get StickFigure for correct simulation (on first level)
+     */
     @Before
     public void init() {
         KeyBindings k = new KeyBindings();
@@ -35,6 +38,10 @@ public class StickFigureTest {
         player = g.getStickFigure();
     }
 
+    /**
+     * Tests jumping in midair and on ground
+     * @throws Exception if something goes wrong
+     */
     @Test
     public void jump() throws Exception {
         player.jump();
@@ -45,6 +52,10 @@ public class StickFigureTest {
         assertEquals(-4.5, player.getyVel(), 0);
     }
 
+    /**
+     * Tests moving right in midair and on ground
+     * @throws Exception if something goes wrong
+     */
     @Test
     public void moveRight() throws Exception {
         player.moveRight();
@@ -55,6 +66,10 @@ public class StickFigureTest {
         assertEquals(1, player.getxVel(), 0);
     }
 
+    /**
+     * Tests moving left in midair and on ground
+     * @throws Exception if something goes wrong
+     */
     @Test
     public void moveLeft() throws Exception {
         player.moveLeft();
@@ -65,6 +80,10 @@ public class StickFigureTest {
         assertEquals(-1, player.getxVel(), 0);
     }
 
+    /**
+     * Tests swinging in midair and on ground
+     * @throws Exception if something goes wrong
+     */
     @Test
     public void swing() throws Exception {
         player.swing(1000, 1000);
@@ -78,6 +97,10 @@ public class StickFigureTest {
         assertNull(player.getRope());
     }
 
+    /**
+     * Tests grappling in midair and on ground
+     * @throws Exception if something goes wrong
+     */
     @Test
     public void grapple() throws Exception {
         player.grapple(1000, 0);
@@ -92,6 +115,10 @@ public class StickFigureTest {
         assertNotEquals(yPos, player.getyPos());
     }
 
+    /**
+     * Moves the StickFigure and stops it
+     * @throws Exception if something goes wrong
+     */
     @Test
     public void stopMoving() throws Exception {
         for (int i = 0; i < 1000; i++)
@@ -102,7 +129,10 @@ public class StickFigureTest {
         assertEquals(0, player.getxVel(), 0);
     }
 
-
+    /**
+     * Tests level restart functionality
+     * @throws Exception if something goes wrong
+     */
     @Test
     public void restart() throws Exception {
         player.restart();
@@ -113,6 +143,10 @@ public class StickFigureTest {
         assertNull(player.getRope());
     }
 
+    /**
+     * Changes the StickFigure's map
+     * @throws Exception if something goes wrong
+     */
     @Test
     public void updateMap() throws Exception {
         Level l = new Level(0, 0, 0, 0);
