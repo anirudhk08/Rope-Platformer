@@ -18,8 +18,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 /**
- * tests for StickFigure
- * @author Adam Xu
+ * Tests for StickFigure
  */
 public class StickFigureTest {
     private StickFigure player;

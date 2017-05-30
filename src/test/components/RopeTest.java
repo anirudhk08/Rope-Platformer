@@ -18,14 +18,13 @@ import static org.junit.Assert.assertFalse;
 
 /**
  * Tests rope class
- * Created by aubhrosengupta on 5/29/17.
  */
 public class RopeTest {
 
     private Rope r;
 
     /**
-     * creates a rope
+     * Creates a rope
      */
     @Before
     public void init() {
@@ -58,7 +57,7 @@ public class RopeTest {
     }
 
     /**
-     * tests if rope is swinging
+     * Tests if rope is swinging
      * @throws Exception something wrong happened
      */
     @Test
@@ -70,7 +69,7 @@ public class RopeTest {
     }
 
     /**
-     * tests if rope is grappling hook
+     * Tests if rope is grappling hook
      * @throws Exception something wrong happened
      */
     @Test
@@ -82,7 +81,7 @@ public class RopeTest {
     }
 
     /**
-     * tests rope length
+     * Tests rope length
      * @throws Exception something wrong happened
      */
     @Test
@@ -92,7 +91,7 @@ public class RopeTest {
     }
 
     /**
-     * tests rope distance
+     * Tests rope distance
      * @throws Exception something wrong happened
      */
     @Test
@@ -102,7 +101,7 @@ public class RopeTest {
     }
 
     /**
-     * tests rope length
+     * Tests rope length
      * @throws Exception something wrong happened
      */
     @Test
@@ -112,6 +111,10 @@ public class RopeTest {
         assertNotNull(r);
     }
 
+    /**
+     * Tests the angle from owner
+     * @throws Exception something wrong happened
+     */
     @Test
     public void angleFromOwner() throws Exception {
         double d = r.angleFromOwner();

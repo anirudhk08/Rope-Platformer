@@ -10,15 +10,14 @@ import java.awt.*;
 import static junit.framework.TestCase.*;
 
 /**
- * tests Level class
- * Created by aubhrosengupta on 5/29/17.
+ * Tests Level class
  */
 public class LevelTest {
 
     private Level l;
 
     /**
-     * sets up level
+     * Sets up level
      * @throws Exception something wrong happened
      */
     @Before
@@ -27,7 +26,7 @@ public class LevelTest {
     }
 
     /**
-     * tests level starting X position
+     * Tests level starting X position
      * @throws Exception something wrong happened
      */
     @Test
@@ -36,7 +35,7 @@ public class LevelTest {
     }
 
     /**
-     * tests level starting Y position
+     * Tests level starting Y position
      * @throws Exception something wrong happened
      */
     @Test
@@ -45,7 +44,7 @@ public class LevelTest {
     }
 
     /**
-     * tests obstacle collision
+     * Tests obstacle collision
      * @throws Exception something wrong happened
      */
     @Test

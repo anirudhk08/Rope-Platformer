@@ -11,15 +11,18 @@ import java.util.ArrayList;
 import static junit.framework.TestCase.*;
 
 /**
- * Test class to validate the methods of Obstacless class
+ * Test class to validate the methods and functionality of Obstacle class
  */
 public class ObstacleTest {
 
+    /**
+     * Obstacle object
+     */
     private Obstacle o;
 
     /**
-     * creates new obstacle
-     * @throws Exception something wrong happened
+     * Setup the test data
+     * @throws Exception - exception if errors during setup
      */
     @Before
     public void setUp() throws Exception {
@@ -27,33 +30,68 @@ public class ObstacleTest {
     }
 
     /**
-     * tests obstacles for each level
-     * @throws Exception something wrong happened
+     * Test that obstacles are created properly for Intro game level
+     * @throws Exception - exception if there's an error with creation
      */
     @Test
-    public void createObstacles() throws Exception {
+    public void createObstaclesForIntroLevel() throws Exception {
         ArrayList<Obstacle> obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_INTRO);
         assertEquals(obstacles.size(), 3);
+    }
 
-        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_COOL);
+    /**
+     * Test that obstacles are created properly for Cool game level
+     * @throws Exception - exception if there's an error with creation
+     */
+    @Test
+    public void createObstaclesForCoolLevel() throws Exception {
+        ArrayList<Obstacle> obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_COOL);
         assertEquals(obstacles.size(), 6);
+    }
 
-        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_GOOD);
+    /**
+     * Test that obstacles are created properly for Good game level
+     * @throws Exception - exception if there's an error with creation
+     */
+    @Test
+    public void createObstaclesForGoodLevel() throws Exception {
+        ArrayList<Obstacle> obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_GOOD);
         assertEquals(obstacles.size(), 5);
+    }
 
-        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_SCARY);
+    /**
+     * Test that obstacles are created properly for Scary game level
+     * @throws Exception - exception if there's an error with creation
+     */
+    @Test
+    public void createObstaclesForScaryLevel() throws Exception {
+        ArrayList<Obstacle> obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_SCARY);
         assertEquals(obstacles.size(), 6);
+    }
 
-        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_UNBEARABLE);
+    /**
+     * Test that obstacles are created properly for Unbreable game level
+     * @throws Exception - exception if there's an error with creation
+     */
+    @Test
+    public void createObstaclesForUnbearableLevel() throws Exception {
+        ArrayList<Obstacle> obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_UNBEARABLE);
         assertEquals(obstacles.size(), 7);
+    }
 
-        obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_FINAL);
+    /**
+     * Test that obstacles are created properly for Final game level
+     * @throws Exception - exception if there's an error with creation
+     */
+    @Test
+    public void createObstaclesForFinalLevel() throws Exception {
+        ArrayList<Obstacle> obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_FINAL);
         assertEquals(obstacles.size(), 9);
     }
 
     /**
-     * tests if obstacle can move
-     * @throws Exception something wrong happened
+     * Test that move field is disabled correctly during creation
+     * @throws Exception - exception if there's an error in initializing move field
      */
     @Test
     public void canMoveTrue() throws Exception {
@@ -62,8 +100,8 @@ public class ObstacleTest {
     }
 
     /**
-     * tests if obstacle cannot move
-     * @throws Exception something wrong happened
+     * Test that move field is enabled correctly during creation
+     * @throws Exception - exception if there's an error in initializing move field
      */
     @Test
     public void canMoveFalse() throws Exception {
@@ -72,11 +110,11 @@ public class ObstacleTest {
     }
 
     /**
-     * tests if obstacle can move to random direction correctly
-     * @throws Exception something wrong happened
+     * Test that obstacle moves in random direction when move is enabled
+     * @throws Exception - error when obstacle position update
      */
     @Test
-    public void getRandomDirection() throws Exception {
+    public void getRandomDirectionWithMove() throws Exception {
         Obstacle o = new Obstacle(200, 100, Color.CYAN, 50, 50, true);
 
         double xOrig = o.getxPos();
@@ -89,8 +127,26 @@ public class ObstacleTest {
     }
 
     /**
-     * tests if obstacle can move correctly
-     * @throws Exception something wrong happened
+     * Test that obstacle moves in random direction when move is disabled
+     * @throws Exception - error with obstacle position update
+     */
+    @Test
+    public void getRandomDirectionWithoutMove() throws Exception {
+
+        double xOrig = o.getxPos();
+        double yOrig = o.getyPos();
+
+        o.updatePosition();
+
+        assertEquals( o.getxPos(), xOrig );
+        assertEquals( o.getyPos(), yOrig );
+    }
+
+
+    /**
+     * Test the obstacle position is updated to a new random position.
+     *
+     * @throws Exception - error with obstacle position update
      */
     @Test
     public void updatePosition() throws Exception {
@@ -104,8 +160,9 @@ public class ObstacleTest {
     }
 
     /**
-     * tests if obstacle can move to specified coordinates
-     * @throws Exception something wrong happened
+     * Test the obstacle position is updated the specified position.
+     *
+     * @throws Exception - error with obstacle position update
      */
     @Test
     public void updatePositionWithCoordinates() throws Exception {

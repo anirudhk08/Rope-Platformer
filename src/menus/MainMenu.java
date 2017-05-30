@@ -43,13 +43,6 @@ public class MainMenu extends JPanel {
         lblNewLabel.setBounds(0, 0, 1010, 900);
         add(lblNewLabel);
 
-//        Panel panel = new Panel();
-//        panel.setBounds(0, 0, 197, 60);
-//        add(panel);
-
-//        JLabel lblWelcomeToRope = new JLabel("Welcome to Rope Platformer");
-//        lblWelcomeToRope.setForeground(SystemColor.desktop);
-//        panel.add(lblWelcomeToRope);
     }
 
 

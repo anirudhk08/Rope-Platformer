@@ -6,7 +6,6 @@ package menus;
  * constants. These constants are used by the rest of the
  * classes.
  *
- * Created by Anirudh on 5/27/2017.
  */
 public class GameLevelConstants {
     /**
