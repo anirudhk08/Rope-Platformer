@@ -68,7 +68,8 @@ public class KeyBindings extends HashMap<Integer, PlayerActions> {
     public PlayerActions remove(Object key) {
         if (key instanceof PlayerActions) {
             PlayerActions p = (PlayerActions) key;
-            if (!containsKey(p)) return null;
+            if (!reverseMap.containsKey(p))
+                return null;
             int keycode = reverseMap.get(p);
             super.remove(keycode);
             reverseMap.remove(p);

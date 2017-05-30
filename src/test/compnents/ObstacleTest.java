@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import static junit.framework.TestCase.*;
 
 /**
- * Created by aubhrosengupta on 5/28/17.
+ * Test class to validate the methods of Obstacless class
  */
 public class ObstacleTest {
 
@@ -44,8 +44,47 @@ public class ObstacleTest {
     }
 
     @Test
-    public void canMove() throws Exception {
+    public void canMoveTrue() throws Exception {
+        Obstacle o = new Obstacle(200, 100, Color.CYAN, 50, 50, true);
+        assertTrue(o.canMove());
+    }
+
+    @Test
+    public void canMoveFalse() throws Exception {
+        Obstacle o = new Obstacle(200, 100, Color.CYAN, 50, 50, false);
         assertFalse(o.canMove());
     }
 
+    @Test
+    public void getRandomDirection() throws Exception {
+        Obstacle o = new Obstacle(200, 100, Color.CYAN, 50, 50, true);
+
+        double xOrig = o.getxPos();
+        double yOrig = o.getyPos();
+
+        o.updatePosition();
+
+        assertTrue( Math.abs(o.getxPos() - xOrig) <= 4 );
+        assertTrue(Math.abs(o.getyPos() - yOrig)  <= 4 );
+    }
+
+    @Test
+    public void updatePosition() throws Exception {
+        Obstacle o = new Obstacle(200, 100, Color.CYAN, 50, 50, true);
+        double xOrig = o.getxPos();
+        double yOrig = o.getyPos();
+
+        o.updatePosition();
+
+        assertTrue( xOrig != o.getxPos() || yOrig != o.getyPos() );
+    }
+
+    @Test
+    public void updatePositionWithCoordinates() throws Exception {
+        Obstacle o = new Obstacle(100, 100, Color.BLACK, 50, 50, true);
+
+        o.updatePosition(200, 300);
+
+        assertTrue( o.getxPos() == 200 || o.getyPos() == 300 );
+    }
 }
