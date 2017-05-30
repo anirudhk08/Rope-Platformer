@@ -1,4 +1,4 @@
-package test.compnents;
+package test.components;
 
 import components.Platform;
 import menus.GameLevelConstants;

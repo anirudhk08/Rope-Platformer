@@ -1,4 +1,4 @@
-package test.compnents;
+package test.components;
 
 import components.Player;
 import org.junit.Test;
