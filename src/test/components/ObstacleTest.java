@@ -17,11 +17,19 @@ public class ObstacleTest {
 
     private Obstacle o;
 
+    /**
+     * creates new obstacle
+     * @throws Exception something wrong happened
+     */
     @Before
     public void setUp() throws Exception {
         o = new Obstacle(0, 0, Color.black, 20, 20, false);
     }
 
+    /**
+     * tests obstacles for each level
+     * @throws Exception something wrong happened
+     */
     @Test
     public void createObstacles() throws Exception {
         ArrayList<Obstacle> obstacles = Obstacle.createObstacles(GameLevelConstants.LEVEL_INTRO);
@@ -43,18 +51,30 @@ public class ObstacleTest {
         assertEquals(obstacles.size(), 9);
     }
 
+    /**
+     * tests if obstacle can move
+     * @throws Exception something wrong happened
+     */
     @Test
     public void canMoveTrue() throws Exception {
         Obstacle o = new Obstacle(200, 100, Color.CYAN, 50, 50, true);
         assertTrue(o.canMove());
     }
 
+    /**
+     * tests if obstacle cannot move
+     * @throws Exception something wrong happened
+     */
     @Test
     public void canMoveFalse() throws Exception {
         Obstacle o = new Obstacle(200, 100, Color.CYAN, 50, 50, false);
         assertFalse(o.canMove());
     }
 
+    /**
+     * tests if obstacle can move to random direction correctly
+     * @throws Exception something wrong happened
+     */
     @Test
     public void getRandomDirection() throws Exception {
         Obstacle o = new Obstacle(200, 100, Color.CYAN, 50, 50, true);
@@ -68,6 +88,10 @@ public class ObstacleTest {
         assertTrue(Math.abs(o.getyPos() - yOrig)  <= 4 );
     }
 
+    /**
+     * tests if obstacle can move correctly
+     * @throws Exception something wrong happened
+     */
     @Test
     public void updatePosition() throws Exception {
         Obstacle o = new Obstacle(200, 100, Color.CYAN, 50, 50, true);
@@ -79,6 +103,10 @@ public class ObstacleTest {
         assertTrue( xOrig != o.getxPos() || yOrig != o.getyPos() );
     }
 
+    /**
+     * tests if obstacle can move to specified coordinates
+     * @throws Exception something wrong happened
+     */
     @Test
     public void updatePositionWithCoordinates() throws Exception {
         Obstacle o = new Obstacle(100, 100, Color.BLACK, 50, 50, true);

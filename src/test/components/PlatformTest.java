@@ -9,9 +9,16 @@ import java.util.ArrayList;
 import static junit.framework.TestCase.*;
 
 /**
+ * Tests Platform class
  * Created by aubhrosengupta on 5/28/17.
  */
 public class PlatformTest {
+
+
+    /**
+     * tests created platforms for each level
+     * @throws Exception something wrong happened
+     */
     @Test
     public void createPlatforms() throws Exception {
         ArrayList<Platform> platforms = Platform.createPlatforms(GameLevelConstants.LEVEL_INTRO);

@@ -12,19 +12,24 @@ import java.awt.image.ImageProducer;
 
 import static junit.framework.TestCase.assertNotNull;
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 
 /**
+ * Tests rope class
  * Created by aubhrosengupta on 5/29/17.
  */
 public class RopeTest {
 
     private Rope r;
 
+    /**
+     * creates a rope
+     */
     @Before
     public void init() {
-        r = new Rope(0, 0, false, new StickFigure(null, new Image() {
+        r = new Rope(10, 10, false, new StickFigure(null, new Image() {
             @Override
             public int getWidth(ImageObserver observer) {
                 return 10;
@@ -51,6 +56,11 @@ public class RopeTest {
             }
         }, new Level(0, 0, 0, 0)));
     }
+
+    /**
+     * tests if rope is swinging
+     * @throws Exception something wrong happened
+     */
     @Test
     public void isSwingingRope() throws Exception {
         assertFalse(r.isSwingingRope());
@@ -59,6 +69,10 @@ public class RopeTest {
         assertTrue(r.isSwingingRope());
     }
 
+    /**
+     * tests if rope is grappling hook
+     * @throws Exception something wrong happened
+     */
     @Test
     public void isGrapplingRope() throws Exception {
         assertTrue(r.isGrapplingRope());
@@ -67,23 +81,41 @@ public class RopeTest {
         assertFalse(r.isGrapplingRope());
     }
 
+    /**
+     * tests rope length
+     * @throws Exception something wrong happened
+     */
     @Test
     public void length() throws Exception {
+        assertTrue(r.length() > 0);
         assertNotNull(r);
     }
 
+    /**
+     * tests rope distance
+     * @throws Exception something wrong happened
+     */
     @Test
     public void distance() throws Exception {
+        assertTrue(r.distance() > 0);
         assertNotNull(r);
     }
 
+    /**
+     * tests rope length
+     * @throws Exception something wrong happened
+     */
     @Test
     public void angleToVertical() throws Exception {
+        double d = r.angleToVertical();
+        assertEquals(2.35, d, 0.01);
         assertNotNull(r);
     }
 
     @Test
     public void angleFromOwner() throws Exception {
+        double d = r.angleFromOwner();
+        assertEquals(0.78, d, 0.01);
         assertNotNull(r);
     }
 
