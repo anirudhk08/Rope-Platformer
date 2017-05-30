@@ -113,6 +113,9 @@ public class Game extends JPanel {
         setFocusable(true);
     }
 
+    /**
+     * @return return StickFigure currently used
+     */
     public StickFigure getStickFigure() {
         return player;
     }
@@ -131,6 +134,9 @@ public class Game extends JPanel {
         p.requestFocus();
     }
 
+    /**
+     * Loads next level for game or exits when last level
+     */
     public void loadNextLevel() {
         if (gameLevel >= LEVEL_FINAL) {
             exit();

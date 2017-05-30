@@ -146,6 +146,9 @@ public class StickFigure extends PhysicsComponent
         }
     }
 
+    /**
+     * @return StickFigure's rope
+     */
     public Rope getRope() { return rope; }
 
     /**
@@ -323,8 +326,15 @@ public class StickFigure extends PhysicsComponent
         rope = null;
     }
 
+    /**
+     * @return this character's map
+     */
     public Level getMap() {return map;}
 
+    /**
+     * use new map for this character (when switching levels)
+     * @param newMap new map to use
+     */
     public void updateMap(Level newMap) {
         map = newMap;
     }

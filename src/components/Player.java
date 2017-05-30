@@ -135,6 +135,11 @@ public class Player implements KeyListener, MouseListener
         parent.requestFocus();
     }
 
+    /**
+     * Method to process mouse exited event
+     *
+     * @param e - mouse event
+     */
     @Override
     public void mouseExited(MouseEvent e)
     {

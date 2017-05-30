@@ -56,7 +56,14 @@ public abstract class PhysicsComponent extends GameComponent {
      */
     public abstract void update();
 
+    /**
+     * @return X Velocity of object
+     */
     public double getxVel() { return xVel; }
+
+    /**
+     * @return Y Velocity of object
+     */
     public double getyVel() { return yVel; }
 
 
