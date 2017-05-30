@@ -56,6 +56,9 @@ public abstract class PhysicsComponent extends GameComponent {
      */
     public abstract void update();
 
+    public double getxVel() { return xVel; }
+    public double getyVel() { return yVel; }
+
 
     /**
      * Method to update the position of Physics component.

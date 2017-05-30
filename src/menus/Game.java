@@ -113,6 +113,10 @@ public class Game extends JPanel {
         setFocusable(true);
     }
 
+    public StickFigure getStickFigure() {
+        return player;
+    }
+
 
     /**
      * This method registers the action listeners

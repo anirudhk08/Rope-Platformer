@@ -79,7 +79,7 @@ public class StickFigure extends PhysicsComponent
      *
      * @return - top edge
      */
-    public int platformTopPos()
+    private int platformTopPos()
     {
         for (GameComponent g : map)
         {
@@ -99,7 +99,7 @@ public class StickFigure extends PhysicsComponent
      *      - false if stick figure is not standing on platform
      *
      */
-    public boolean isStandingOnPlatform()
+    private boolean isStandingOnPlatform()
     {
         for (GameComponent g : map) {
             if (isTouching(g) && getBottomEdge() < g.getBottomEdge()) {
@@ -116,7 +116,7 @@ public class StickFigure extends PhysicsComponent
      * @return - true if stick figure is touching the obstacle
      *         - false if stick figure is not touching the obstacle
      */
-    public boolean isTouchingObstacle() {
+    private boolean isTouchingObstacle() {
         for (GameComponent g : map)
             if (isTouching(g) && g instanceof Obstacle) return true;
         return false;
@@ -146,6 +146,8 @@ public class StickFigure extends PhysicsComponent
         }
     }
 
+    public Rope getRope() { return rope; }
+
     /**
      * Method to move stick figure to the left
      */
@@ -162,7 +164,7 @@ public class StickFigure extends PhysicsComponent
      * @return - kinetic
      *
      */
-    public double getKinetic() {
+    double getKinetic() {
         return kinetic;
     }
 
@@ -207,7 +209,7 @@ public class StickFigure extends PhysicsComponent
         }
     }
 
-    public boolean win() {
+    private boolean win() {
         return this.xPos >= GameWindowConstants.WINDOW_WIDTH;
     }
 
@@ -257,7 +259,7 @@ public class StickFigure extends PhysicsComponent
         //TODO if rope
         if (rope != null) {
             for (GameComponent g : map)
-                if (rope.isTouching(g)) {
+                if (rope.isTouching(g) && g instanceof Platform) {
                     rope = null;
                     return;
                 }
@@ -320,6 +322,8 @@ public class StickFigure extends PhysicsComponent
         xVel = 0;
         rope = null;
     }
+
+    public Level getMap() {return map;}
 
     public void updateMap(Level newMap) {
         map = newMap;
